@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<meta name="design_doc_mode" content="canvas">
+<style>
+body{margin:0;background:#0f0f11;font-family:-apple-system,system-ui,sans-serif}
+a{color:#6aa5f8;text-decoration:none}a:hover{color:#8fbcfa}
+.dv-turn{padding:40px 44px 32px;border-bottom:1px solid rgba(255,255,255,.08);scroll-margin-top:16px}
+.dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 6px}
+.dv-tid{font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#fff;color:#111;border-radius:4px;text-decoration:none}
+.dv-tname{font:600 13px/1.2 -apple-system,system-ui,sans-serif;color:#f2f2f4}
+.dv-sub{font:400 12px/1.5 -apple-system,system-ui,sans-serif;color:rgba(255,255,255,.5);margin:0 0 24px;max-width:720px}
+.dv-opts{display:flex;flex-wrap:wrap;gap:44px;align-items:flex-start}
+.dv-opt{flex:none;display:flex;flex-direction:column;gap:10px;scroll-margin-top:16px}
+.dv-oid{font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(255,255,255,.12);color:#f2f2f4;border-radius:5px;text-decoration:none}
+.dv-olabel{display:flex;align-items:baseline;gap:8px;font:400 11.5px/1.3 -apple-system,system-ui,sans-serif;color:rgba(255,255,255,.55)}
+.dv-row{display:flex;gap:24px;align-items:flex-start}
+.dv-opt:target .dv-oid{background:#0A84FF;color:#fff}
+.dv-next{margin:26px 0 0;font:12px/1.5 -apple-system,system-ui,sans-serif;color:rgba(255,255,255,.45)}
+</style>
+</helmet>
+
+<section class="dv-turn" id="t4">
+<div class="dv-thd"><a class="dv-tid" href="#t4">4</a><span class="dv-tname">Custom exercises + notifications</span></div>
+<p class="dv-sub">Rest days are now automatic — no logging needed; a day with no workout counts as rest, and only missed <em>scheduled</em> workout days threaten the streak. New Exercise form for anything not in the built-in database, and a Notifications group in Settings (all local, offline — no server).</p>
+<div class="dv-opts">
+
+<!-- 4a NEW EXERCISE -->
+<div class="dv-opt" id="4a">
+<div class="dv-olabel"><a class="dv-oid" href="#4a">4a</a>New Exercise — custom exercise form</div>
+<div data-screen-label="liftIQ New Exercise">
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+<div style="height:100%;box-sizing:border-box;padding:70px 0 0;overflow:hidden;position:relative;background:#050507">
+  <div style="display:flex;align-items:center;gap:12px;padding:8px 16px 4px">
+    <div style="font-size:16px;font-weight:400;color:#0A84FF">Cancel</div>
+    <div style="flex:1;text-align:center;font-size:17px;font-weight:600;color:#fff">New Exercise</div>
+    <div style="font-size:16px;font-weight:600;color:rgba(10,132,255,0.5)">Save</div>
+  </div>
+  <div style="margin:16px 16px 16px;background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:14px;padding:13px 16px;display:flex;align-items:center">
+    <div style="flex:1;font-size:17px;font-weight:600;color:#fff">Nordic Hamstring Curl<span style="display:inline-block;width:2px;height:18px;background:#0A84FF;margin-left:2px;vertical-align:-3px"></span></div>
+    <div style="font-size:12px;color:rgba(255,255,255,0.35);font-family:'SF Mono',ui-monospace,Menlo,monospace">NAME</div>
+  </div>
+  <div style="padding:0 20px 8px;font-size:11px;font-weight:600;color:rgba(255,255,255,0.4);letter-spacing:1px;font-family:'SF Mono',ui-monospace,Menlo,monospace">TYPE — SETS TRACK</div>
+  <div style="margin:0 16px 16px;display:flex;flex-wrap:wrap;gap:8px">
+    <div style="padding:9px 14px;border-radius:10px;background:#0A84FF;font-size:13px;font-weight:600;color:#fff">Bodyweight + reps</div>
+    <div style="padding:9px 14px;border-radius:10px;background:#101014;border:0.5px solid rgba(255,255,255,0.09);font-size:13px;font-weight:600;color:rgba(255,255,255,0.6)">Weight + reps</div>
+    <div style="padding:9px 14px;border-radius:10px;background:#101014;border:0.5px solid rgba(255,255,255,0.09);font-size:13px;font-weight:600;color:rgba(255,255,255,0.6)">Reps only</div>
+    <div style="padding:9px 14px;border-radius:10px;background:#101014;border:0.5px solid rgba(255,255,255,0.09);font-size:13px;font-weight:600;color:rgba(255,255,255,0.6)">Duration</div>
+    <div style="padding:9px 14px;border-radius:10px;background:#101014;border:0.5px solid rgba(255,255,255,0.09);font-size:13px;font-weight:600;color:rgba(255,255,255,0.6)">Distance</div>
+    <div style="padding:9px 14px;border-radius:10px;background:#101014;border:0.5px solid rgba(255,255,255,0.09);font-size:13px;font-weight:600;color:rgba(255,255,255,0.6)">Assisted</div>
+  </div>
+  <div style="padding:0 20px 8px;font-size:11px;font-weight:600;color:rgba(255,255,255,0.4);letter-spacing:1px;font-family:'SF Mono',ui-monospace,Menlo,monospace">DETAILS</div>
+  <div style="margin:0 16px 16px;background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:14px;overflow:hidden">
+    <div style="padding:13px 16px;display:flex;align-items:center;position:relative">
+      <div style="flex:1;font-size:16px;color:#fff">Equipment</div>
+      <div style="font-size:15px;color:rgba(255,255,255,0.5);margin-right:8px">None / floor</div>
+      <svg width="8" height="14" viewBox="0 0 8 14"><path d="M1 1l6 6-6 6" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div style="position:absolute;left:16px;right:0;bottom:0;height:0.5px;background:rgba(255,255,255,0.08)"></div>
+    </div>
+    <div style="padding:13px 16px;display:flex;align-items:center;position:relative">
+      <div style="flex:1;font-size:16px;color:#fff">Primary muscles</div>
+      <div style="font-size:15px;color:rgba(255,255,255,0.5);margin-right:8px">Hamstrings</div>
+      <svg width="8" height="14" viewBox="0 0 8 14"><path d="M1 1l6 6-6 6" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div style="position:absolute;left:16px;right:0;bottom:0;height:0.5px;background:rgba(255,255,255,0.08)"></div>
+    </div>
+    <div style="padding:13px 16px;display:flex;align-items:center">
+      <div style="flex:1;font-size:16px;color:#fff">Secondary muscles</div>
+      <div style="font-size:15px;color:rgba(255,255,255,0.5);margin-right:8px">Glutes, calves</div>
+      <svg width="8" height="14" viewBox="0 0 8 14"><path d="M1 1l6 6-6 6" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+  </div>
+  <div style="padding:0 20px 8px;font-size:11px;font-weight:600;color:rgba(255,255,255,0.4);letter-spacing:1px;font-family:'SF Mono',ui-monospace,Menlo,monospace">NOTES / INSTRUCTIONS · OPTIONAL</div>
+  <div style="margin:0 16px 16px;background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:14px;padding:13px 16px;min-height:72px;font-size:15px;color:rgba(255,255,255,0.35)">Kneel, anchor ankles, lower slowly…</div>
+  <div style="margin:0 16px;background:rgba(10,132,255,0.08);border-radius:12px;padding:12px 16px;display:flex;gap:10px;align-items:flex-start">
+    <div style="width:18px;height:18px;border-radius:9px;background:rgba(10,132,255,0.25);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#0A84FF;flex-shrink:0;margin-top:1px">i</div>
+    <div style="font-size:12.5px;color:rgba(255,255,255,0.55);line-height:1.5">Custom exercises get history, charts and PRs like built-ins. Not in the library? Search "Add ‘Nordic Hamstring Curl’…" appears at the bottom of exercise search too.</div>
+  </div>
+</div>
+</x-import>
+</div>
+</div>
+
+<!-- 4b NOTIFICATION SETTINGS -->
+<div class="dv-opt" id="4b">
+<div class="dv-olabel"><a class="dv-oid" href="#4b">4b</a>Settings — notifications (all local, offline)</div>
+<div data-screen-label="liftIQ Notification Settings">
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+<div style="height:100%;box-sizing:border-box;padding:70px 0 0;overflow:hidden;position:relative;background:#050507">
+  <div style="display:flex;align-items:center;gap:6px;padding:8px 16px 4px">
+    <svg width="12" height="20" viewBox="0 0 12 20"><path d="M10 2L2 10l8 8" stroke="#0A84FF" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div style="font-size:16px;color:#0A84FF">Settings</div>
+  </div>
+  <div style="padding:10px 20px 16px;font-size:34px;font-weight:700;color:#fff;letter-spacing:0.4px">Notifications</div>
+  <div style="margin:0 16px 16px;background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:14px;overflow:hidden">
+    <div style="padding:13px 16px;display:flex;align-items:center">
+      <div style="flex:1;display:flex;flex-direction:column;gap:1px">
+        <div style="font-size:16px;color:#fff">Allow notifications</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.4)">All reminders are generated on-device</div>
+      </div>
+      <div style="width:51px;height:31px;border-radius:16px;background:#30D158;position:relative;flex-shrink:0"><div style="position:absolute;top:2px;right:2px;width:27px;height:27px;border-radius:14px;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,0.3)"></div></div>
+    </div>
+  </div>
+  <div style="padding:0 20px 8px;font-size:11px;font-weight:600;color:rgba(255,255,255,0.4);letter-spacing:1px;font-family:'SF Mono',ui-monospace,Menlo,monospace">WORKOUT</div>
+  <div style="margin:0 16px 16px;background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:14px;overflow:hidden">
+    <div style="padding:13px 16px;display:flex;align-items:center;position:relative">
+      <div style="flex:1;display:flex;flex-direction:column;gap:1px">
+        <div style="font-size:16px;color:#fff">Rest timer done</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.4)">Sound + banner when rest ends</div>
+      </div>
+      <div style="width:51px;height:31px;border-radius:16px;background:#30D158;position:relative;flex-shrink:0"><div style="position:absolute;top:2px;right:2px;width:27px;height:27px;border-radius:14px;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,0.3)"></div></div>
+      <div style="position:absolute;left:16px;right:0;bottom:0;height:0.5px;background:rgba(255,255,255,0.08)"></div>
+    </div>
+    <div style="padding:13px 16px;display:flex;align-items:center;position:relative">
+      <div style="flex:1;display:flex;flex-direction:column;gap:1px">
+        <div style="font-size:16px;color:#fff">Daily workout reminder</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.4)">"Up today: Pull Day B" from your split</div>
+      </div>
+      <div style="width:51px;height:31px;border-radius:16px;background:#30D158;position:relative;flex-shrink:0"><div style="position:absolute;top:2px;right:2px;width:27px;height:27px;border-radius:14px;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,0.3)"></div></div>
+      <div style="position:absolute;left:16px;right:0;bottom:0;height:0.5px;background:rgba(255,255,255,0.08)"></div>
+    </div>
+    <div style="padding:13px 16px;display:flex;align-items:center;position:relative">
+      <div style="flex:1;font-size:16px;color:#fff">Reminder time</div>
+      <div style="font-size:15px;color:rgba(255,255,255,0.5);font-family:'SF Mono',ui-monospace,Menlo,monospace;margin-right:8px">8:00 AM</div>
+      <svg width="8" height="14" viewBox="0 0 8 14"><path d="M1 1l6 6-6 6" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div style="position:absolute;left:16px;right:0;bottom:0;height:0.5px;background:rgba(255,255,255,0.08)"></div>
+    </div>
+    <div style="padding:13px 16px;display:flex;align-items:center">
+      <div style="flex:1;display:flex;flex-direction:column;gap:1px">
+        <div style="font-size:16px;color:#fff">Skip on rest days</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.4)">No reminder when your split says rest</div>
+      </div>
+      <div style="width:51px;height:31px;border-radius:16px;background:#30D158;position:relative;flex-shrink:0"><div style="position:absolute;top:2px;right:2px;width:27px;height:27px;border-radius:14px;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,0.3)"></div></div>
+    </div>
+  </div>
+  <div style="padding:0 20px 8px;font-size:11px;font-weight:600;color:rgba(255,255,255,0.4);letter-spacing:1px;font-family:'SF Mono',ui-monospace,Menlo,monospace">STREAK</div>
+  <div style="margin:0 16px 16px;background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:14px;overflow:hidden">
+    <div style="padding:13px 16px;display:flex;align-items:center;position:relative">
+      <div style="flex:1;display:flex;flex-direction:column;gap:1px">
+        <div style="font-size:16px;color:#fff">Streak at risk</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.4)">Evening nudge if a scheduled workout is unlogged</div>
+      </div>
+      <div style="width:51px;height:31px;border-radius:16px;background:#30D158;position:relative;flex-shrink:0"><div style="position:absolute;top:2px;right:2px;width:27px;height:27px;border-radius:14px;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,0.3)"></div></div>
+      <div style="position:absolute;left:16px;right:0;bottom:0;height:0.5px;background:rgba(255,255,255,0.08)"></div>
+    </div>
+    <div style="padding:13px 16px;display:flex;align-items:center">
+      <div style="flex:1;font-size:16px;color:#fff">Nudge time</div>
+      <div style="font-size:15px;color:rgba(255,255,255,0.5);font-family:'SF Mono',ui-monospace,Menlo,monospace;margin-right:8px">7:00 PM</div>
+      <svg width="8" height="14" viewBox="0 0 8 14"><path d="M1 1l6 6-6 6" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+  </div>
+  <div style="margin:0 16px;background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:10px">
+    <div style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.4);letter-spacing:1px;font-family:'SF Mono',ui-monospace,Menlo,monospace">PREVIEW</div>
+    <div style="background:rgba(255,255,255,0.07);border-radius:14px;padding:11px 13px;display:flex;gap:10px;align-items:flex-start">
+      <div style="width:30px;height:30px;border-radius:7px;background:#0A84FF;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#fff;flex-shrink:0">IQ</div>
+      <div style="flex:1;display:flex;flex-direction:column;gap:1px">
+        <div style="display:flex;justify-content:space-between"><span style="font-size:13px;font-weight:700;color:#fff">liftIQ</span><span style="font-size:11px;color:rgba(255,255,255,0.4)">8:00 AM</span></div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.75);line-height:1.4">Up today: Pull Day B — 5 exercises, ~55 min. Day 2 of your PPL + Rest cycle.</div>
+      </div>
+    </div>
+  </div>
+</div>
+</x-import>
+</div>
+</div>
+
+</div>
+<p class="dv-next">Try next: "show exercise detail with charts" · "tweak anything above" · "package this for Claude Code"</p>
+</section>
+
+<section class="dv-turn" id="t3">
+<div class="dv-thd"><a class="dv-tid" href="#t3">3</a><span class="dv-tname">Splits — group templates into a rotation; rest days don't break the streak</span></div>
+<p class="dv-sub">A split is an ordered cycle of days, each mapped to a template or a rest day. The streak follows the split: a scheduled rest day counts as on-track. Built and managed from the Templates tab; Home shows what's up today.</p>
+<div class="dv-opts">
+
+<!-- 3a TEMPLATES WITH SPLIT -->
+<div class="dv-opt" id="3a">
+<div class="dv-olabel"><a class="dv-oid" href="#3a">3a</a>Templates — active split on top</div>
+<div data-screen-label="liftIQ Templates + Split">
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+<div style="height:100%;box-sizing:border-box;padding:70px 0 0;overflow:hidden;position:relative;background:#050507">
+  <div style="display:flex;align-items:center;padding:8px 20px 12px">
+    <div style="flex:1;font-size:34px;font-weight:700;color:#fff;letter-spacing:0.4px">Templates</div>
+    <div style="width:36px;height:36px;border-radius:18px;background:#0A84FF;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:500;color:#fff;line-height:1;padding-bottom:2px">+</div>
+  </div>
+  <div style="padding:0 20px 8px;font-size:11px;font-weight:600;color:rgba(255,255,255,0.4);letter-spacing:1px;font-family:'SF Mono',ui-monospace,Menlo,monospace">MY SPLIT</div>
+  <div style="margin:0 16px 12px;background:#101014;border:0.5px solid rgba(10,132,255,0.45);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:14px">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div style="flex:1;display:flex;flex-direction:column;gap:2px">
+        <div style="font-size:17px;font-weight:700;color:#fff">PPL + Rest</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.45);font-family:'SF Mono',ui-monospace,Menlo,monospace">4-DAY CYCLE · DAY 2 OF 4</div>
+      </div>
+      <div style="font-size:13px;font-weight:600;color:#0A84FF">Edit</div>
+    </div>
+    <div style="display:flex;gap:6px;align-items:stretch">
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;background:rgba(48,209,88,0.08);border-radius:10px;padding:10px 4px 8px">
+        <div style="width:24px;height:24px;border-radius:12px;background:#30D158;display:flex;align-items:center;justify-content:center"><svg width="11" height="9" viewBox="0 0 13 10"><path d="M1 5l3.5 3.5L12 1" stroke="#000" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.75);text-align:center">Push A</div>
+        <div style="font-size:9.5px;color:rgba(255,255,255,0.4);font-family:'SF Mono',ui-monospace,Menlo,monospace">SUN</div>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;background:rgba(10,132,255,0.14);border:1px solid #0A84FF;border-radius:10px;padding:9px 4px 7px;box-sizing:border-box">
+        <div style="width:24px;height:24px;border-radius:12px;background:#0A84FF;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff">2</div>
+        <div style="font-size:11px;font-weight:700;color:#fff;text-align:center">Pull B</div>
+        <div style="font-size:9.5px;color:#0A84FF;font-weight:600;font-family:'SF Mono',ui-monospace,Menlo,monospace">TODAY</div>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;background:rgba(255,255,255,0.04);border-radius:10px;padding:10px 4px 8px">
+        <div style="width:24px;height:24px;border-radius:12px;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:rgba(255,255,255,0.6)">3</div>
+        <div style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.75);text-align:center">Legs</div>
+        <div style="font-size:9.5px;color:rgba(255,255,255,0.4);font-family:'SF Mono',ui-monospace,Menlo,monospace">TUE</div>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;background:rgba(255,255,255,0.04);border-radius:10px;padding:10px 4px 8px">
+        <div style="width:24px;height:24px;border-radius:12px;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center"><svg width="13" height="13" viewBox="0 0 14 14"><path d="M12.5 8.5A5.5 5.5 0 1 1 5.5 1.5a4.5 4.5 0 0 0 7 7z" fill="rgba(255,255,255,0.6)"/></svg></div>
+        <div style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.75);text-align:center">Rest</div>
+        <div style="font-size:9.5px;color:rgba(255,255,255,0.4);font-family:'SF Mono',ui-monospace,Menlo,monospace">WED</div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;background:rgba(48,209,88,0.07);border-radius:10px;padding:9px 12px">
+      <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l2.4 6.9H21l-5.4 4.2 2 6.9-5.6-4.2-5.6 4.2 2-6.9L3 8.9h6.6z" fill="#30D158"/></svg>
+      <div style="flex:1;font-size:12.5px;color:rgba(255,255,255,0.65)">Streak follows this split — rest days count as on-track</div>
+      <div style="font-size:12.5px;font-weight:700;color:#30D158;font-family:'SF Mono',ui-monospace,Menlo,monospace">11 wk</div>
+    </div>
+  </div>
+  <div style="margin:0 16px 16px;padding:12px 0;border-radius:12px;border:1.5px dashed rgba(255,255,255,0.2);text-align:center;font-size:14px;font-weight:600;color:rgba(255,255,255,0.55)">+ New Split</div>
+  <div style="padding:0 20px 8px;font-size:11px;font-weight:600;color:rgba(255,255,255,0.4);letter-spacing:1px;font-family:'SF Mono',ui-monospace,Menlo,monospace">★ FAVORITES</div>
+  <div style="margin:0 16px 16px;display:flex;flex-direction:column;gap:8px">
+    <div style="background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:14px;padding:14px 16px;display:flex;align-items:center;gap:12px">
+      <div style="flex:1;display:flex;flex-direction:column;gap:2px">
+        <div style="font-size:16px;font-weight:700;color:#fff">Push Day A</div>
+        <div style="font-size:12.5px;color:rgba(255,255,255,0.45)">5 exercises · in PPL + Rest</div>
+      </div>
+      <div style="font-size:16px;color:#FFD60A">★</div>
+      <div style="background:rgba(10,132,255,0.15);color:#0A84FF;font-size:13px;font-weight:600;padding:8px 14px;border-radius:10px">Start</div>
+    </div>
+    <div style="background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:14px;padding:14px 16px;display:flex;align-items:center;gap:12px">
+      <div style="flex:1;display:flex;flex-direction:column;gap:2px">
+        <div style="font-size:16px;font-weight:700;color:#fff">Pull Day B</div>
+        <div style="font-size:12.5px;color:rgba(255,255,255,0.45)">5 exercises · in PPL + Rest</div>
+      </div>
+      <div style="font-size:16px;color:#FFD60A">★</div>
+      <div style="background:rgba(10,132,255,0.15);color:#0A84FF;font-size:13px;font-weight:600;padding:8px 14px;border-radius:10px">Start</div>
+    </div>
+  </div>
+  <div style="padding:0 20px 8px;font-size:11px;font-weight:600;color:rgba(255,255,255,0.4);letter-spacing:1px;font-family:'SF Mono',ui-monospace,Menlo,monospace">📁 PPL SPLIT · 6</div>
+  <div style="margin:0 16px;background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:14px;overflow:hidden">
+    <div style="padding:13px 16px;display:flex;align-items:center;gap:12px;position:relative">
+      <div style="flex:1;font-size:15px;font-weight:600;color:#fff">Push Day B</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.4)">6 exercises</div>
+      <svg width="8" height="14" viewBox="0 0 8 14"><path d="M1 1l6 6-6 6" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div style="position:absolute;left:16px;right:0;bottom:0;height:0.5px;background:rgba(255,255,255,0.08)"></div>
+    </div>
+    <div style="padding:13px 16px;display:flex;align-items:center;gap:12px">
+      <div style="flex:1;font-size:15px;font-weight:600;color:#fff">Leg Day</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.4)">5 exercises</div>
+      <svg width="8" height="14" viewBox="0 0 8 14"><path d="M1 1l6 6-6 6" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+  </div>
+  <div style="position:absolute;bottom:0;left:0;right:0;z-index:40;display:flex;justify-content:space-around;align-items:flex-start;padding:10px 6px 26px;background:rgba(8,8,10,0.96);border-top:0.5px solid rgba(255,255,255,0.1)">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M4 11L12 4l8 7v8a1 1 0 0 1-1 1h-4v-6h-6v6H5a1 1 0 0 1-1-1z" fill="rgba(235,235,245,0.55)"/></svg><span style="font-size:10px;font-weight:500;color:rgba(235,235,245,0.55)">Home</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><rect x="2" y="9" width="3" height="6" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="19" y="9" width="3" height="6" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="5.5" y="7" width="3" height="10" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="15.5" y="7" width="3" height="10" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="8.5" y="11" width="7" height="2" fill="rgba(235,235,245,0.55)"/></svg><span style="font-size:10px;font-weight:500;color:rgba(235,235,245,0.55)">Workouts</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" fill="#0A84FF"/></svg><span style="font-size:10px;font-weight:500;color:#0A84FF">Templates</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><rect x="4" y="13" width="3.5" height="7" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="10.25" y="8" width="3.5" height="12" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="16.5" y="4" width="3.5" height="16" rx="1" fill="rgba(235,235,245,0.55)"/></svg><span style="font-size:10px;font-weight:500;color:rgba(235,235,245,0.55)">Progress</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7.5" fill="none" stroke="rgba(235,235,245,0.55)" stroke-width="1.8"/><circle cx="12" cy="12" r="2.5" fill="rgba(235,235,245,0.55)"/></svg><span style="font-size:10px;font-weight:500;color:rgba(235,235,245,0.55)">Settings</span></div>
+  </div>
+</div>
+</x-import>
+</div>
+</div>
+
+<!-- 3b SPLIT BUILDER -->
+<div class="dv-opt" id="3b">
+<div class="dv-olabel"><a class="dv-oid" href="#3b">3b</a>Split builder — ordered days, drag to reorder</div>
+<div data-screen-label="liftIQ Split Builder">
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+<div style="height:100%;box-sizing:border-box;padding:70px 0 0;overflow:hidden;position:relative;background:#050507">
+  <div style="display:flex;align-items:center;gap:12px;padding:8px 16px 4px">
+    <div style="font-size:16px;font-weight:400;color:#0A84FF">Cancel</div>
+    <div style="flex:1;text-align:center;font-size:17px;font-weight:600;color:#fff">Edit Split</div>
+    <div style="font-size:16px;font-weight:600;color:#0A84FF">Save</div>
+  </div>
+  <div style="margin:16px 16px 16px;background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:14px;padding:13px 16px;display:flex;align-items:center">
+    <div style="flex:1;font-size:17px;font-weight:600;color:#fff">PPL + Rest</div>
+    <div style="font-size:12px;color:rgba(255,255,255,0.35);font-family:'SF Mono',ui-monospace,Menlo,monospace">NAME</div>
+  </div>
+  <div style="padding:0 20px 8px;display:flex;align-items:baseline;justify-content:space-between">
+    <div style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.4);letter-spacing:1px;font-family:'SF Mono',ui-monospace,Menlo,monospace">CYCLE · 4 DAYS</div>
+    <div style="font-size:12px;color:rgba(255,255,255,0.35)">drag ≡ to reorder</div>
+  </div>
+  <div style="margin:0 16px 12px;background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:14px;overflow:hidden">
+    <div style="padding:13px 16px;display:flex;align-items:center;gap:12px;position:relative">
+      <div style="width:26px;height:26px;border-radius:13px;background:rgba(10,132,255,0.15);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#0A84FF;font-family:'SF Mono',ui-monospace,Menlo,monospace">1</div>
+      <div style="flex:1;display:flex;flex-direction:column;gap:1px">
+        <div style="font-size:16px;font-weight:600;color:#fff">Push Day A</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.4)">Template · 5 exercises</div>
+      </div>
+      <svg width="18" height="12" viewBox="0 0 18 12"><rect y="0" width="18" height="2" rx="1" fill="rgba(255,255,255,0.3)"/><rect y="5" width="18" height="2" rx="1" fill="rgba(255,255,255,0.3)"/><rect y="10" width="18" height="2" rx="1" fill="rgba(255,255,255,0.3)"/></svg>
+      <div style="position:absolute;left:54px;right:0;bottom:0;height:0.5px;background:rgba(255,255,255,0.08)"></div>
+    </div>
+    <div style="padding:13px 16px;display:flex;align-items:center;gap:12px;position:relative">
+      <div style="width:26px;height:26px;border-radius:13px;background:rgba(10,132,255,0.15);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#0A84FF;font-family:'SF Mono',ui-monospace,Menlo,monospace">2</div>
+      <div style="flex:1;display:flex;flex-direction:column;gap:1px">
+        <div style="font-size:16px;font-weight:600;color:#fff">Pull Day B</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.4)">Template · 5 exercises</div>
+      </div>
+      <svg width="18" height="12" viewBox="0 0 18 12"><rect y="0" width="18" height="2" rx="1" fill="rgba(255,255,255,0.3)"/><rect y="5" width="18" height="2" rx="1" fill="rgba(255,255,255,0.3)"/><rect y="10" width="18" height="2" rx="1" fill="rgba(255,255,255,0.3)"/></svg>
+      <div style="position:absolute;left:54px;right:0;bottom:0;height:0.5px;background:rgba(255,255,255,0.08)"></div>
+    </div>
+    <div style="padding:13px 16px;display:flex;align-items:center;gap:12px;position:relative">
+      <div style="width:26px;height:26px;border-radius:13px;background:rgba(10,132,255,0.15);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#0A84FF;font-family:'SF Mono',ui-monospace,Menlo,monospace">3</div>
+      <div style="flex:1;display:flex;flex-direction:column;gap:1px">
+        <div style="font-size:16px;font-weight:600;color:#fff">Leg Day</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.4)">Template · 5 exercises</div>
+      </div>
+      <svg width="18" height="12" viewBox="0 0 18 12"><rect y="0" width="18" height="2" rx="1" fill="rgba(255,255,255,0.3)"/><rect y="5" width="18" height="2" rx="1" fill="rgba(255,255,255,0.3)"/><rect y="10" width="18" height="2" rx="1" fill="rgba(255,255,255,0.3)"/></svg>
+      <div style="position:absolute;left:54px;right:0;bottom:0;height:0.5px;background:rgba(255,255,255,0.08)"></div>
+    </div>
+    <div style="padding:13px 16px;display:flex;align-items:center;gap:12px">
+      <div style="width:26px;height:26px;border-radius:13px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center"><svg width="13" height="13" viewBox="0 0 14 14"><path d="M12.5 8.5A5.5 5.5 0 1 1 5.5 1.5a4.5 4.5 0 0 0 7 7z" fill="rgba(255,255,255,0.55)"/></svg></div>
+      <div style="flex:1;display:flex;flex-direction:column;gap:1px">
+        <div style="font-size:16px;font-weight:600;color:rgba(255,255,255,0.75)">Rest Day</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.4)">Counts as on-track</div>
+      </div>
+      <svg width="18" height="12" viewBox="0 0 18 12"><rect y="0" width="18" height="2" rx="1" fill="rgba(255,255,255,0.3)"/><rect y="5" width="18" height="2" rx="1" fill="rgba(255,255,255,0.3)"/><rect y="10" width="18" height="2" rx="1" fill="rgba(255,255,255,0.3)"/></svg>
+    </div>
+  </div>
+  <div style="display:flex;gap:10px;margin:0 16px 20px">
+    <div style="flex:1;padding:12px 0;border-radius:12px;background:rgba(10,132,255,0.12);text-align:center;font-size:14px;font-weight:600;color:#0A84FF">+ Template Day</div>
+    <div style="flex:1;padding:12px 0;border-radius:12px;background:rgba(255,255,255,0.06);text-align:center;font-size:14px;font-weight:600;color:rgba(255,255,255,0.75)">+ Rest Day</div>
+  </div>
+  <div style="padding:0 20px 8px;font-size:11px;font-weight:600;color:rgba(255,255,255,0.4);letter-spacing:1px;font-family:'SF Mono',ui-monospace,Menlo,monospace">STREAK RULES</div>
+  <div style="margin:0 16px;background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:14px;overflow:hidden">
+    <div style="padding:13px 16px;display:flex;align-items:center;position:relative">
+      <div style="flex:1;display:flex;flex-direction:column;gap:1px">
+        <div style="font-size:16px;color:#fff">Streak follows this split</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.4)">Rest days in the cycle keep the streak alive</div>
+      </div>
+      <div style="width:51px;height:31px;border-radius:16px;background:#30D158;position:relative;flex-shrink:0"><div style="position:absolute;top:2px;right:2px;width:27px;height:27px;border-radius:14px;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,0.3)"></div></div>
+      <div style="position:absolute;left:16px;right:0;bottom:0;height:0.5px;background:rgba(255,255,255,0.08)"></div>
+    </div>
+    <div style="padding:13px 16px;display:flex;align-items:center">
+      <div style="flex:1;display:flex;flex-direction:column;gap:1px">
+        <div style="font-size:16px;color:#fff">Flexible order</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.4)">Any day from the cycle counts, in any order</div>
+      </div>
+      <div style="width:51px;height:31px;border-radius:16px;background:rgba(255,255,255,0.15);position:relative;flex-shrink:0"><div style="position:absolute;top:2px;left:2px;width:27px;height:27px;border-radius:14px;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,0.3)"></div></div>
+    </div>
+  </div>
+</div>
+</x-import>
+</div>
+</div>
+
+<!-- 3c HOME WITH SPLIT -->
+<div class="dv-opt" id="3c">
+<div class="dv-olabel"><a class="dv-oid" href="#3c">3c</a>Home — today's day from the split</div>
+<div data-screen-label="liftIQ Home + Split">
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+<div style="height:100%;box-sizing:border-box;padding:70px 0 0;overflow:hidden;position:relative;background:#050507">
+  <div style="padding:8px 20px 2px;font-size:34px;font-weight:700;color:#fff;letter-spacing:0.2px">lift<span style="color:#0A84FF">IQ</span></div>
+  <div style="padding:0 20px 16px;font-size:13px;color:rgba(255,255,255,0.45);font-family:'SF Mono',ui-monospace,Menlo,monospace">MON JUL 6 · PPL + REST · DAY 2/4</div>
+  <div style="margin:0 16px 14px;background:#101014;border:0.5px solid rgba(10,132,255,0.45);border-radius:14px;padding:16px 18px;display:flex;align-items:center;gap:14px">
+    <div style="flex:1;display:flex;flex-direction:column;gap:3px">
+      <div style="font-size:11px;font-weight:600;color:#0A84FF;letter-spacing:1px;font-family:'SF Mono',ui-monospace,Menlo,monospace">UP TODAY · FROM YOUR SPLIT</div>
+      <div style="font-size:19px;font-weight:700;color:#fff">Pull Day B</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.5)">5 exercises · ~55 min · next: Legs</div>
+    </div>
+    <div style="background:#0A84FF;color:#fff;font-size:15px;font-weight:600;padding:11px 18px;border-radius:12px">Start</div>
+  </div>
+  <div style="display:flex;gap:10px;margin:0 16px 18px">
+    <div style="flex:1;background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:12px;padding:13px 0;text-align:center;font-size:14px;font-weight:600;color:#fff">+ Empty Workout</div>
+    <div style="flex:1;background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:12px;padding:13px 0;text-align:center;font-size:14px;font-weight:600;color:rgba(255,255,255,0.75)">Log Rest Day</div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:0 16px 18px">
+    <div style="background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px">
+      <div style="font-size:10.5px;font-weight:600;color:rgba(255,255,255,0.45);letter-spacing:0.8px;font-family:'SF Mono',ui-monospace,Menlo,monospace">CYCLE</div>
+      <div style="font-size:22px;font-weight:700;color:#fff;font-family:'SF Mono',ui-monospace,Menlo,monospace">2<span style="font-size:14px;color:rgba(255,255,255,0.4)">/4</span></div>
+      <div style="display:flex;gap:3px"><div style="flex:1;height:4px;border-radius:2px;background:#30D158"></div><div style="flex:1;height:4px;border-radius:2px;background:#0A84FF"></div><div style="flex:1;height:4px;border-radius:2px;background:rgba(255,255,255,0.1)"></div><div style="flex:1;height:4px;border-radius:2px;background:rgba(255,255,255,0.1)"></div></div>
+    </div>
+    <div style="background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px">
+      <div style="font-size:10.5px;font-weight:600;color:rgba(255,255,255,0.45);letter-spacing:0.8px;font-family:'SF Mono',ui-monospace,Menlo,monospace">STREAK</div>
+      <div style="font-size:22px;font-weight:700;color:#fff;font-family:'SF Mono',ui-monospace,Menlo,monospace">46<span style="font-size:13px;color:rgba(255,255,255,0.4)">d</span></div>
+      <div style="font-size:11px;color:#30D158">rest-day safe</div>
+    </div>
+    <div style="background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px">
+      <div style="font-size:10.5px;font-weight:600;color:rgba(255,255,255,0.45);letter-spacing:0.8px;font-family:'SF Mono',ui-monospace,Menlo,monospace">BODY WT</div>
+      <div style="font-size:22px;font-weight:700;color:#fff;font-family:'SF Mono',ui-monospace,Menlo,monospace">182.4</div>
+      <div style="font-size:11px;color:#30D158">▼ 0.8 this wk</div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:baseline;justify-content:space-between;padding:0 20px 8px">
+    <div style="font-size:15px;font-weight:600;color:#fff">Recent</div>
+    <div style="font-size:13px;color:#0A84FF">All history</div>
+  </div>
+  <div style="margin:0 16px;display:flex;flex-direction:column;gap:8px">
+    <div style="background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:12px;padding:13px 16px;display:flex;align-items:center;gap:12px">
+      <div style="flex:1;display:flex;flex-direction:column;gap:1px">
+        <div style="font-size:15px;font-weight:600;color:#fff">Push Day A <span style="font-size:11px;font-weight:600;color:#0A84FF;font-family:'SF Mono',ui-monospace,Menlo,monospace">DAY 1</span></div>
+        <div style="font-size:12.5px;color:rgba(255,255,255,0.45);font-family:'SF Mono',ui-monospace,Menlo,monospace">YDA · 52:08 · 12,410 LB</div>
+      </div>
+      <div style="font-size:11px;font-weight:600;color:#FFD60A;font-family:'SF Mono',ui-monospace,Menlo,monospace">1 PR</div>
+    </div>
+    <div style="background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:12px;padding:13px 16px;display:flex;align-items:center;gap:12px">
+      <div style="flex:1;display:flex;flex-direction:column;gap:1px">
+        <div style="font-size:15px;font-weight:600;color:rgba(255,255,255,0.75)">Rest Day <span style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.4);font-family:'SF Mono',ui-monospace,Menlo,monospace">DAY 4</span></div>
+        <div style="font-size:12.5px;color:rgba(255,255,255,0.45);font-family:'SF Mono',ui-monospace,Menlo,monospace">SAT · STREAK KEPT</div>
+      </div>
+      <svg width="14" height="14" viewBox="0 0 14 14"><path d="M12.5 8.5A5.5 5.5 0 1 1 5.5 1.5a4.5 4.5 0 0 0 7 7z" fill="rgba(255,255,255,0.4)"/></svg>
+    </div>
+  </div>
+  <div style="position:absolute;bottom:0;left:0;right:0;z-index:40;display:flex;justify-content:space-around;align-items:flex-start;padding:10px 6px 26px;background:rgba(8,8,10,0.96);border-top:0.5px solid rgba(255,255,255,0.1)">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M4 11L12 4l8 7v8a1 1 0 0 1-1 1h-4v-6h-6v6H5a1 1 0 0 1-1-1z" fill="#0A84FF"/></svg><span style="font-size:10px;font-weight:500;color:#0A84FF">Home</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><rect x="2" y="9" width="3" height="6" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="19" y="9" width="3" height="6" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="5.5" y="7" width="3" height="10" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="15.5" y="7" width="3" height="10" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="8.5" y="11" width="7" height="2" fill="rgba(235,235,245,0.55)"/></svg><span style="font-size:10px;font-weight:500;color:rgba(235,235,245,0.55)">Workouts</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" fill="none" stroke="rgba(235,235,245,0.55)" stroke-width="1.8"/></svg><span style="font-size:10px;font-weight:500;color:rgba(235,235,245,0.55)">Templates</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><rect x="4" y="13" width="3.5" height="7" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="10.25" y="8" width="3.5" height="12" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="16.5" y="4" width="3.5" height="16" rx="1" fill="rgba(235,235,245,0.55)"/></svg><span style="font-size:10px;font-weight:500;color:rgba(235,235,245,0.55)">Progress</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7.5" fill="none" stroke="rgba(235,235,245,0.55)" stroke-width="1.8"/><circle cx="12" cy="12" r="2.5" fill="rgba(235,235,245,0.55)"/></svg><span style="font-size:10px;font-weight:500;color:rgba(235,235,245,0.55)">Settings</span></div>
+  </div>
+</div>
+</x-import>
+</div>
+</div>
+
+</div>
+<p class="dv-next">Try next: "flexible-order splits should show remaining days as a checklist" · "show the rest-day log confirmation sheet" · "package this for Claude Code"</p>
+</section>
+
+<section class="dv-turn" id="t2">
+<div class="dv-thd"><a class="dv-tid" href="#t2">2</a><span class="dv-tname">liftIQ — full build: <a class="dv-oid" href="#1b">1b</a> style + <a class="dv-oid" href="#1a">1a</a> logging grid</span></div>
+<p class="dv-sub">All 5 tabs plus the active workout screen. Deep black surfaces, hairline card borders, monospaced numerals, iOS blue. Set logging is the spreadsheet grid from <a class="dv-oid" href="#1a">1a</a> on <a class="dv-oid" href="#1b">1b</a>'s surfaces.</p>
+<div class="dv-opts">
+
+<!-- 2a HOME -->
+<div class="dv-opt" id="2a">
+<div class="dv-olabel"><a class="dv-oid" href="#2a">2a</a>Home</div>
+<div data-screen-label="liftIQ Home">
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+<div style="height:100%;box-sizing:border-box;padding:70px 0 0;overflow:hidden;position:relative;background:#050507">
+  <div style="padding:8px 20px 2px;font-size:34px;font-weight:700;color:#fff;letter-spacing:0.2px">lift<span style="color:#0A84FF">IQ</span></div>
+  <div style="padding:0 20px 16px;font-size:13px;color:rgba(255,255,255,0.45);font-family:'SF Mono',ui-monospace,Menlo,monospace">MON JUL 6 · WEEK 27</div>
+  <div style="margin:0 16px 14px;background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:14px;padding:16px 18px;display:flex;align-items:center;gap:14px">
+    <div style="flex:1;display:flex;flex-direction:column;gap:3px">
+      <div style="font-size:11px;font-weight:600;color:#0A84FF;letter-spacing:1px;font-family:'SF Mono',ui-monospace,Menlo,monospace">IN PROGRESS · 32:14</div>
+      <div style="font-size:19px;font-weight:700;color:#fff">Push Day A</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.5)">3/5 exercises · 6,240 lbs so far</div>
+    </div>
+    <div style="background:#0A84FF;color:#fff;font-size:15px;font-weight:600;padding:11px 18px;border-radius:12px">Resume</div>
+  </div>
+  <div style="display:flex;gap:10px;margin:0 16px 18px">
+    <div style="flex:1;background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:12px;padding:13px 0;text-align:center;font-size:14px;font-weight:600;color:#fff">+ Empty Workout</div>
+    <div style="flex:1;background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:12px;padding:13px 0;text-align:center;font-size:14px;font-weight:600;color:#fff">From Template</div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:0 16px 18px">
+    <div style="background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px">
+      <div style="font-size:10.5px;font-weight:600;color:rgba(255,255,255,0.45);letter-spacing:0.8px;font-family:'SF Mono',ui-monospace,Menlo,monospace">WEEK</div>
+      <div style="font-size:22px;font-weight:700;color:#fff;font-family:'SF Mono',ui-monospace,Menlo,monospace">3<span style="font-size:14px;color:rgba(255,255,255,0.4)">/4</span></div>
+      <div style="height:4px;border-radius:2px;background:rgba(255,255,255,0.1);overflow:hidden"><div style="width:75%;height:100%;background:#0A84FF"></div></div>
+    </div>
+    <div style="background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px">
+      <div style="font-size:10.5px;font-weight:600;color:rgba(255,255,255,0.45);letter-spacing:0.8px;font-family:'SF Mono',ui-monospace,Menlo,monospace">STREAK</div>
+      <div style="font-size:22px;font-weight:700;color:#fff;font-family:'SF Mono',ui-monospace,Menlo,monospace">11<span style="font-size:13px;color:rgba(255,255,255,0.4)">wk</span></div>
+      <div style="font-size:11px;color:rgba(255,255,255,0.4)">best 14</div>
+    </div>
+    <div style="background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px">
+      <div style="font-size:10.5px;font-weight:600;color:rgba(255,255,255,0.45);letter-spacing:0.8px;font-family:'SF Mono',ui-monospace,Menlo,monospace">BODY WT</div>
+      <div style="font-size:22px;font-weight:700;color:#fff;font-family:'SF Mono',ui-monospace,Menlo,monospace">182.4</div>
+      <div style="font-size:11px;color:#30D158">▼ 0.8 this wk</div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:baseline;justify-content:space-between;padding:0 20px 8px">
+    <div style="font-size:15px;font-weight:600;color:#fff">Recent</div>
+    <div style="font-size:13px;color:#0A84FF">All history</div>
+  </div>
+  <div style="margin:0 16px;display:flex;flex-direction:column;gap:8px">
+    <div style="background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:12px;padding:13px 16px;display:flex;align-items:center;gap:12px">
+      <div style="flex:1;display:flex;flex-direction:column;gap:1px">
+        <div style="font-size:15px;font-weight:600;color:#fff">Pull Day B</div>
+        <div style="font-size:12.5px;color:rgba(255,255,255,0.45);font-family:'SF Mono',ui-monospace,Menlo,monospace">YDA · 58:12 · 14,230 LB</div>
+      </div>
+      <div style="font-size:11px;font-weight:600;color:#FFD60A;font-family:'SF Mono',ui-monospace,Menlo,monospace">2 PR</div>
+    </div>
+    <div style="background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:12px;padding:13px 16px;display:flex;align-items:center;gap:12px">
+      <div style="flex:1;display:flex;flex-direction:column;gap:1px">
+        <div style="font-size:15px;font-weight:600;color:#fff">Leg Day</div>
+        <div style="font-size:12.5px;color:rgba(255,255,255,0.45);font-family:'SF Mono',ui-monospace,Menlo,monospace">FRI · 1:04:30 · 18,905 LB</div>
+      </div>
+    </div>
+  </div>
+  <div style="position:absolute;bottom:0;left:0;right:0;z-index:40;display:flex;justify-content:space-around;align-items:flex-start;padding:10px 6px 26px;background:rgba(8,8,10,0.96);border-top:0.5px solid rgba(255,255,255,0.1)">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M4 11L12 4l8 7v8a1 1 0 0 1-1 1h-4v-6h-6v6H5a1 1 0 0 1-1-1z" fill="#0A84FF"/></svg><span style="font-size:10px;font-weight:500;color:#0A84FF">Home</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><rect x="2" y="9" width="3" height="6" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="19" y="9" width="3" height="6" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="5.5" y="7" width="3" height="10" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="15.5" y="7" width="3" height="10" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="8.5" y="11" width="7" height="2" fill="rgba(235,235,245,0.55)"/></svg><span style="font-size:10px;font-weight:500;color:rgba(235,235,245,0.55)">Workouts</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" fill="none" stroke="rgba(235,235,245,0.55)" stroke-width="1.8"/></svg><span style="font-size:10px;font-weight:500;color:rgba(235,235,245,0.55)">Templates</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><rect x="4" y="13" width="3.5" height="7" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="10.25" y="8" width="3.5" height="12" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="16.5" y="4" width="3.5" height="16" rx="1" fill="rgba(235,235,245,0.55)"/></svg><span style="font-size:10px;font-weight:500;color:rgba(235,235,245,0.55)">Progress</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7.5" fill="none" stroke="rgba(235,235,245,0.55)" stroke-width="1.8"/><circle cx="12" cy="12" r="2.5" fill="rgba(235,235,245,0.55)"/></svg><span style="font-size:10px;font-weight:500;color:rgba(235,235,245,0.55)">Settings</span></div>
+  </div>
+</div>
+</x-import>
+</div>
+</div>
+
+<!-- 2b ACTIVE WORKOUT -->
+<div class="dv-opt" id="2b">
+<div class="dv-olabel"><a class="dv-oid" href="#2b">2b</a>Active Workout — grid logging</div>
+<div data-screen-label="liftIQ Active Workout">
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+<div style="height:100%;box-sizing:border-box;padding:70px 0 0;overflow:hidden;position:relative;background:#050507">
+  <div style="display:flex;align-items:center;gap:12px;padding:8px 16px 4px">
+    <div style="flex:1;display:flex;flex-direction:column;gap:1px">
+      <div style="font-size:22px;font-weight:700;color:#fff">Push Day A</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.45);font-family:'SF Mono',ui-monospace,Menlo,monospace">MON JUL 6 · 6:12 PM</div>
+    </div>
+    <div style="background:#0A84FF;color:#fff;font-size:15px;font-weight:600;padding:10px 18px;border-radius:12px">Finish</div>
+  </div>
+  <div style="display:flex;gap:18px;padding:8px 20px 10px;font-family:'SF Mono',ui-monospace,Menlo,monospace">
+    <div style="display:flex;flex-direction:column"><span style="font-size:10.5px;color:rgba(255,255,255,0.4);letter-spacing:0.8px">TIME</span><span style="font-size:17px;font-weight:700;color:#fff">32:14</span></div>
+    <div style="display:flex;flex-direction:column"><span style="font-size:10.5px;color:rgba(255,255,255,0.4);letter-spacing:0.8px">VOLUME</span><span style="font-size:17px;font-weight:700;color:#fff">6,240</span></div>
+    <div style="display:flex;flex-direction:column"><span style="font-size:10.5px;color:rgba(255,255,255,0.4);letter-spacing:0.8px">SETS</span><span style="font-size:17px;font-weight:700;color:#fff">9/16</span></div>
+    <div style="flex:1"></div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end"><span style="font-size:10.5px;color:#0A84FF;letter-spacing:0.8px">REST</span><span style="font-size:17px;font-weight:700;color:#0A84FF">1:12</span></div>
+  </div>
+  <div style="margin:0 16px 12px;background:rgba(10,132,255,0.12);border-radius:10px;padding:8px 14px;display:flex;align-items:center;gap:12px">
+    <div style="flex:1;height:4px;border-radius:2px;background:rgba(10,132,255,0.25);overflow:hidden"><div style="width:60%;height:100%;background:#0A84FF"></div></div>
+    <div style="font-size:13px;font-weight:600;color:rgba(255,255,255,0.6)">+30s</div>
+    <div style="font-size:13px;font-weight:600;color:rgba(255,255,255,0.6)">Skip</div>
+  </div>
+  <div style="margin:0 16px 12px;background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:14px;padding:14px 0 6px">
+    <div style="display:flex;align-items:center;padding:0 16px 10px">
+      <div style="flex:1;font-size:17px;font-weight:700;color:#fff">Bench Press <span style="font-weight:400;color:rgba(255,255,255,0.4)">Barbell</span></div>
+      <div style="font-size:11px;font-weight:600;color:#FFD60A;font-family:'SF Mono',ui-monospace,Menlo,monospace;margin-right:12px">1RM 218</div>
+      <svg width="22" height="6" viewBox="0 0 22 6"><circle cx="3" cy="3" r="2.2" fill="rgba(235,235,245,0.45)"/><circle cx="11" cy="3" r="2.2" fill="rgba(235,235,245,0.45)"/><circle cx="19" cy="3" r="2.2" fill="rgba(235,235,245,0.45)"/></svg>
+    </div>
+    <div style="display:grid;grid-template-columns:44px 1fr 72px 64px 44px;gap:6px;align-items:center;padding:0 16px 6px;font-size:11px;font-weight:600;color:rgba(255,255,255,0.4);letter-spacing:0.8px;font-family:'SF Mono',ui-monospace,Menlo,monospace">
+      <div>SET</div><div>PREVIOUS</div><div style="text-align:center">LBS</div><div style="text-align:center">REPS</div><div style="text-align:center">✓</div>
+    </div>
+    <div style="display:grid;grid-template-columns:44px 1fr 72px 64px 44px;gap:6px;align-items:center;padding:6px 16px;background:rgba(48,209,88,0.07)">
+      <div style="font-size:15px;font-weight:700;color:#FF9F0A;font-family:'SF Mono',ui-monospace,Menlo,monospace">W</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.4);font-family:'SF Mono',ui-monospace,Menlo,monospace">95 × 12</div>
+      <div style="background:rgba(255,255,255,0.07);border-radius:8px;padding:9px 0;text-align:center;font-size:16px;font-weight:600;color:#fff;font-family:'SF Mono',ui-monospace,Menlo,monospace">95</div>
+      <div style="background:rgba(255,255,255,0.07);border-radius:8px;padding:9px 0;text-align:center;font-size:16px;font-weight:600;color:#fff;font-family:'SF Mono',ui-monospace,Menlo,monospace">12</div>
+      <div style="display:flex;justify-content:center"><div style="width:30px;height:30px;border-radius:8px;background:#30D158;display:flex;align-items:center;justify-content:center"><svg width="13" height="10" viewBox="0 0 13 10"><path d="M1 5l3.5 3.5L12 1" stroke="#000" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </div>
+    <div style="display:grid;grid-template-columns:44px 1fr 72px 64px 44px;gap:6px;align-items:center;padding:6px 16px;background:rgba(48,209,88,0.07)">
+      <div style="font-size:15px;font-weight:700;color:#fff;font-family:'SF Mono',ui-monospace,Menlo,monospace">1</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.4);font-family:'SF Mono',ui-monospace,Menlo,monospace">185 × 8</div>
+      <div style="background:rgba(255,255,255,0.07);border-radius:8px;padding:9px 0;text-align:center;font-size:16px;font-weight:600;color:#fff;font-family:'SF Mono',ui-monospace,Menlo,monospace">190</div>
+      <div style="background:rgba(255,255,255,0.07);border-radius:8px;padding:9px 0;text-align:center;font-size:16px;font-weight:600;color:#fff;font-family:'SF Mono',ui-monospace,Menlo,monospace">8</div>
+      <div style="display:flex;justify-content:center"><div style="width:30px;height:30px;border-radius:8px;background:#30D158;display:flex;align-items:center;justify-content:center"><svg width="13" height="10" viewBox="0 0 13 10"><path d="M1 5l3.5 3.5L12 1" stroke="#000" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </div>
+    <div style="display:grid;grid-template-columns:44px 1fr 72px 64px 44px;gap:6px;align-items:center;padding:6px 16px;background:rgba(10,132,255,0.08);border-left:2px solid #0A84FF">
+      <div style="font-size:15px;font-weight:700;color:#fff;font-family:'SF Mono',ui-monospace,Menlo,monospace">2</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.4);font-family:'SF Mono',ui-monospace,Menlo,monospace">185 × 8</div>
+      <div style="background:rgba(255,255,255,0.12);border:1px solid #0A84FF;border-radius:8px;padding:8px 0;text-align:center;font-size:16px;font-weight:600;color:#fff;font-family:'SF Mono',ui-monospace,Menlo,monospace">190</div>
+      <div style="background:rgba(255,255,255,0.07);border-radius:8px;padding:9px 0;text-align:center;font-size:16px;font-weight:600;color:rgba(255,255,255,0.35);font-family:'SF Mono',ui-monospace,Menlo,monospace">8</div>
+      <div style="display:flex;justify-content:center"><div style="width:30px;height:30px;border-radius:8px;background:rgba(255,255,255,0.1)"></div></div>
+    </div>
+    <div style="display:grid;grid-template-columns:44px 1fr 72px 64px 44px;gap:6px;align-items:center;padding:6px 16px">
+      <div style="font-size:15px;font-weight:700;color:rgba(255,255,255,0.8);font-family:'SF Mono',ui-monospace,Menlo,monospace">3</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.4);font-family:'SF Mono',ui-monospace,Menlo,monospace">185 × 7</div>
+      <div style="background:rgba(255,255,255,0.07);border-radius:8px;padding:9px 0;text-align:center;font-size:16px;font-weight:600;color:rgba(255,255,255,0.35);font-family:'SF Mono',ui-monospace,Menlo,monospace">190</div>
+      <div style="background:rgba(255,255,255,0.07);border-radius:8px;padding:9px 0;text-align:center;font-size:16px;font-weight:600;color:rgba(255,255,255,0.35);font-family:'SF Mono',ui-monospace,Menlo,monospace">7</div>
+      <div style="display:flex;justify-content:center"><div style="width:30px;height:30px;border-radius:8px;background:rgba(255,255,255,0.1)"></div></div>
+    </div>
+    <div style="margin:8px 16px;padding:11px 0;border-radius:10px;background:rgba(255,255,255,0.06);text-align:center;font-size:14px;font-weight:600;color:#0A84FF">+ Add Set</div>
+  </div>
+  <div style="margin:0 16px 8px;background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:14px;padding:14px 16px;display:flex;align-items:center">
+    <div style="flex:1;font-size:16px;font-weight:600;color:#fff">Overhead Press <span style="font-weight:400;color:rgba(255,255,255,0.4)">Barbell</span></div>
+    <div style="font-size:12px;color:rgba(255,255,255,0.4);font-family:'SF Mono',ui-monospace,Menlo,monospace">0/3</div>
+  </div>
+  <div style="margin:0 16px 12px;background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:14px;padding:14px 16px;display:flex;align-items:center">
+    <div style="flex:1;font-size:16px;font-weight:600;color:#fff">Incline Press <span style="font-weight:400;color:rgba(255,255,255,0.4)">Dumbbell</span></div>
+    <div style="font-size:12px;color:rgba(255,255,255,0.4);font-family:'SF Mono',ui-monospace,Menlo,monospace">0/3</div>
+  </div>
+  <div style="margin:0 16px;padding:13px 0;border-radius:12px;border:1.5px dashed rgba(10,132,255,0.5);text-align:center;font-size:15px;font-weight:600;color:#0A84FF">+ Add Exercise</div>
+</div>
+</x-import>
+</div>
+</div>
+
+<!-- 2c WORKOUTS / HISTORY -->
+<div class="dv-opt" id="2c">
+<div class="dv-olabel"><a class="dv-oid" href="#2c">2c</a>Workouts — history</div>
+<div data-screen-label="liftIQ Workouts">
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+<div style="height:100%;box-sizing:border-box;padding:70px 0 0;overflow:hidden;position:relative;background:#050507">
+  <div style="padding:8px 20px 12px;font-size:34px;font-weight:700;color:#fff;letter-spacing:0.4px">Workouts</div>
+  <div style="margin:0 16px 16px;background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:12px;padding:11px 14px;display:flex;align-items:center;gap:10px">
+    <svg width="16" height="16" viewBox="0 0 16 16"><circle cx="7" cy="7" r="5.5" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.8"/><path d="M11.5 11.5L15 15" stroke="rgba(255,255,255,0.35)" stroke-width="1.8" stroke-linecap="round"/></svg>
+    <span style="font-size:16px;color:rgba(255,255,255,0.35)">Search workouts, exercises, notes</span>
+  </div>
+  <div style="padding:0 20px 8px;font-size:11px;font-weight:600;color:rgba(255,255,255,0.4);letter-spacing:1px;font-family:'SF Mono',ui-monospace,Menlo,monospace">JULY 2026 · 3 WORKOUTS</div>
+  <div style="margin:0 16px 16px;display:flex;flex-direction:column;gap:8px">
+    <div style="background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:8px">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="flex:1;font-size:16px;font-weight:700;color:#fff">Pull Day B</div>
+        <div style="font-size:11px;font-weight:600;color:#FFD60A;font-family:'SF Mono',ui-monospace,Menlo,monospace">2 PR</div>
+        <svg width="8" height="14" viewBox="0 0 8 14"><path d="M1 1l6 6-6 6" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.45);font-family:'SF Mono',ui-monospace,Menlo,monospace">SUN JUL 5 · 58:12 · 14,230 LB · 21 SETS</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.5">Deadlift 4×5 · Barbell Row 4×8 · Lat Pulldown 3×10 · Face Pull 3×15 · Curl 3×12</div>
+    </div>
+    <div style="background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:8px">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="flex:1;font-size:16px;font-weight:700;color:#fff">Leg Day</div>
+        <svg width="8" height="14" viewBox="0 0 8 14"><path d="M1 1l6 6-6 6" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.45);font-family:'SF Mono',ui-monospace,Menlo,monospace">FRI JUL 3 · 1:04:30 · 18,905 LB · 19 SETS</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.5">Squat 5×5 · Romanian Deadlift 3×8 · Leg Press 3×10 · Leg Curl 3×12 · Calf Raise 4×15</div>
+    </div>
+    <div style="background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:8px">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="flex:1;font-size:16px;font-weight:700;color:#fff">Push Day A</div>
+        <svg width="8" height="14" viewBox="0 0 8 14"><path d="M1 1l6 6-6 6" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.45);font-family:'SF Mono',ui-monospace,Menlo,monospace">WED JUL 1 · 52:08 · 12,410 LB · 16 SETS</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.5">Bench Press 4×8 · Overhead Press 3×10 · Incline Press 3×10 · Lateral Raise 3×15</div>
+    </div>
+  </div>
+  <div style="padding:0 20px 8px;font-size:11px;font-weight:600;color:rgba(255,255,255,0.4);letter-spacing:1px;font-family:'SF Mono',ui-monospace,Menlo,monospace">JUNE 2026 · 17 WORKOUTS</div>
+  <div style="margin:0 16px;background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:8px">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div style="flex:1;font-size:16px;font-weight:700;color:#fff">Pull Day A</div>
+      <svg width="8" height="14" viewBox="0 0 8 14"><path d="M1 1l6 6-6 6" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div style="font-size:12px;color:rgba(255,255,255,0.45);font-family:'SF Mono',ui-monospace,Menlo,monospace">TUE JUN 30 · 55:41 · 13,880 LB · 20 SETS</div>
+  </div>
+  <div style="position:absolute;bottom:0;left:0;right:0;z-index:40;display:flex;justify-content:space-around;align-items:flex-start;padding:10px 6px 26px;background:rgba(8,8,10,0.96);border-top:0.5px solid rgba(255,255,255,0.1)">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M4 11L12 4l8 7v8a1 1 0 0 1-1 1h-4v-6h-6v6H5a1 1 0 0 1-1-1z" fill="rgba(235,235,245,0.55)"/></svg><span style="font-size:10px;font-weight:500;color:rgba(235,235,245,0.55)">Home</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><rect x="2" y="9" width="3" height="6" rx="1" fill="#0A84FF"/><rect x="19" y="9" width="3" height="6" rx="1" fill="#0A84FF"/><rect x="5.5" y="7" width="3" height="10" rx="1" fill="#0A84FF"/><rect x="15.5" y="7" width="3" height="10" rx="1" fill="#0A84FF"/><rect x="8.5" y="11" width="7" height="2" fill="#0A84FF"/></svg><span style="font-size:10px;font-weight:500;color:#0A84FF">Workouts</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" fill="none" stroke="rgba(235,235,245,0.55)" stroke-width="1.8"/></svg><span style="font-size:10px;font-weight:500;color:rgba(235,235,245,0.55)">Templates</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><rect x="4" y="13" width="3.5" height="7" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="10.25" y="8" width="3.5" height="12" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="16.5" y="4" width="3.5" height="16" rx="1" fill="rgba(235,235,245,0.55)"/></svg><span style="font-size:10px;font-weight:500;color:rgba(235,235,245,0.55)">Progress</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7.5" fill="none" stroke="rgba(235,235,245,0.55)" stroke-width="1.8"/><circle cx="12" cy="12" r="2.5" fill="rgba(235,235,245,0.55)"/></svg><span style="font-size:10px;font-weight:500;color:rgba(235,235,245,0.55)">Settings</span></div>
+  </div>
+</div>
+</x-import>
+</div>
+</div>
+
+<!-- 2d TEMPLATES -->
+<div class="dv-opt" id="2d">
+<div class="dv-olabel"><a class="dv-oid" href="#2d">2d</a>Templates</div>
+<div data-screen-label="liftIQ Templates">
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+<div style="height:100%;box-sizing:border-box;padding:70px 0 0;overflow:hidden;position:relative;background:#050507">
+  <div style="display:flex;align-items:center;padding:8px 20px 12px">
+    <div style="flex:1;font-size:34px;font-weight:700;color:#fff;letter-spacing:0.4px">Templates</div>
+    <div style="width:36px;height:36px;border-radius:18px;background:#0A84FF;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:500;color:#fff;line-height:1;padding-bottom:2px">+</div>
+  </div>
+  <div style="margin:0 16px 16px;background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:12px;padding:11px 14px;display:flex;align-items:center;gap:10px">
+    <svg width="16" height="16" viewBox="0 0 16 16"><circle cx="7" cy="7" r="5.5" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.8"/><path d="M11.5 11.5L15 15" stroke="rgba(255,255,255,0.35)" stroke-width="1.8" stroke-linecap="round"/></svg>
+    <span style="font-size:16px;color:rgba(255,255,255,0.35)">Search templates</span>
+  </div>
+  <div style="padding:0 20px 8px;font-size:11px;font-weight:600;color:rgba(255,255,255,0.4);letter-spacing:1px;font-family:'SF Mono',ui-monospace,Menlo,monospace">★ FAVORITES</div>
+  <div style="margin:0 16px 16px;display:flex;flex-direction:column;gap:8px">
+    <div style="background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:14px;padding:14px 16px;display:flex;align-items:center;gap:12px">
+      <div style="flex:1;display:flex;flex-direction:column;gap:2px">
+        <div style="font-size:16px;font-weight:700;color:#fff">Push Day A</div>
+        <div style="font-size:12.5px;color:rgba(255,255,255,0.45)">5 exercises · last used Wed</div>
+      </div>
+      <div style="font-size:16px;color:#FFD60A">★</div>
+      <div style="background:rgba(10,132,255,0.15);color:#0A84FF;font-size:13px;font-weight:600;padding:8px 14px;border-radius:10px">Start</div>
+    </div>
+    <div style="background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:14px;padding:14px 16px;display:flex;align-items:center;gap:12px">
+      <div style="flex:1;display:flex;flex-direction:column;gap:2px">
+        <div style="font-size:16px;font-weight:700;color:#fff">Pull Day B</div>
+        <div style="font-size:12.5px;color:rgba(255,255,255,0.45)">5 exercises · last used yesterday</div>
+      </div>
+      <div style="font-size:16px;color:#FFD60A">★</div>
+      <div style="background:rgba(10,132,255,0.15);color:#0A84FF;font-size:13px;font-weight:600;padding:8px 14px;border-radius:10px">Start</div>
+    </div>
+  </div>
+  <div style="padding:0 20px 8px;font-size:11px;font-weight:600;color:rgba(255,255,255,0.4);letter-spacing:1px;font-family:'SF Mono',ui-monospace,Menlo,monospace">📁 PPL SPLIT · 6</div>
+  <div style="margin:0 16px 16px;background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:14px;overflow:hidden">
+    <div style="padding:13px 16px;display:flex;align-items:center;gap:12px;position:relative">
+      <div style="flex:1;font-size:15px;font-weight:600;color:#fff">Push Day B</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.4)">6 exercises</div>
+      <svg width="8" height="14" viewBox="0 0 8 14"><path d="M1 1l6 6-6 6" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div style="position:absolute;left:16px;right:0;bottom:0;height:0.5px;background:rgba(255,255,255,0.08)"></div>
+    </div>
+    <div style="padding:13px 16px;display:flex;align-items:center;gap:12px;position:relative">
+      <div style="flex:1;font-size:15px;font-weight:600;color:#fff">Pull Day A</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.4)">5 exercises</div>
+      <svg width="8" height="14" viewBox="0 0 8 14"><path d="M1 1l6 6-6 6" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div style="position:absolute;left:16px;right:0;bottom:0;height:0.5px;background:rgba(255,255,255,0.08)"></div>
+    </div>
+    <div style="padding:13px 16px;display:flex;align-items:center;gap:12px">
+      <div style="flex:1;font-size:15px;font-weight:600;color:#fff">Leg Day</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.4)">5 exercises</div>
+      <svg width="8" height="14" viewBox="0 0 8 14"><path d="M1 1l6 6-6 6" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+  </div>
+  <div style="padding:0 20px 8px;font-size:11px;font-weight:600;color:rgba(255,255,255,0.4);letter-spacing:1px;font-family:'SF Mono',ui-monospace,Menlo,monospace">📁 QUICK SESSIONS · 3</div>
+  <div style="margin:0 16px;background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:14px;overflow:hidden">
+    <div style="padding:13px 16px;display:flex;align-items:center;gap:12px;position:relative">
+      <div style="flex:1;font-size:15px;font-weight:600;color:#fff">Arms + Abs 30 min</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.4)">4 exercises</div>
+      <svg width="8" height="14" viewBox="0 0 8 14"><path d="M1 1l6 6-6 6" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div style="position:absolute;left:16px;right:0;bottom:0;height:0.5px;background:rgba(255,255,255,0.08)"></div>
+    </div>
+    <div style="padding:13px 16px;display:flex;align-items:center;gap:12px">
+      <div style="flex:1;font-size:15px;font-weight:600;color:#fff">Hotel Dumbbell Only</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.4)">5 exercises</div>
+      <svg width="8" height="14" viewBox="0 0 8 14"><path d="M1 1l6 6-6 6" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+  </div>
+  <div style="position:absolute;bottom:0;left:0;right:0;z-index:40;display:flex;justify-content:space-around;align-items:flex-start;padding:10px 6px 26px;background:rgba(8,8,10,0.96);border-top:0.5px solid rgba(255,255,255,0.1)">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M4 11L12 4l8 7v8a1 1 0 0 1-1 1h-4v-6h-6v6H5a1 1 0 0 1-1-1z" fill="rgba(235,235,245,0.55)"/></svg><span style="font-size:10px;font-weight:500;color:rgba(235,235,245,0.55)">Home</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><rect x="2" y="9" width="3" height="6" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="19" y="9" width="3" height="6" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="5.5" y="7" width="3" height="10" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="15.5" y="7" width="3" height="10" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="8.5" y="11" width="7" height="2" fill="rgba(235,235,245,0.55)"/></svg><span style="font-size:10px;font-weight:500;color:rgba(235,235,245,0.55)">Workouts</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" fill="#0A84FF"/></svg><span style="font-size:10px;font-weight:500;color:#0A84FF">Templates</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><rect x="4" y="13" width="3.5" height="7" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="10.25" y="8" width="3.5" height="12" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="16.5" y="4" width="3.5" height="16" rx="1" fill="rgba(235,235,245,0.55)"/></svg><span style="font-size:10px;font-weight:500;color:rgba(235,235,245,0.55)">Progress</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7.5" fill="none" stroke="rgba(235,235,245,0.55)" stroke-width="1.8"/><circle cx="12" cy="12" r="2.5" fill="rgba(235,235,245,0.55)"/></svg><span style="font-size:10px;font-weight:500;color:rgba(235,235,245,0.55)">Settings</span></div>
+  </div>
+</div>
+</x-import>
+</div>
+</div>
+
+<!-- 2e PROGRESS -->
+<div class="dv-opt" id="2e">
+<div class="dv-olabel"><a class="dv-oid" href="#2e">2e</a>Progress</div>
+<div data-screen-label="liftIQ Progress">
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+<div style="height:100%;box-sizing:border-box;padding:70px 0 0;overflow:hidden;position:relative;background:#050507">
+  <div style="padding:8px 20px 12px;font-size:34px;font-weight:700;color:#fff;letter-spacing:0.4px">Progress</div>
+  <div style="display:flex;gap:8px;margin:0 16px 14px">
+    <div style="padding:8px 16px;border-radius:10px;background:#fff;font-size:14px;font-weight:600;color:#000">3M</div>
+    <div style="padding:8px 16px;border-radius:10px;background:#101014;border:0.5px solid rgba(255,255,255,0.09);font-size:14px;font-weight:600;color:rgba(255,255,255,0.6)">6M</div>
+    <div style="padding:8px 16px;border-radius:10px;background:#101014;border:0.5px solid rgba(255,255,255,0.09);font-size:14px;font-weight:600;color:rgba(255,255,255,0.6)">1Y</div>
+    <div style="padding:8px 16px;border-radius:10px;background:#101014;border:0.5px solid rgba(255,255,255,0.09);font-size:14px;font-weight:600;color:rgba(255,255,255,0.6)">All</div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:0 16px 12px">
+    <div style="background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:3px">
+      <div style="font-size:10.5px;font-weight:600;color:rgba(255,255,255,0.45);letter-spacing:0.8px;font-family:'SF Mono',ui-monospace,Menlo,monospace">WORKOUTS</div>
+      <div style="font-size:22px;font-weight:700;color:#fff;font-family:'SF Mono',ui-monospace,Menlo,monospace">148</div>
+      <div style="font-size:11px;color:rgba(255,255,255,0.4)">4.1/wk avg</div>
+    </div>
+    <div style="background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:3px">
+      <div style="font-size:10.5px;font-weight:600;color:rgba(255,255,255,0.45);letter-spacing:0.8px;font-family:'SF Mono',ui-monospace,Menlo,monospace">STREAK</div>
+      <div style="font-size:22px;font-weight:700;color:#fff;font-family:'SF Mono',ui-monospace,Menlo,monospace">11<span style="font-size:13px;color:rgba(255,255,255,0.4)">wk</span></div>
+      <div style="font-size:11px;color:rgba(255,255,255,0.4)">longest 14</div>
+    </div>
+    <div style="background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:3px">
+      <div style="font-size:10.5px;font-weight:600;color:rgba(255,255,255,0.45);letter-spacing:0.8px;font-family:'SF Mono',ui-monospace,Menlo,monospace">AVG TIME</div>
+      <div style="font-size:22px;font-weight:700;color:#fff;font-family:'SF Mono',ui-monospace,Menlo,monospace">57<span style="font-size:13px;color:rgba(255,255,255,0.4)">min</span></div>
+      <div style="font-size:11px;color:rgba(255,255,255,0.4)">per workout</div>
+    </div>
+  </div>
+  <div style="margin:0 16px 12px;background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:14px;padding:16px 18px;display:flex;flex-direction:column;gap:10px">
+    <div style="display:flex;align-items:baseline;justify-content:space-between">
+      <div style="display:flex;flex-direction:column"><span style="font-size:12px;color:rgba(255,255,255,0.45)">Total volume · weekly</span><span style="font-size:22px;font-weight:700;color:#fff;font-family:'SF Mono',ui-monospace,Menlo,monospace">52,340 <span style="font-size:13px;font-weight:500;color:rgba(255,255,255,0.4)">lbs</span></span></div>
+      <div style="font-size:13px;font-weight:600;color:#30D158;font-family:'SF Mono',ui-monospace,Menlo,monospace">+8.2%</div>
+    </div>
+    <svg width="100%" height="70" viewBox="0 0 330 70" preserveAspectRatio="none">
+      <line x1="0" y1="16" x2="330" y2="16" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+      <line x1="0" y1="38" x2="330" y2="38" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+      <line x1="0" y1="60" x2="330" y2="60" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+      <path d="M0 56 L30 52 L60 54 L90 46 L120 48 L150 40 L180 43 L210 34 L240 36 L270 26 L300 22 L330 16" stroke="#0A84FF" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <circle cx="330" cy="16" r="4" fill="#0A84FF"/>
+    </svg>
+    <div style="display:flex;justify-content:space-between;font-size:10.5px;color:rgba(255,255,255,0.35);font-family:'SF Mono',ui-monospace,Menlo,monospace"><span>APR</span><span>MAY</span><span>JUN</span><span>JUL</span></div>
+  </div>
+  <div style="margin:0 16px 12px;background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:14px;padding:16px 18px;display:flex;flex-direction:column;gap:10px">
+    <div style="display:flex;align-items:baseline;justify-content:space-between">
+      <div style="display:flex;flex-direction:column"><span style="font-size:12px;color:rgba(255,255,255,0.45)">Bench Press · est. 1RM</span><span style="font-size:22px;font-weight:700;color:#fff;font-family:'SF Mono',ui-monospace,Menlo,monospace">218 <span style="font-size:13px;font-weight:500;color:rgba(255,255,255,0.4)">lbs</span></span></div>
+      <div style="font-size:13px;font-weight:600;color:#30D158;font-family:'SF Mono',ui-monospace,Menlo,monospace">+12</div>
+    </div>
+    <svg width="100%" height="52" viewBox="0 0 330 52" preserveAspectRatio="none">
+      <path d="M0 44 L40 42 L80 43 L120 36 L160 34 L200 28 L240 24 L280 18 L330 10" stroke="#FFD60A" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <circle cx="330" cy="10" r="4" fill="#FFD60A"/>
+    </svg>
+  </div>
+  <div style="margin:0 16px 8px;background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:12px;padding:14px 16px;display:flex;align-items:center">
+    <div style="flex:1;font-size:15px;font-weight:600;color:#fff">Body weight</div>
+    <div style="font-size:14px;font-weight:600;color:#fff;font-family:'SF Mono',ui-monospace,Menlo,monospace;margin-right:8px">182.4</div>
+    <svg width="8" height="14" viewBox="0 0 8 14"><path d="M1 1l6 6-6 6" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+  <div style="margin:0 16px;background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:12px;padding:14px 16px;display:flex;align-items:center">
+    <div style="flex:1;font-size:15px;font-weight:600;color:#fff">Personal records</div>
+    <div style="font-size:13px;color:rgba(255,255,255,0.45);margin-right:8px">23</div>
+    <svg width="8" height="14" viewBox="0 0 8 14"><path d="M1 1l6 6-6 6" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+  <div style="position:absolute;bottom:0;left:0;right:0;z-index:40;display:flex;justify-content:space-around;align-items:flex-start;padding:10px 6px 26px;background:rgba(8,8,10,0.96);border-top:0.5px solid rgba(255,255,255,0.1)">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M4 11L12 4l8 7v8a1 1 0 0 1-1 1h-4v-6h-6v6H5a1 1 0 0 1-1-1z" fill="rgba(235,235,245,0.55)"/></svg><span style="font-size:10px;font-weight:500;color:rgba(235,235,245,0.55)">Home</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><rect x="2" y="9" width="3" height="6" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="19" y="9" width="3" height="6" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="5.5" y="7" width="3" height="10" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="15.5" y="7" width="3" height="10" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="8.5" y="11" width="7" height="2" fill="rgba(235,235,245,0.55)"/></svg><span style="font-size:10px;font-weight:500;color:rgba(235,235,245,0.55)">Workouts</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" fill="none" stroke="rgba(235,235,245,0.55)" stroke-width="1.8"/></svg><span style="font-size:10px;font-weight:500;color:rgba(235,235,245,0.55)">Templates</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><rect x="4" y="13" width="3.5" height="7" rx="1" fill="#0A84FF"/><rect x="10.25" y="8" width="3.5" height="12" rx="1" fill="#0A84FF"/><rect x="16.5" y="4" width="3.5" height="16" rx="1" fill="#0A84FF"/></svg><span style="font-size:10px;font-weight:500;color:#0A84FF">Progress</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7.5" fill="none" stroke="rgba(235,235,245,0.55)" stroke-width="1.8"/><circle cx="12" cy="12" r="2.5" fill="rgba(235,235,245,0.55)"/></svg><span style="font-size:10px;font-weight:500;color:rgba(235,235,245,0.55)">Settings</span></div>
+  </div>
+</div>
+</x-import>
+</div>
+</div>
+
+<!-- 2f SETTINGS -->
+<div class="dv-opt" id="2f">
+<div class="dv-olabel"><a class="dv-oid" href="#2f">2f</a>Settings</div>
+<div data-screen-label="liftIQ Settings">
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+<div style="height:100%;box-sizing:border-box;padding:70px 0 0;overflow:hidden;position:relative;background:#050507">
+  <div style="padding:8px 20px 16px;font-size:34px;font-weight:700;color:#fff;letter-spacing:0.4px">Settings</div>
+  <div style="padding:0 20px 8px;font-size:11px;font-weight:600;color:rgba(255,255,255,0.4);letter-spacing:1px;font-family:'SF Mono',ui-monospace,Menlo,monospace">UNITS</div>
+  <div style="margin:0 16px 16px;background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:14px;overflow:hidden">
+    <div style="padding:13px 16px;display:flex;align-items:center;position:relative">
+      <div style="flex:1;font-size:16px;color:#fff">Weight</div>
+      <div style="display:flex;background:rgba(255,255,255,0.07);border-radius:8px;padding:2px">
+        <div style="padding:6px 14px;border-radius:6px;background:#0A84FF;font-size:13px;font-weight:600;color:#fff">lbs</div>
+        <div style="padding:6px 14px;font-size:13px;font-weight:600;color:rgba(255,255,255,0.5)">kg</div>
+      </div>
+      <div style="position:absolute;left:16px;right:0;bottom:0;height:0.5px;background:rgba(255,255,255,0.08)"></div>
+    </div>
+    <div style="padding:13px 16px;display:flex;align-items:center;position:relative">
+      <div style="flex:1;font-size:16px;color:#fff">Distance</div>
+      <div style="display:flex;background:rgba(255,255,255,0.07);border-radius:8px;padding:2px">
+        <div style="padding:6px 14px;border-radius:6px;background:#0A84FF;font-size:13px;font-weight:600;color:#fff">miles</div>
+        <div style="padding:6px 14px;font-size:13px;font-weight:600;color:rgba(255,255,255,0.5)">km</div>
+      </div>
+      <div style="position:absolute;left:16px;right:0;bottom:0;height:0.5px;background:rgba(255,255,255,0.08)"></div>
+    </div>
+    <div style="padding:13px 16px;display:flex;align-items:center">
+      <div style="flex:1;font-size:16px;color:#fff">Time format</div>
+      <div style="display:flex;background:rgba(255,255,255,0.07);border-radius:8px;padding:2px">
+        <div style="padding:6px 14px;border-radius:6px;background:#0A84FF;font-size:13px;font-weight:600;color:#fff">12h</div>
+        <div style="padding:6px 14px;font-size:13px;font-weight:600;color:rgba(255,255,255,0.5)">24h</div>
+      </div>
+    </div>
+  </div>
+  <div style="padding:0 20px 8px;font-size:11px;font-weight:600;color:rgba(255,255,255,0.4);letter-spacing:1px;font-family:'SF Mono',ui-monospace,Menlo,monospace">APPEARANCE</div>
+  <div style="margin:0 16px 16px;background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:14px;overflow:hidden">
+    <div style="padding:13px 16px;display:flex;align-items:center">
+      <div style="flex:1;font-size:16px;color:#fff">Theme</div>
+      <div style="display:flex;background:rgba(255,255,255,0.07);border-radius:8px;padding:2px">
+        <div style="padding:6px 12px;font-size:13px;font-weight:600;color:rgba(255,255,255,0.5)">Light</div>
+        <div style="padding:6px 12px;border-radius:6px;background:#0A84FF;font-size:13px;font-weight:600;color:#fff">Dark</div>
+        <div style="padding:6px 12px;font-size:13px;font-weight:600;color:rgba(255,255,255,0.5)">System</div>
+      </div>
+    </div>
+  </div>
+  <div style="padding:0 20px 8px;font-size:11px;font-weight:600;color:rgba(255,255,255,0.4);letter-spacing:1px;font-family:'SF Mono',ui-monospace,Menlo,monospace">REST TIMER</div>
+  <div style="margin:0 16px 16px;background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:14px;overflow:hidden">
+    <div style="padding:13px 16px;display:flex;align-items:center;position:relative">
+      <div style="flex:1;font-size:16px;color:#fff">Default duration</div>
+      <div style="font-size:15px;color:rgba(255,255,255,0.5);font-family:'SF Mono',ui-monospace,Menlo,monospace;margin-right:8px">2:00</div>
+      <svg width="8" height="14" viewBox="0 0 8 14"><path d="M1 1l6 6-6 6" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div style="position:absolute;left:16px;right:0;bottom:0;height:0.5px;background:rgba(255,255,255,0.08)"></div>
+    </div>
+    <div style="padding:13px 16px;display:flex;align-items:center;position:relative">
+      <div style="flex:1;font-size:16px;color:#fff">Auto-start after set</div>
+      <div style="width:51px;height:31px;border-radius:16px;background:#30D158;position:relative"><div style="position:absolute;top:2px;right:2px;width:27px;height:27px;border-radius:14px;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,0.3)"></div></div>
+      <div style="position:absolute;left:16px;right:0;bottom:0;height:0.5px;background:rgba(255,255,255,0.08)"></div>
+    </div>
+    <div style="padding:13px 16px;display:flex;align-items:center;position:relative">
+      <div style="flex:1;font-size:16px;color:#fff">Sound</div>
+      <div style="width:51px;height:31px;border-radius:16px;background:#30D158;position:relative"><div style="position:absolute;top:2px;right:2px;width:27px;height:27px;border-radius:14px;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,0.3)"></div></div>
+      <div style="position:absolute;left:16px;right:0;bottom:0;height:0.5px;background:rgba(255,255,255,0.08)"></div>
+    </div>
+    <div style="padding:13px 16px;display:flex;align-items:center">
+      <div style="flex:1;font-size:16px;color:#fff">Vibration</div>
+      <div style="width:51px;height:31px;border-radius:16px;background:rgba(255,255,255,0.15);position:relative"><div style="position:absolute;top:2px;left:2px;width:27px;height:27px;border-radius:14px;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,0.3)"></div></div>
+    </div>
+  </div>
+  <div style="padding:0 20px 8px;font-size:11px;font-weight:600;color:rgba(255,255,255,0.4);letter-spacing:1px;font-family:'SF Mono',ui-monospace,Menlo,monospace">DATA</div>
+  <div style="margin:0 16px;background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:14px;overflow:hidden">
+    <div style="padding:13px 16px;display:flex;align-items:center;position:relative">
+      <div style="flex:1;font-size:16px;color:#0A84FF">Export all data as CSV</div>
+      <div style="position:absolute;left:16px;right:0;bottom:0;height:0.5px;background:rgba(255,255,255,0.08)"></div>
+    </div>
+    <div style="padding:13px 16px;display:flex;align-items:center">
+      <div style="flex:1;font-size:16px;color:#FF453A">Reset app data…</div>
+    </div>
+  </div>
+  <div style="position:absolute;bottom:0;left:0;right:0;z-index:40;display:flex;justify-content:space-around;align-items:flex-start;padding:10px 6px 26px;background:rgba(8,8,10,0.96);border-top:0.5px solid rgba(255,255,255,0.1)">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M4 11L12 4l8 7v8a1 1 0 0 1-1 1h-4v-6h-6v6H5a1 1 0 0 1-1-1z" fill="rgba(235,235,245,0.55)"/></svg><span style="font-size:10px;font-weight:500;color:rgba(235,235,245,0.55)">Home</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><rect x="2" y="9" width="3" height="6" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="19" y="9" width="3" height="6" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="5.5" y="7" width="3" height="10" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="15.5" y="7" width="3" height="10" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="8.5" y="11" width="7" height="2" fill="rgba(235,235,245,0.55)"/></svg><span style="font-size:10px;font-weight:500;color:rgba(235,235,245,0.55)">Workouts</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" fill="none" stroke="rgba(235,235,245,0.55)" stroke-width="1.8"/></svg><span style="font-size:10px;font-weight:500;color:rgba(235,235,245,0.55)">Templates</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><rect x="4" y="13" width="3.5" height="7" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="10.25" y="8" width="3.5" height="12" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="16.5" y="4" width="3.5" height="16" rx="1" fill="rgba(235,235,245,0.55)"/></svg><span style="font-size:10px;font-weight:500;color:rgba(235,235,245,0.55)">Progress</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7.5" fill="none" stroke="#0A84FF" stroke-width="1.8"/><circle cx="12" cy="12" r="2.5" fill="#0A84FF"/></svg><span style="font-size:10px;font-weight:500;color:#0A84FF">Settings</span></div>
+  </div>
+</div>
+</x-import>
+</div>
+</div>
+
+</div>
+<p class="dv-next">Try next: "show exercise detail + rest timer overlay" · "tweak the Home hero" · "package this for Claude Code"</p>
+</section>
+
+<section class="dv-turn" id="t1">
+<div class="dv-thd"><a class="dv-tid" href="#t1">1</a><span class="dv-tname">Three dark-mode directions — Home + Active Workout</span></div>
+<p class="dv-sub">All three: iOS blue accent, system fonts, native tab bar, comfortable touch targets. They differ in surface treatment, how numbers are typeset, and the set-logging layout (spreadsheet grid vs row cards).</p>
+<div class="dv-opts">
+
+<!-- ══════════ 1a SYSTEM NATIVE ══════════ -->
+<div class="dv-opt" id="1a">
+<div class="dv-olabel"><a class="dv-oid" href="#1a">1a</a>System Native — pure iOS grouped lists, spreadsheet logging grid</div>
+<div class="dv-row">
+
+<!-- 1a HOME -->
+<div data-screen-label="1a Home">
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+<div style="height:100%;box-sizing:border-box;padding:70px 0 0;overflow:hidden;position:relative">
+  <div style="padding:8px 20px 14px;font-size:34px;font-weight:700;color:#fff;letter-spacing:0.4px">Home</div>
+  <div style="margin:0 16px 12px;background:#0A84FF;border-radius:16px;padding:16px 18px;display:flex;align-items:center;gap:14px">
+    <div style="flex:1;display:flex;flex-direction:column;gap:2px">
+      <div style="font-size:13px;font-weight:600;color:rgba(255,255,255,0.75);text-transform:uppercase;letter-spacing:0.5px">Workout in progress</div>
+      <div style="font-size:19px;font-weight:700;color:#fff">Push Day A</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.75)">3 of 5 exercises · 32:14</div>
+    </div>
+    <div style="background:#fff;color:#0A84FF;font-size:15px;font-weight:600;padding:10px 16px;border-radius:22px">Continue</div>
+  </div>
+  <div style="display:flex;gap:10px;margin:0 16px 20px">
+    <div style="flex:1;background:#1C1C1E;border-radius:14px;padding:14px 0;display:flex;align-items:center;justify-content:center;gap:8px">
+      <div style="width:22px;height:22px;border-radius:11px;border:2px solid #0A84FF;display:flex;align-items:center;justify-content:center;color:#0A84FF;font-size:16px;font-weight:600;line-height:1">+</div>
+      <span style="font-size:15px;font-weight:600;color:#fff">Empty Workout</span>
+    </div>
+    <div style="flex:1;background:#1C1C1E;border-radius:14px;padding:14px 0;display:flex;align-items:center;justify-content:center;gap:8px">
+      <div style="width:20px;height:20px;border-radius:5px;border:2px solid #0A84FF"></div>
+      <span style="font-size:15px;font-weight:600;color:#fff">From Template</span>
+    </div>
+  </div>
+  <div style="font-size:13px;color:rgba(235,235,245,0.6);text-transform:uppercase;letter-spacing:-0.08px;padding:0 32px 6px">This Week</div>
+  <div style="margin:0 16px 20px;background:#1C1C1E;border-radius:16px;padding:16px 18px;display:flex;align-items:center;gap:18px">
+    <div style="display:flex;flex-direction:column;gap:3px;flex:1">
+      <div style="font-size:15px;font-weight:600;color:#fff">Weekly goal</div>
+      <div style="font-size:13px;color:rgba(235,235,245,0.6)">3 of 4 workouts</div>
+      <div style="margin-top:8px;height:6px;border-radius:3px;background:rgba(255,255,255,0.12);overflow:hidden"><div style="width:75%;height:100%;background:#0A84FF;border-radius:3px"></div></div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px">
+      <div style="font-size:22px;font-weight:700;color:#fff">182.4</div>
+      <div style="font-size:12px;color:rgba(235,235,245,0.6)">body wt · lbs</div>
+    </div>
+  </div>
+  <div style="font-size:13px;color:rgba(235,235,245,0.6);text-transform:uppercase;letter-spacing:-0.08px;padding:0 32px 6px">Recent Workouts</div>
+  <div style="margin:0 16px;background:#1C1C1E;border-radius:16px;overflow:hidden">
+    <div style="display:flex;align-items:center;gap:12px;padding:13px 16px;position:relative">
+      <div style="flex:1;display:flex;flex-direction:column;gap:1px">
+        <div style="font-size:16px;font-weight:600;color:#fff">Pull Day B</div>
+        <div style="font-size:13px;color:rgba(235,235,245,0.6)">Yesterday · 58 min · 14,230 lbs</div>
+      </div>
+      <div style="font-size:12px;font-weight:600;color:#FFD60A;background:rgba(255,214,10,0.14);padding:4px 8px;border-radius:8px">2 PRs</div>
+      <div style="position:absolute;left:16px;right:0;bottom:0;height:0.5px;background:rgba(84,84,88,0.65)"></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;padding:13px 16px;position:relative">
+      <div style="flex:1;display:flex;flex-direction:column;gap:1px">
+        <div style="font-size:16px;font-weight:600;color:#fff">Leg Day</div>
+        <div style="font-size:13px;color:rgba(235,235,245,0.6)">Fri · 1 h 04 · 18,905 lbs</div>
+      </div>
+      <div style="position:absolute;left:16px;right:0;bottom:0;height:0.5px;background:rgba(84,84,88,0.65)"></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;padding:13px 16px">
+      <div style="flex:1;display:flex;flex-direction:column;gap:1px">
+        <div style="font-size:16px;font-weight:600;color:#fff">Push Day A</div>
+        <div style="font-size:13px;color:rgba(235,235,245,0.6)">Wed · 52 min · 12,410 lbs</div>
+      </div>
+    </div>
+  </div>
+  <div style="position:absolute;bottom:0;left:0;right:0;z-index:40;display:flex;justify-content:space-around;align-items:flex-start;padding:10px 6px 26px;background:rgba(18,18,20,0.94);border-top:0.5px solid rgba(255,255,255,0.1)">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M4 11L12 4l8 7v8a1 1 0 0 1-1 1h-4v-6h-6v6H5a1 1 0 0 1-1-1z" fill="#0A84FF"/></svg><span style="font-size:10px;font-weight:500;color:#0A84FF">Home</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><rect x="2" y="9" width="3" height="6" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="19" y="9" width="3" height="6" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="5.5" y="7" width="3" height="10" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="15.5" y="7" width="3" height="10" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="8.5" y="11" width="7" height="2" fill="rgba(235,235,245,0.55)"/></svg><span style="font-size:10px;font-weight:500;color:rgba(235,235,245,0.55)">Workouts</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" fill="none" stroke="rgba(235,235,245,0.55)" stroke-width="1.8"/></svg><span style="font-size:10px;font-weight:500;color:rgba(235,235,245,0.55)">Templates</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><rect x="4" y="13" width="3.5" height="7" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="10.25" y="8" width="3.5" height="12" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="16.5" y="4" width="3.5" height="16" rx="1" fill="rgba(235,235,245,0.55)"/></svg><span style="font-size:10px;font-weight:500;color:rgba(235,235,245,0.55)">Progress</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7.5" fill="none" stroke="rgba(235,235,245,0.55)" stroke-width="1.8"/><circle cx="12" cy="12" r="2.5" fill="rgba(235,235,245,0.55)"/></svg><span style="font-size:10px;font-weight:500;color:rgba(235,235,245,0.55)">Settings</span></div>
+  </div>
+</div>
+</x-import>
+</div>
+
+<!-- 1a WORKOUT -->
+<div data-screen-label="1a Active Workout">
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+<div style="height:100%;box-sizing:border-box;padding:70px 0 0;overflow:hidden;position:relative">
+  <div style="display:flex;align-items:center;gap:12px;padding:8px 16px 12px">
+    <div style="flex:1;display:flex;flex-direction:column;gap:1px">
+      <div style="font-size:22px;font-weight:700;color:#fff">Push Day A</div>
+      <div style="font-size:13px;color:rgba(235,235,245,0.6)">Mon, Jul 6 · started 6:12 PM</div>
+    </div>
+    <div style="font-size:19px;font-weight:600;color:#0A84FF;font-variant-numeric:tabular-nums">32:14</div>
+    <div style="background:#0A84FF;color:#fff;font-size:15px;font-weight:600;padding:9px 16px;border-radius:20px">Finish</div>
+  </div>
+  <div style="margin:0 16px 14px;background:rgba(10,132,255,0.14);border-radius:12px;padding:10px 14px;display:flex;align-items:center;gap:12px">
+    <div style="font-size:13px;font-weight:600;color:#0A84FF;text-transform:uppercase;letter-spacing:0.5px">Rest</div>
+    <div style="flex:1;height:5px;border-radius:3px;background:rgba(10,132,255,0.25);overflow:hidden"><div style="width:60%;height:100%;background:#0A84FF;border-radius:3px"></div></div>
+    <div style="font-size:16px;font-weight:600;color:#0A84FF;font-variant-numeric:tabular-nums">1:12</div>
+    <div style="font-size:13px;font-weight:600;color:rgba(235,235,245,0.6)">Skip</div>
+  </div>
+  <div style="margin:0 16px 12px;background:#1C1C1E;border-radius:16px;padding:14px 0 6px">
+    <div style="display:flex;align-items:center;padding:0 16px 10px">
+      <div style="flex:1;font-size:17px;font-weight:600;color:#0A84FF">Bench Press (Barbell)</div>
+      <svg width="22" height="6" viewBox="0 0 22 6"><circle cx="3" cy="3" r="2.2" fill="rgba(235,235,245,0.45)"/><circle cx="11" cy="3" r="2.2" fill="rgba(235,235,245,0.45)"/><circle cx="19" cy="3" r="2.2" fill="rgba(235,235,245,0.45)"/></svg>
+    </div>
+    <div style="display:grid;grid-template-columns:44px 1fr 72px 64px 44px;gap:6px;align-items:center;padding:0 16px 6px;font-size:12px;font-weight:600;color:rgba(235,235,245,0.5);text-transform:uppercase">
+      <div>Set</div><div>Previous</div><div style="text-align:center">lbs</div><div style="text-align:center">Reps</div><div style="text-align:center">✓</div>
+    </div>
+    <div style="display:grid;grid-template-columns:44px 1fr 72px 64px 44px;gap:6px;align-items:center;padding:6px 16px;background:rgba(48,209,88,0.08)">
+      <div style="font-size:15px;font-weight:600;color:#FF9F0A">W</div>
+      <div style="font-size:14px;color:rgba(235,235,245,0.45)">95 × 12</div>
+      <div style="background:rgba(255,255,255,0.08);border-radius:8px;padding:8px 0;text-align:center;font-size:16px;font-weight:600;color:#fff">95</div>
+      <div style="background:rgba(255,255,255,0.08);border-radius:8px;padding:8px 0;text-align:center;font-size:16px;font-weight:600;color:#fff">12</div>
+      <div style="display:flex;justify-content:center"><div style="width:28px;height:28px;border-radius:8px;background:#30D158;display:flex;align-items:center;justify-content:center"><svg width="13" height="10" viewBox="0 0 13 10"><path d="M1 5l3.5 3.5L12 1" stroke="#000" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </div>
+    <div style="display:grid;grid-template-columns:44px 1fr 72px 64px 44px;gap:6px;align-items:center;padding:6px 16px;background:rgba(48,209,88,0.08)">
+      <div style="font-size:15px;font-weight:600;color:#fff">1</div>
+      <div style="font-size:14px;color:rgba(235,235,245,0.45)">185 × 8</div>
+      <div style="background:rgba(255,255,255,0.08);border-radius:8px;padding:8px 0;text-align:center;font-size:16px;font-weight:600;color:#fff">190</div>
+      <div style="background:rgba(255,255,255,0.08);border-radius:8px;padding:8px 0;text-align:center;font-size:16px;font-weight:600;color:#fff">8</div>
+      <div style="display:flex;justify-content:center"><div style="width:28px;height:28px;border-radius:8px;background:#30D158;display:flex;align-items:center;justify-content:center"><svg width="13" height="10" viewBox="0 0 13 10"><path d="M1 5l3.5 3.5L12 1" stroke="#000" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </div>
+    <div style="display:grid;grid-template-columns:44px 1fr 72px 64px 44px;gap:6px;align-items:center;padding:6px 16px">
+      <div style="font-size:15px;font-weight:600;color:#fff">2</div>
+      <div style="font-size:14px;color:rgba(235,235,245,0.45)">185 × 8</div>
+      <div style="background:rgba(255,255,255,0.08);border-radius:8px;padding:8px 0;text-align:center;font-size:16px;font-weight:600;color:#fff">190</div>
+      <div style="background:rgba(255,255,255,0.08);border-radius:8px;padding:8px 0;text-align:center;font-size:16px;font-weight:600;color:rgba(235,235,245,0.35)">8</div>
+      <div style="display:flex;justify-content:center"><div style="width:28px;height:28px;border-radius:8px;background:rgba(255,255,255,0.1)"></div></div>
+    </div>
+    <div style="display:grid;grid-template-columns:44px 1fr 72px 64px 44px;gap:6px;align-items:center;padding:6px 16px">
+      <div style="font-size:15px;font-weight:600;color:#fff">3</div>
+      <div style="font-size:14px;color:rgba(235,235,245,0.45)">185 × 7</div>
+      <div style="background:rgba(255,255,255,0.08);border-radius:8px;padding:8px 0;text-align:center;font-size:16px;font-weight:600;color:rgba(235,235,245,0.35)">190</div>
+      <div style="background:rgba(255,255,255,0.08);border-radius:8px;padding:8px 0;text-align:center;font-size:16px;font-weight:600;color:rgba(235,235,245,0.35)">7</div>
+      <div style="display:flex;justify-content:center"><div style="width:28px;height:28px;border-radius:8px;background:rgba(255,255,255,0.1)"></div></div>
+    </div>
+    <div style="margin:8px 16px 8px;padding:10px 0;border-radius:10px;background:rgba(255,255,255,0.06);text-align:center;font-size:14px;font-weight:600;color:#0A84FF">+ Add Set</div>
+  </div>
+  <div style="margin:0 16px 12px;background:#1C1C1E;border-radius:16px;padding:14px 16px;display:flex;align-items:center">
+    <div style="flex:1;font-size:17px;font-weight:600;color:#fff">Overhead Press (Barbell)</div>
+    <div style="font-size:13px;color:rgba(235,235,245,0.5)">0 of 3 sets</div>
+  </div>
+  <div style="margin:0 16px;padding:13px 0;border-radius:14px;border:1.5px dashed rgba(10,132,255,0.5);text-align:center;font-size:15px;font-weight:600;color:#0A84FF">+ Add Exercise</div>
+</div>
+</x-import>
+</div>
+
+</div>
+</div>
+
+<!-- ══════════ 1b PRO DATA ══════════ -->
+<div class="dv-opt" id="1b">
+<div class="dv-olabel"><a class="dv-oid" href="#1b">1b</a>Pro Data — deeper black, monospaced numerals, row-card logging with steppers</div>
+<div class="dv-row">
+
+<!-- 1b HOME -->
+<div data-screen-label="1b Home">
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+<div style="height:100%;box-sizing:border-box;padding:70px 0 0;overflow:hidden;position:relative;background:#050507">
+  <div style="padding:8px 20px 2px;font-size:34px;font-weight:700;color:#fff;letter-spacing:0.4px">Home</div>
+  <div style="padding:0 20px 16px;font-size:13px;color:rgba(255,255,255,0.45);font-family:'SF Mono',ui-monospace,Menlo,monospace">MON JUL 6 · WEEK 27</div>
+  <div style="margin:0 16px 14px;background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:14px;padding:16px 18px;display:flex;align-items:center;gap:14px">
+    <div style="flex:1;display:flex;flex-direction:column;gap:3px">
+      <div style="font-size:11px;font-weight:600;color:#0A84FF;letter-spacing:1px;font-family:'SF Mono',ui-monospace,Menlo,monospace">IN PROGRESS · 32:14</div>
+      <div style="font-size:19px;font-weight:700;color:#fff">Push Day A</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.5)">3/5 exercises · 6,240 lbs so far</div>
+    </div>
+    <div style="background:#0A84FF;color:#fff;font-size:15px;font-weight:600;padding:11px 18px;border-radius:12px">Resume</div>
+  </div>
+  <div style="display:flex;gap:10px;margin:0 16px 18px">
+    <div style="flex:1;background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:12px;padding:13px 0;text-align:center;font-size:14px;font-weight:600;color:#fff">+ Empty</div>
+    <div style="flex:1;background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:12px;padding:13px 0;text-align:center;font-size:14px;font-weight:600;color:#fff">From Template</div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:0 16px 18px">
+    <div style="background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px">
+      <div style="font-size:10.5px;font-weight:600;color:rgba(255,255,255,0.45);letter-spacing:0.8px;font-family:'SF Mono',ui-monospace,Menlo,monospace">WEEK</div>
+      <div style="font-size:22px;font-weight:700;color:#fff;font-family:'SF Mono',ui-monospace,Menlo,monospace">3<span style="font-size:14px;color:rgba(255,255,255,0.4)">/4</span></div>
+      <div style="height:4px;border-radius:2px;background:rgba(255,255,255,0.1);overflow:hidden"><div style="width:75%;height:100%;background:#0A84FF"></div></div>
+    </div>
+    <div style="background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px">
+      <div style="font-size:10.5px;font-weight:600;color:rgba(255,255,255,0.45);letter-spacing:0.8px;font-family:'SF Mono',ui-monospace,Menlo,monospace">STREAK</div>
+      <div style="font-size:22px;font-weight:700;color:#fff;font-family:'SF Mono',ui-monospace,Menlo,monospace">11<span style="font-size:13px;color:rgba(255,255,255,0.4)">wk</span></div>
+      <div style="font-size:11px;color:rgba(255,255,255,0.4)">best 14</div>
+    </div>
+    <div style="background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px">
+      <div style="font-size:10.5px;font-weight:600;color:rgba(255,255,255,0.45);letter-spacing:0.8px;font-family:'SF Mono',ui-monospace,Menlo,monospace">BODY WT</div>
+      <div style="font-size:22px;font-weight:700;color:#fff;font-family:'SF Mono',ui-monospace,Menlo,monospace">182.4</div>
+      <div style="font-size:11px;color:#30D158">▼ 0.8 this wk</div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:baseline;justify-content:space-between;padding:0 20px 8px">
+    <div style="font-size:15px;font-weight:600;color:#fff">Recent</div>
+    <div style="font-size:13px;color:#0A84FF">All history</div>
+  </div>
+  <div style="margin:0 16px;display:flex;flex-direction:column;gap:8px">
+    <div style="background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:12px;padding:13px 16px;display:flex;align-items:center;gap:12px">
+      <div style="flex:1;display:flex;flex-direction:column;gap:1px">
+        <div style="font-size:15px;font-weight:600;color:#fff">Pull Day B</div>
+        <div style="font-size:12.5px;color:rgba(255,255,255,0.45);font-family:'SF Mono',ui-monospace,Menlo,monospace">YDA · 58:12 · 14,230 LB</div>
+      </div>
+      <div style="font-size:11px;font-weight:600;color:#FFD60A;font-family:'SF Mono',ui-monospace,Menlo,monospace">2 PR</div>
+    </div>
+    <div style="background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:12px;padding:13px 16px;display:flex;align-items:center;gap:12px">
+      <div style="flex:1;display:flex;flex-direction:column;gap:1px">
+        <div style="font-size:15px;font-weight:600;color:#fff">Leg Day</div>
+        <div style="font-size:12.5px;color:rgba(255,255,255,0.45);font-family:'SF Mono',ui-monospace,Menlo,monospace">FRI · 1:04:30 · 18,905 LB</div>
+      </div>
+    </div>
+  </div>
+  <div style="position:absolute;bottom:0;left:0;right:0;z-index:40;display:flex;justify-content:space-around;align-items:flex-start;padding:10px 6px 26px;background:rgba(8,8,10,0.96);border-top:0.5px solid rgba(255,255,255,0.1)">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M4 11L12 4l8 7v8a1 1 0 0 1-1 1h-4v-6h-6v6H5a1 1 0 0 1-1-1z" fill="#0A84FF"/></svg><span style="font-size:10px;font-weight:500;color:#0A84FF">Home</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><rect x="2" y="9" width="3" height="6" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="19" y="9" width="3" height="6" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="5.5" y="7" width="3" height="10" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="15.5" y="7" width="3" height="10" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="8.5" y="11" width="7" height="2" fill="rgba(235,235,245,0.55)"/></svg><span style="font-size:10px;font-weight:500;color:rgba(235,235,245,0.55)">Workouts</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" fill="none" stroke="rgba(235,235,245,0.55)" stroke-width="1.8"/></svg><span style="font-size:10px;font-weight:500;color:rgba(235,235,245,0.55)">Templates</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><rect x="4" y="13" width="3.5" height="7" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="10.25" y="8" width="3.5" height="12" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="16.5" y="4" width="3.5" height="16" rx="1" fill="rgba(235,235,245,0.55)"/></svg><span style="font-size:10px;font-weight:500;color:rgba(235,235,245,0.55)">Progress</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7.5" fill="none" stroke="rgba(235,235,245,0.55)" stroke-width="1.8"/><circle cx="12" cy="12" r="2.5" fill="rgba(235,235,245,0.55)"/></svg><span style="font-size:10px;font-weight:500;color:rgba(235,235,245,0.55)">Settings</span></div>
+  </div>
+</div>
+</x-import>
+</div>
+
+<!-- 1b WORKOUT -->
+<div data-screen-label="1b Active Workout">
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+<div style="height:100%;box-sizing:border-box;padding:70px 0 0;overflow:hidden;position:relative;background:#050507">
+  <div style="display:flex;align-items:center;gap:12px;padding:8px 16px 4px">
+    <div style="flex:1;display:flex;flex-direction:column;gap:1px">
+      <div style="font-size:22px;font-weight:700;color:#fff">Push Day A</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.45);font-family:'SF Mono',ui-monospace,Menlo,monospace">MON JUL 6 · 6:12 PM</div>
+    </div>
+    <div style="background:#0A84FF;color:#fff;font-size:15px;font-weight:600;padding:10px 18px;border-radius:12px">Finish</div>
+  </div>
+  <div style="display:flex;gap:18px;padding:8px 20px 14px;font-family:'SF Mono',ui-monospace,Menlo,monospace">
+    <div style="display:flex;flex-direction:column"><span style="font-size:10.5px;color:rgba(255,255,255,0.4);letter-spacing:0.8px">TIME</span><span style="font-size:17px;font-weight:700;color:#fff">32:14</span></div>
+    <div style="display:flex;flex-direction:column"><span style="font-size:10.5px;color:rgba(255,255,255,0.4);letter-spacing:0.8px">VOLUME</span><span style="font-size:17px;font-weight:700;color:#fff">6,240</span></div>
+    <div style="display:flex;flex-direction:column"><span style="font-size:10.5px;color:rgba(255,255,255,0.4);letter-spacing:0.8px">SETS</span><span style="font-size:17px;font-weight:700;color:#fff">9/16</span></div>
+    <div style="flex:1"></div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end"><span style="font-size:10.5px;color:#0A84FF;letter-spacing:0.8px">REST</span><span style="font-size:17px;font-weight:700;color:#0A84FF">1:12</span></div>
+  </div>
+  <div style="margin:0 16px 10px;display:flex;align-items:center;gap:10px">
+    <div style="flex:1;font-size:16px;font-weight:700;color:#fff">Bench Press <span style="font-weight:400;color:rgba(255,255,255,0.4)">Barbell</span></div>
+    <div style="font-size:11px;font-weight:600;color:#FFD60A;font-family:'SF Mono',ui-monospace,Menlo,monospace">1RM 218</div>
+  </div>
+  <div style="margin:0 16px 8px;background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:14px;padding:12px 14px;display:flex;align-items:center;gap:12px;opacity:0.55">
+    <div style="width:30px;height:30px;border-radius:8px;background:rgba(255,159,10,0.15);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#FF9F0A">W</div>
+    <div style="flex:1;font-size:17px;font-weight:600;color:#fff;font-family:'SF Mono',ui-monospace,Menlo,monospace">95 <span style="font-size:12px;color:rgba(255,255,255,0.4)">LB</span> × 12</div>
+    <div style="width:30px;height:30px;border-radius:15px;background:#30D158;display:flex;align-items:center;justify-content:center"><svg width="13" height="10" viewBox="0 0 13 10"><path d="M1 5l3.5 3.5L12 1" stroke="#000" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+  </div>
+  <div style="margin:0 16px 8px;background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:14px;padding:12px 14px;display:flex;align-items:center;gap:12px;opacity:0.55">
+    <div style="width:30px;height:30px;border-radius:8px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff">1</div>
+    <div style="flex:1;font-size:17px;font-weight:600;color:#fff;font-family:'SF Mono',ui-monospace,Menlo,monospace">190 <span style="font-size:12px;color:rgba(255,255,255,0.4)">LB</span> × 8</div>
+    <div style="font-size:11px;color:rgba(255,255,255,0.35);font-family:'SF Mono',ui-monospace,Menlo,monospace">prev 185×8</div>
+    <div style="width:30px;height:30px;border-radius:15px;background:#30D158;display:flex;align-items:center;justify-content:center"><svg width="13" height="10" viewBox="0 0 13 10"><path d="M1 5l3.5 3.5L12 1" stroke="#000" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+  </div>
+  <div style="margin:0 16px 8px;background:#101014;border:1px solid #0A84FF;border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:12px">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:30px;height:30px;border-radius:8px;background:rgba(10,132,255,0.18);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#0A84FF">2</div>
+      <div style="flex:1;font-size:12px;color:rgba(255,255,255,0.4);font-family:'SF Mono',ui-monospace,Menlo,monospace">PREV 185 × 8 · TARGET 190 × 8</div>
+      <div style="font-size:11px;font-weight:600;color:#0A84FF;font-family:'SF Mono',ui-monospace,Menlo,monospace">RPE 8</div>
+    </div>
+    <div style="display:flex;gap:10px;align-items:stretch">
+      <div style="flex:1.3;background:rgba(255,255,255,0.06);border-radius:12px;padding:10px 12px;display:flex;align-items:center;gap:10px">
+        <div style="width:34px;height:34px;border-radius:9px;background:rgba(255,255,255,0.09);display:flex;align-items:center;justify-content:center;font-size:19px;color:#fff">−</div>
+        <div style="flex:1;text-align:center;display:flex;flex-direction:column"><span style="font-size:23px;font-weight:700;color:#fff;font-family:'SF Mono',ui-monospace,Menlo,monospace">190</span><span style="font-size:10px;color:rgba(255,255,255,0.4);letter-spacing:0.8px">LB</span></div>
+        <div style="width:34px;height:34px;border-radius:9px;background:rgba(255,255,255,0.09);display:flex;align-items:center;justify-content:center;font-size:19px;color:#fff">+</div>
+      </div>
+      <div style="flex:1;background:rgba(255,255,255,0.06);border-radius:12px;padding:10px 12px;display:flex;align-items:center;gap:10px">
+        <div style="width:34px;height:34px;border-radius:9px;background:rgba(255,255,255,0.09);display:flex;align-items:center;justify-content:center;font-size:19px;color:#fff">−</div>
+        <div style="flex:1;text-align:center;display:flex;flex-direction:column"><span style="font-size:23px;font-weight:700;color:#fff;font-family:'SF Mono',ui-monospace,Menlo,monospace">8</span><span style="font-size:10px;color:rgba(255,255,255,0.4);letter-spacing:0.8px">REPS</span></div>
+        <div style="width:34px;height:34px;border-radius:9px;background:rgba(255,255,255,0.09);display:flex;align-items:center;justify-content:center;font-size:19px;color:#fff">+</div>
+      </div>
+    </div>
+    <div style="background:#0A84FF;border-radius:12px;padding:13px 0;text-align:center;font-size:16px;font-weight:700;color:#fff">Complete Set</div>
+  </div>
+  <div style="margin:0 16px 8px;background:#101014;border:0.5px solid rgba(255,255,255,0.09);border-radius:14px;padding:12px 14px;display:flex;align-items:center;gap:12px">
+    <div style="width:30px;height:30px;border-radius:8px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff">3</div>
+    <div style="flex:1;font-size:14px;color:rgba(255,255,255,0.4);font-family:'SF Mono',ui-monospace,Menlo,monospace">prev 185 × 7</div>
+    <div style="width:30px;height:30px;border-radius:15px;background:rgba(255,255,255,0.08)"></div>
+  </div>
+  <div style="margin:0 16px;display:flex;gap:10px">
+    <div style="flex:1;padding:12px 0;border-radius:12px;background:rgba(255,255,255,0.06);text-align:center;font-size:14px;font-weight:600;color:#fff">+ Set</div>
+    <div style="flex:1.6;padding:12px 0;border-radius:12px;border:1.5px dashed rgba(10,132,255,0.5);text-align:center;font-size:14px;font-weight:600;color:#0A84FF">+ Exercise</div>
+  </div>
+</div>
+</x-import>
+</div>
+
+</div>
+</div>
+
+<!-- ══════════ 1c GRAPHITE ══════════ -->
+<div class="dv-opt" id="1c">
+<div class="dv-olabel"><a class="dv-oid" href="#1c">1c</a>Graphite — softer graphite surfaces, Home + Progress with Health-style charts</div>
+<div class="dv-row">
+
+<!-- 1c HOME -->
+<div data-screen-label="1c Home">
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+<div style="height:100%;box-sizing:border-box;padding:70px 0 0;overflow:hidden;position:relative;background:#0D0D10">
+  <div style="display:flex;align-items:center;padding:8px 20px 16px">
+    <div style="flex:1;display:flex;flex-direction:column">
+      <div style="font-size:14px;color:rgba(255,255,255,0.5)">Monday, July 6</div>
+      <div style="font-size:30px;font-weight:700;color:#fff">Good evening</div>
+    </div>
+    <div style="width:42px;height:42px;border-radius:21px;background:#1D1D23;border:0.5px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:600;color:rgba(255,255,255,0.7)">JD</div>
+  </div>
+  <div style="margin:0 16px 12px;background:linear-gradient(140deg,#15243C,#101720);border:0.5px solid rgba(10,132,255,0.35);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:14px">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="flex:1;display:flex;flex-direction:column;gap:2px">
+        <div style="font-size:13px;font-weight:600;color:#64A9F5">Workout in progress</div>
+        <div style="font-size:20px;font-weight:700;color:#fff">Push Day A</div>
+      </div>
+      <div style="font-size:24px;font-weight:700;color:#fff;font-variant-numeric:tabular-nums">32:14</div>
+    </div>
+    <div style="display:flex;gap:10px">
+      <div style="flex:1;background:#0A84FF;border-radius:12px;padding:12px 0;text-align:center;font-size:15px;font-weight:600;color:#fff">Continue</div>
+      <div style="width:110px;background:rgba(255,255,255,0.08);border-radius:12px;padding:12px 0;text-align:center;font-size:15px;font-weight:600;color:rgba(255,255,255,0.8)">Discard</div>
+    </div>
+  </div>
+  <div style="display:flex;gap:10px;margin:0 16px 18px">
+    <div style="flex:1;background:#17171C;border-radius:14px;padding:13px 0;text-align:center;font-size:14px;font-weight:600;color:#fff">Start Empty</div>
+    <div style="flex:1;background:#17171C;border-radius:14px;padding:13px 0;text-align:center;font-size:14px;font-weight:600;color:#fff">Template</div>
+  </div>
+  <div style="margin:0 16px 12px;background:#17171C;border-radius:18px;padding:16px 18px;display:flex;flex-direction:column;gap:12px">
+    <div style="display:flex;align-items:baseline;justify-content:space-between">
+      <div style="font-size:15px;font-weight:600;color:#fff">This week</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.45)">3 of 4 workouts</div>
+    </div>
+    <div style="display:flex;gap:8px">
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:100%;height:44px;border-radius:8px;background:#0A84FF;opacity:0.9"></div><span style="font-size:11px;color:rgba(255,255,255,0.5)">M</span></div>
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:100%;height:44px;border-radius:8px;background:rgba(255,255,255,0.07)"></div><span style="font-size:11px;color:rgba(255,255,255,0.5)">T</span></div>
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:100%;height:44px;border-radius:8px;background:#0A84FF;opacity:0.9"></div><span style="font-size:11px;color:rgba(255,255,255,0.5)">W</span></div>
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:100%;height:44px;border-radius:8px;background:rgba(255,255,255,0.07)"></div><span style="font-size:11px;color:rgba(255,255,255,0.5)">T</span></div>
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:100%;height:44px;border-radius:8px;background:#0A84FF;opacity:0.9"></div><span style="font-size:11px;color:rgba(255,255,255,0.5)">F</span></div>
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:100%;height:44px;border-radius:8px;background:rgba(255,255,255,0.07);border:1px dashed rgba(255,255,255,0.2);box-sizing:border-box"></div><span style="font-size:11px;color:rgba(255,255,255,0.5)">S</span></div>
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:100%;height:44px;border-radius:8px;background:rgba(255,255,255,0.07)"></div><span style="font-size:11px;color:rgba(255,255,255,0.5)">S</span></div>
+    </div>
+  </div>
+  <div style="display:flex;gap:10px;margin:0 16px">
+    <div style="flex:1;background:#17171C;border-radius:16px;padding:14px 16px;display:flex;flex-direction:column;gap:2px">
+      <div style="font-size:12px;color:rgba(255,255,255,0.45)">Body weight</div>
+      <div style="font-size:24px;font-weight:700;color:#fff">182.4 <span style="font-size:13px;font-weight:500;color:rgba(255,255,255,0.4)">lbs</span></div>
+      <svg width="100%" height="26" viewBox="0 0 130 26" preserveAspectRatio="none"><path d="M0 8 L18 10 L36 9 L54 14 L72 12 L90 17 L108 16 L130 20" stroke="#30D158" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+    </div>
+    <div style="flex:1;background:#17171C;border-radius:16px;padding:14px 16px;display:flex;flex-direction:column;gap:2px">
+      <div style="font-size:12px;color:rgba(255,255,255,0.45)">Latest PR</div>
+      <div style="font-size:17px;font-weight:700;color:#fff">Deadlift 315×5</div>
+      <div style="font-size:12px;color:#FFD60A;margin-top:4px">Best est. 1RM · yesterday</div>
+    </div>
+  </div>
+  <div style="position:absolute;bottom:0;left:0;right:0;z-index:40;display:flex;justify-content:space-around;align-items:flex-start;padding:10px 6px 26px;background:rgba(14,14,17,0.96);border-top:0.5px solid rgba(255,255,255,0.09)">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M4 11L12 4l8 7v8a1 1 0 0 1-1 1h-4v-6h-6v6H5a1 1 0 0 1-1-1z" fill="#0A84FF"/></svg><span style="font-size:10px;font-weight:500;color:#0A84FF">Home</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><rect x="2" y="9" width="3" height="6" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="19" y="9" width="3" height="6" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="5.5" y="7" width="3" height="10" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="15.5" y="7" width="3" height="10" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="8.5" y="11" width="7" height="2" fill="rgba(235,235,245,0.55)"/></svg><span style="font-size:10px;font-weight:500;color:rgba(235,235,245,0.55)">Workouts</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" fill="none" stroke="rgba(235,235,245,0.55)" stroke-width="1.8"/></svg><span style="font-size:10px;font-weight:500;color:rgba(235,235,245,0.55)">Templates</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><rect x="4" y="13" width="3.5" height="7" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="10.25" y="8" width="3.5" height="12" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="16.5" y="4" width="3.5" height="16" rx="1" fill="rgba(235,235,245,0.55)"/></svg><span style="font-size:10px;font-weight:500;color:rgba(235,235,245,0.55)">Progress</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7.5" fill="none" stroke="rgba(235,235,245,0.55)" stroke-width="1.8"/><circle cx="12" cy="12" r="2.5" fill="rgba(235,235,245,0.55)"/></svg><span style="font-size:10px;font-weight:500;color:rgba(235,235,245,0.55)">Settings</span></div>
+  </div>
+</div>
+</x-import>
+</div>
+
+<!-- 1c PROGRESS -->
+<div data-screen-label="1c Progress">
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+<div style="height:100%;box-sizing:border-box;padding:70px 0 0;overflow:hidden;position:relative;background:#0D0D10">
+  <div style="padding:8px 20px 14px;font-size:34px;font-weight:700;color:#fff;letter-spacing:0.4px">Progress</div>
+  <div style="display:flex;gap:8px;margin:0 16px 16px">
+    <div style="padding:8px 16px;border-radius:18px;background:#fff;font-size:14px;font-weight:600;color:#000">3M</div>
+    <div style="padding:8px 16px;border-radius:18px;background:#17171C;font-size:14px;font-weight:600;color:rgba(255,255,255,0.6)">6M</div>
+    <div style="padding:8px 16px;border-radius:18px;background:#17171C;font-size:14px;font-weight:600;color:rgba(255,255,255,0.6)">1Y</div>
+    <div style="padding:8px 16px;border-radius:18px;background:#17171C;font-size:14px;font-weight:600;color:rgba(255,255,255,0.6)">All</div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 16px 12px">
+    <div style="background:#17171C;border-radius:16px;padding:14px 16px;display:flex;flex-direction:column;gap:1px">
+      <div style="font-size:12px;color:rgba(255,255,255,0.45)">Workouts</div>
+      <div style="font-size:26px;font-weight:700;color:#fff">148</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.45)">4.1 / week avg</div>
+    </div>
+    <div style="background:#17171C;border-radius:16px;padding:14px 16px;display:flex;flex-direction:column;gap:1px">
+      <div style="font-size:12px;color:rgba(255,255,255,0.45)">Current streak</div>
+      <div style="font-size:26px;font-weight:700;color:#fff">11 <span style="font-size:14px;font-weight:500;color:rgba(255,255,255,0.4)">wks</span></div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.45)">longest 14</div>
+    </div>
+  </div>
+  <div style="margin:0 16px 12px;background:#17171C;border-radius:18px;padding:16px 18px;display:flex;flex-direction:column;gap:10px">
+    <div style="display:flex;align-items:baseline;justify-content:space-between">
+      <div style="display:flex;flex-direction:column"><span style="font-size:13px;color:rgba(255,255,255,0.45)">Total volume · weekly</span><span style="font-size:22px;font-weight:700;color:#fff">52,340 <span style="font-size:13px;font-weight:500;color:rgba(255,255,255,0.4)">lbs</span></span></div>
+      <div style="font-size:13px;font-weight:600;color:#30D158">+8.2%</div>
+    </div>
+    <svg width="100%" height="72" viewBox="0 0 330 72" preserveAspectRatio="none">
+      <line x1="0" y1="18" x2="330" y2="18" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+      <line x1="0" y1="40" x2="330" y2="40" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+      <line x1="0" y1="62" x2="330" y2="62" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+      <path d="M0 58 L30 54 L60 56 L90 48 L120 50 L150 42 L180 45 L210 36 L240 38 L270 28 L300 24 L330 18" stroke="#0A84FF" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <circle cx="330" cy="18" r="4" fill="#0A84FF"/>
+    </svg>
+    <div style="display:flex;justify-content:space-between;font-size:11px;color:rgba(255,255,255,0.35)"><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span></div>
+  </div>
+  <div style="margin:0 16px 12px;background:#17171C;border-radius:18px;padding:16px 18px;display:flex;flex-direction:column;gap:10px">
+    <div style="display:flex;align-items:baseline;justify-content:space-between">
+      <div style="display:flex;flex-direction:column"><span style="font-size:13px;color:rgba(255,255,255,0.45)">Bench Press · est. 1RM</span><span style="font-size:22px;font-weight:700;color:#fff">218 <span style="font-size:13px;font-weight:500;color:rgba(255,255,255,0.4)">lbs</span></span></div>
+      <div style="font-size:13px;font-weight:600;color:#30D158">+12 lbs</div>
+    </div>
+    <svg width="100%" height="56" viewBox="0 0 330 56" preserveAspectRatio="none">
+      <path d="M0 46 L40 44 L80 45 L120 38 L160 36 L200 30 L240 26 L280 20 L330 12" stroke="#FFD60A" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <circle cx="330" cy="12" r="4" fill="#FFD60A"/>
+    </svg>
+  </div>
+  <div style="margin:0 16px;background:#17171C;border-radius:16px;padding:14px 18px;display:flex;align-items:center">
+    <div style="flex:1;font-size:15px;font-weight:600;color:#fff">Personal records</div>
+    <div style="font-size:13px;color:rgba(255,255,255,0.45);margin-right:8px">23 records</div>
+    <svg width="8" height="14" viewBox="0 0 8 14"><path d="M1 1l6 6-6 6" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+  <div style="position:absolute;bottom:0;left:0;right:0;z-index:40;display:flex;justify-content:space-around;align-items:flex-start;padding:10px 6px 26px;background:rgba(14,14,17,0.96);border-top:0.5px solid rgba(255,255,255,0.09)">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M4 11L12 4l8 7v8a1 1 0 0 1-1 1h-4v-6h-6v6H5a1 1 0 0 1-1-1z" fill="rgba(235,235,245,0.55)"/></svg><span style="font-size:10px;font-weight:500;color:rgba(235,235,245,0.55)">Home</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><rect x="2" y="9" width="3" height="6" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="19" y="9" width="3" height="6" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="5.5" y="7" width="3" height="10" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="15.5" y="7" width="3" height="10" rx="1" fill="rgba(235,235,245,0.55)"/><rect x="8.5" y="11" width="7" height="2" fill="rgba(235,235,245,0.55)"/></svg><span style="font-size:10px;font-weight:500;color:rgba(235,235,245,0.55)">Workouts</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" fill="none" stroke="rgba(235,235,245,0.55)" stroke-width="1.8"/></svg><span style="font-size:10px;font-weight:500;color:rgba(235,235,245,0.55)">Templates</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><rect x="4" y="13" width="3.5" height="7" rx="1" fill="#0A84FF"/><rect x="10.25" y="8" width="3.5" height="12" rx="1" fill="#0A84FF"/><rect x="16.5" y="4" width="3.5" height="16" rx="1" fill="#0A84FF"/></svg><span style="font-size:10px;font-weight:500;color:#0A84FF">Progress</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;width:62px"><svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7.5" fill="none" stroke="rgba(235,235,245,0.55)" stroke-width="1.8"/><circle cx="12" cy="12" r="2.5" fill="rgba(235,235,245,0.55)"/></svg><span style="font-size:10px;font-weight:500;color:rgba(235,235,245,0.55)">Settings</span></div>
+  </div>
+</div>
+</x-import>
+</div>
+
+</div>
+</div>
+
+</div>
+<p class="dv-next">Try next: "build out all 5 tabs in the style of <a class="dv-oid" href="#1a">1a</a>" · "<a class="dv-oid" href="#1b">1b</a>'s logging cards but on <a class="dv-oid" href="#1a">1a</a>'s surfaces" · "show me <a class="dv-oid" href="#1c">1c</a>'s Home with the grid logging"</p>
+</section>
+
+</x-dc>
+</body>
+</html>
