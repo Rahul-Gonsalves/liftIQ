@@ -21,7 +21,9 @@ enum CSVExporter {
         // Workouts + sets, flattened Strong-style.
         var lines = [row(["workout", "startDate", "endDate", "durationSec", "workoutNotes",
                           "exercise", "exerciseOrder", "setOrder", "setType", "weightLbs",
-                          "reps", "durationSecSet", "distanceMiles", "rpe", "completed", "setNotes"])]
+                          "reps", "durationSecSet", "distanceMiles",
+                          "weightRightLbs", "repsRight", "durationSecRightSet", "distanceRightMiles",
+                          "rpe", "completed", "setNotes"])]
         let workouts = (try? context.fetch(FetchDescriptor<Workout>(
             sortBy: [SortDescriptor(\.startDate)]))) ?? []
         for w in workouts {
@@ -36,6 +38,10 @@ enum CSVExporter {
                         set.reps.map(String.init) ?? "",
                         set.durationSec.map(String.init) ?? "",
                         set.distance.map { String($0) } ?? "",
+                        set.weightRight.map { String($0) } ?? "",
+                        set.repsRight.map(String.init) ?? "",
+                        set.durationSecRight.map(String.init) ?? "",
+                        set.distanceRight.map { String($0) } ?? "",
                         set.rpe.map { String($0) } ?? "",
                         String(set.completed), set.notes,
                     ]))
@@ -48,12 +54,12 @@ enum CSVExporter {
         let exercises = (try? context.fetch(FetchDescriptor<Exercise>())) ?? []
         files["exercises.csv"] = ([row(["seedID", "name", "type", "equipment",
                                         "primaryMuscles", "secondaryMuscles", "isCustom",
-                                        "isHidden", "notes"])]
+                                        "isHidden", "isUnilateral", "notes"])]
             + exercises.map {
                 row([$0.seedID, $0.name, $0.typeRaw, $0.equipment,
                      $0.primaryMuscles.joined(separator: ";"),
                      $0.secondaryMuscles.joined(separator: ";"),
-                     String($0.isCustom), String($0.isHidden), $0.notes])
+                     String($0.isCustom), String($0.isHidden), String($0.isUnilateral), $0.notes])
             }).joined(separator: "\n")
 
         // Templates.

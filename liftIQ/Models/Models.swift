@@ -19,13 +19,14 @@ final class Exercise {
     var isCustom: Bool
     var isHidden: Bool
     var notes: String
+    var isUnilateral: Bool = false // modifier: log L+R per set; combines with any base type
 
     var type: ExerciseType { ExerciseType(rawValue: typeRaw) ?? .weightReps }
 
     init(seedID: String, name: String, type: ExerciseType, equipment: String,
          primaryMuscles: [String] = [], secondaryMuscles: [String] = [],
          instructions: String = "", isCustom: Bool = false, isHidden: Bool = false,
-         notes: String = "") {
+         notes: String = "", isUnilateral: Bool = false) {
         self.seedID = seedID
         self.name = name
         self.typeRaw = type.rawValue
@@ -36,6 +37,7 @@ final class Exercise {
         self.isCustom = isCustom
         self.isHidden = isHidden
         self.notes = notes
+        self.isUnilateral = isUnilateral
     }
 }
 
@@ -55,7 +57,7 @@ final class Workout {
     /// Total volume in lbs across completed weight×reps sets.
     var totalVolume: Double {
         exercises.flatMap(\.sets).filter(\.completed)
-            .reduce(0) { $0 + ($1.weight ?? 0) * Double($1.reps ?? 0) }
+            .reduce(0) { $0 + $1.volume }
     }
     var completedSetCount: Int { exercises.flatMap(\.sets).filter(\.completed).count }
     var totalSetCount: Int { exercises.reduce(0) { $0 + $1.sets.count } }
@@ -91,7 +93,7 @@ final class WorkoutExercise {
 @Model
 final class ExerciseSet {
     var order: Int
-    var weight: Double? // lbs
+    var weight: Double? // lbs — left side for unilateral
     var reps: Int?
     var durationSec: Int?
     var distance: Double? // miles
@@ -100,16 +102,26 @@ final class ExerciseSet {
     var setTypeRaw: String
     var notes: String
     var workoutExercise: WorkoutExercise?
+    // Right-side mirrors for unilateral exercises; nil for bilateral.
+    var weightRight: Double?
+    var repsRight: Int?
+    var durationSecRight: Int?
+    var distanceRight: Double?
 
     var setType: SetType {
         get { SetType(rawValue: setTypeRaw) ?? .normal }
         set { setTypeRaw = newValue.rawValue }
     }
-    var volume: Double { (weight ?? 0) * Double(reps ?? 0) }
+    var volume: Double {
+        (weight ?? 0) * Double(reps ?? 0)
+        + (weightRight ?? 0) * Double(repsRight ?? 0)
+    }
 
     init(order: Int, weight: Double? = nil, reps: Int? = nil, durationSec: Int? = nil,
          distance: Double? = nil, rpe: Double? = nil, completed: Bool = false,
-         setType: SetType = .normal, notes: String = "") {
+         setType: SetType = .normal, notes: String = "",
+         weightRight: Double? = nil, repsRight: Int? = nil,
+         durationSecRight: Int? = nil, distanceRight: Double? = nil) {
         self.order = order
         self.weight = weight
         self.reps = reps
@@ -119,6 +131,10 @@ final class ExerciseSet {
         self.completed = completed
         self.setTypeRaw = setType.rawValue
         self.notes = notes
+        self.weightRight = weightRight
+        self.repsRight = repsRight
+        self.durationSecRight = durationSecRight
+        self.distanceRight = distanceRight
     }
 }
 

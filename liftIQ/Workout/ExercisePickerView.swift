@@ -34,7 +34,7 @@ struct ExercisePickerView: View {
                             Text(exercise.name)
                                 .font(.system(size: 16, weight: .medium))
                                 .foregroundStyle(.white)
-                            Text("\(exercise.equipment) · \(exercise.primaryMuscles.joined(separator: ", "))")
+                            Text("\(exercise.equipment)\(exercise.isUnilateral ? " · Unilateral" : "") · \(exercise.primaryMuscles.joined(separator: ", "))")
                                 .font(.system(size: 13))
                                 .foregroundStyle(Theme.secondaryText)
                         }

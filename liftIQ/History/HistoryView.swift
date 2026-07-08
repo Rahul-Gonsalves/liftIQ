@@ -140,7 +140,7 @@ struct HistoryView: View {
         workout.sortedExercises.prefix(3).compactMap { we -> String? in
             guard let name = we.exercise?.name else { return nil }
             let done = we.sets.filter(\.completed)
-            let topReps = done.compactMap(\.reps).max() ?? 0
+            let topReps = done.flatMap { [$0.reps, $0.repsRight] }.compactMap { $0 }.max() ?? 0
             return "\(name) \(done.count)×\(topReps)"
         }
         .joined(separator: " · ")

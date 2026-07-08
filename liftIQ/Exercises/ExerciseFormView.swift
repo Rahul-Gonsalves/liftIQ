@@ -16,6 +16,7 @@ struct ExerciseFormView: View {
     @State private var primaryMuscles: Set<String> = []
     @State private var secondaryMuscles: Set<String> = []
     @State private var instructions = ""
+    @State private var isUnilateral = false
     @State private var loaded = false
 
     static let equipmentOptions = ["Barbell", "Dumbbell", "Machine", "Cable",
@@ -39,6 +40,18 @@ struct ExerciseFormView: View {
                         .listRowInsets(EdgeInsets(top: 10, leading: 12, bottom: 10, trailing: 12))
                 } header: {
                     EyebrowText(text: "TYPE")
+                }
+                .listRowBackground(Theme.card)
+
+                Section {
+                    Toggle("Unilateral (log left & right)", isOn: $isUnilateral)
+                        .tint(Theme.accent)
+                } header: {
+                    EyebrowText(text: "SIDES")
+                } footer: {
+                    Text("Each set records the left and right side separately.")
+                        .font(.system(size: 12))
+                        .foregroundStyle(Theme.tertiaryText)
                 }
                 .listRowBackground(Theme.card)
 
@@ -158,6 +171,7 @@ struct ExerciseFormView: View {
             primaryMuscles = Set(exercise.primaryMuscles)
             secondaryMuscles = Set(exercise.secondaryMuscles)
             instructions = exercise.instructions
+            isUnilateral = exercise.isUnilateral
         } else {
             name = prefillName
         }
@@ -171,12 +185,14 @@ struct ExerciseFormView: View {
             exercise.primaryMuscles = primaryMuscles.sorted()
             exercise.secondaryMuscles = secondaryMuscles.sorted()
             exercise.instructions = instructions
+            exercise.isUnilateral = isUnilateral
         } else {
             let created = Exercise(seedID: "custom.\(UUID().uuidString)",
                                    name: name, type: type, equipment: equipment,
                                    primaryMuscles: primaryMuscles.sorted(),
                                    secondaryMuscles: secondaryMuscles.sorted(),
-                                   instructions: instructions, isCustom: true)
+                                   instructions: instructions, isCustom: true,
+                                   isUnilateral: isUnilateral)
             context.insert(created)
             try? context.save()
             onCreate?(created)

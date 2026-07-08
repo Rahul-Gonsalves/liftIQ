@@ -109,61 +109,99 @@ struct WorkoutDetailView: View {
     }
 
     private func setRow(_ set: ExerciseSet, in we: WorkoutExercise) -> some View {
-        HStack(spacing: 10) {
-            Text(set.setType.marker ?? "\(we.sortedSets.filter { $0.setType != .warmup }.firstIndex { $0.persistentModelID == set.persistentModelID }.map { $0 + 1 } ?? 0)")
-                .font(.mono(14, .semibold))
-                .foregroundStyle(set.setType == .warmup ? Theme.warmup : Theme.secondaryText)
-                .frame(width: 26)
-            if we.exercise?.type.usesWeight ?? true {
-                TextField("wt", value: weightBinding(set), format: .number)
-                    .keyboardType(.decimalPad)
-                    .font(.mono(14))
-                    .frame(width: 70)
-                    .multilineTextAlignment(.center)
-                    .padding(.vertical, 5)
-                    .background(Theme.insetControl)
-                    .clipShape(RoundedRectangle(cornerRadius: 6))
-                Text("×").foregroundStyle(Theme.tertiaryText)
-            }
-            if we.exercise?.type.usesReps ?? true {
-                TextField("reps", value: Binding(
-                    get: { set.reps }, set: { set.reps = $0 }
-                ), format: .number)
-                    .keyboardType(.numberPad)
-                    .font(.mono(14))
-                    .frame(width: 54)
-                    .multilineTextAlignment(.center)
-                    .padding(.vertical, 5)
-                    .background(Theme.insetControl)
-                    .clipShape(RoundedRectangle(cornerRadius: 6))
-            }
-            Spacer()
-            if !set.completed {
-                Text("SKIPPED")
-                    .font(.mono(10))
-                    .foregroundStyle(Theme.tertiaryText)
-            }
-            Button {
-                let affected = we.exercise
-                context.delete(set)
-                try? context.save()
-                if let affected {
-                    PRService.rebuild(exercise: affected, context: context)
+        let isUnilateral = we.exercise?.isUnilateral ?? false
+        return VStack(alignment: .leading, spacing: 4) {
+            HStack(spacing: 10) {
+                Text(set.setType.marker ?? "\(we.sortedSets.filter { $0.setType != .warmup }.firstIndex { $0.persistentModelID == set.persistentModelID }.map { $0 + 1 } ?? 0)")
+                    .font(.mono(14, .semibold))
+                    .foregroundStyle(set.setType == .warmup ? Theme.warmup : Theme.secondaryText)
+                    .frame(width: 26)
+                if isUnilateral { Text("L").font(.mono(11, .semibold)).foregroundStyle(Theme.accent) }
+                if we.exercise?.type.usesWeight ?? true {
+                    TextField("wt", value: weightBinding(set), format: .number)
+                        .keyboardType(.decimalPad)
+                        .font(.mono(14))
+                        .frame(width: 70)
+                        .multilineTextAlignment(.center)
+                        .padding(.vertical, 5)
+                        .background(Theme.insetControl)
+                        .clipShape(RoundedRectangle(cornerRadius: 6))
+                    Text("×").foregroundStyle(Theme.tertiaryText)
                 }
-            } label: {
-                Image(systemName: "minus.circle")
-                    .font(.system(size: 14))
-                    .foregroundStyle(Theme.tertiaryText)
+                if we.exercise?.type.usesReps ?? true {
+                    TextField("reps", value: Binding(
+                        get: { set.reps }, set: { set.reps = $0 }
+                    ), format: .number)
+                        .keyboardType(.numberPad)
+                        .font(.mono(14))
+                        .frame(width: 54)
+                        .multilineTextAlignment(.center)
+                        .padding(.vertical, 5)
+                        .background(Theme.insetControl)
+                        .clipShape(RoundedRectangle(cornerRadius: 6))
+                }
+                Spacer()
+                if !set.completed {
+                    Text("SKIPPED").font(.mono(10)).foregroundStyle(Theme.tertiaryText)
+                }
+                Button {
+                    let affected = we.exercise
+                    context.delete(set)
+                    try? context.save()
+                    if let affected { PRService.rebuild(exercise: affected, context: context) }
+                } label: {
+                    Image(systemName: "minus.circle")
+                        .font(.system(size: 14))
+                        .foregroundStyle(Theme.tertiaryText)
+                }
+            }
+            if isUnilateral {
+                HStack(spacing: 10) {
+                    Spacer().frame(width: 26)
+                    Text("R").font(.mono(11, .semibold)).foregroundStyle(Theme.secondaryText)
+                    if we.exercise?.type.usesWeight ?? true {
+                        TextField("wt", value: weightRightBinding(set), format: .number)
+                            .keyboardType(.decimalPad)
+                            .font(.mono(14))
+                            .frame(width: 70)
+                            .multilineTextAlignment(.center)
+                            .padding(.vertical, 5)
+                            .background(Theme.insetControl)
+                            .clipShape(RoundedRectangle(cornerRadius: 6))
+                        Text("×").foregroundStyle(Theme.tertiaryText)
+                    }
+                    if we.exercise?.type.usesReps ?? true {
+                        TextField("reps", value: Binding(
+                            get: { set.repsRight }, set: { set.repsRight = $0 }
+                        ), format: .number)
+                            .keyboardType(.numberPad)
+                            .font(.mono(14))
+                            .frame(width: 54)
+                            .multilineTextAlignment(.center)
+                            .padding(.vertical, 5)
+                            .background(Theme.insetControl)
+                            .clipShape(RoundedRectangle(cornerRadius: 6))
+                    }
+                }
             }
         }
         .onChange(of: set.weight) { rebuildLater(we) }
         .onChange(of: set.reps) { rebuildLater(we) }
+        .onChange(of: set.weightRight) { rebuildLater(we) }
+        .onChange(of: set.repsRight) { rebuildLater(we) }
     }
 
     private func weightBinding(_ set: ExerciseSet) -> Binding<Double?> {
         Binding(
             get: { set.weight.map { Units.displayWeight($0, metric: metricWeight) } },
             set: { set.weight = $0.map { Units.storeWeight($0, metric: metricWeight) } }
+        )
+    }
+
+    private func weightRightBinding(_ set: ExerciseSet) -> Binding<Double?> {
+        Binding(
+            get: { set.weightRight.map { Units.displayWeight($0, metric: metricWeight) } },
+            set: { set.weightRight = $0.map { Units.storeWeight($0, metric: metricWeight) } }
         )
     }
 

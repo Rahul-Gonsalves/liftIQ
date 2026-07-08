@@ -108,6 +108,7 @@ struct ExerciseCardView: View {
                     previous: previousMatch(for: set),
                     isCurrent: set.persistentModelID == currentSet?.persistentModelID,
                     exerciseType: type,
+                    isUnilateral: exercise?.isUnilateral ?? false,
                     onComplete: onSetCompleted
                 )
                 .contextMenu {
@@ -151,7 +152,9 @@ struct ExerciseCardView: View {
     private func duplicate(_ set: ExerciseSet) {
         let copy = ExerciseSet(order: set.order + 1, weight: set.weight, reps: set.reps,
                                durationSec: set.durationSec, distance: set.distance,
-                               setType: set.setType)
+                               setType: set.setType,
+                               weightRight: set.weightRight, repsRight: set.repsRight,
+                               durationSecRight: set.durationSecRight, distanceRight: set.distanceRight)
         for later in sets where later.order > set.order { later.order += 1 }
         copy.workoutExercise = workoutExercise
         context.insert(copy)

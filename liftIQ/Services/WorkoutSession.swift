@@ -51,8 +51,10 @@ enum WorkoutSession {
             for sourceSet in sourceExercise.sortedSets {
                 let set = ExerciseSet(order: sourceSet.order, weight: sourceSet.weight,
                                       reps: sourceSet.reps, durationSec: sourceSet.durationSec,
-                                      distance: sourceSet.distance,
-                                      setType: sourceSet.setType)
+                                      distance: sourceSet.distance, setType: sourceSet.setType,
+                                      weightRight: sourceSet.weightRight, repsRight: sourceSet.repsRight,
+                                      durationSecRight: sourceSet.durationSecRight,
+                                      distanceRight: sourceSet.distanceRight)
                 set.workoutExercise = we
                 context.insert(set)
             }
@@ -66,7 +68,9 @@ enum WorkoutSession {
         workout.endDate = .now
         for we in workout.exercises {
             for set in we.sets where !set.completed && set.weight == nil
-                && set.reps == nil && set.durationSec == nil && set.distance == nil {
+                && set.reps == nil && set.durationSec == nil && set.distance == nil
+                && set.weightRight == nil && set.repsRight == nil
+                && set.durationSecRight == nil && set.distanceRight == nil {
                 context.delete(set)
             }
         }

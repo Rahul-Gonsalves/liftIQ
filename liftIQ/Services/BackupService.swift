@@ -7,7 +7,7 @@ enum BackupService {
     static let lastBackupKey = "lastBackupDate"
 
     struct Backup: Codable {
-        var version = 1
+        var version = 2
         var exportedAt = Date()
         var exercises: [BExercise] = []
         var workouts: [BWorkout] = []
@@ -23,12 +23,15 @@ enum BackupService {
         var seedID, name, type, equipment, instructions, notes: String
         var primaryMuscles, secondaryMuscles: [String]
         var isCustom, isHidden: Bool
+        var isUnilateral: Bool? // nil in v1 backups → treated as false
     }
     struct BSet: Codable {
         var order: Int
         var weight: Double?; var reps: Int?; var durationSec: Int?
         var distance: Double?; var rpe: Double?
         var completed: Bool; var setType, notes: String
+        var weightRight: Double?; var repsRight: Int?
+        var durationSecRight: Int?; var distanceRight: Double?
     }
     struct BWorkoutExercise: Codable {
         var order: Int; var exerciseSeedID: String?; var notes: String; var sets: [BSet]
@@ -71,7 +74,8 @@ enum BackupService {
                       equipment: $0.equipment, instructions: $0.instructions,
                       notes: $0.notes, primaryMuscles: $0.primaryMuscles,
                       secondaryMuscles: $0.secondaryMuscles,
-                      isCustom: $0.isCustom, isHidden: $0.isHidden)
+                      isCustom: $0.isCustom, isHidden: $0.isHidden,
+                      isUnilateral: $0.isUnilateral)
         }
         backup.workouts = ((try? context.fetch(FetchDescriptor<Workout>())) ?? []).map { w in
             BWorkout(name: w.name, notes: w.notes, startDate: w.startDate,
@@ -85,7 +89,10 @@ enum BackupService {
                                                    reps: $0.reps, durationSec: $0.durationSec,
                                                    distance: $0.distance, rpe: $0.rpe,
                                                    completed: $0.completed,
-                                                   setType: $0.setTypeRaw, notes: $0.notes)
+                                                   setType: $0.setTypeRaw, notes: $0.notes,
+                                                   weightRight: $0.weightRight, repsRight: $0.repsRight,
+                                                   durationSecRight: $0.durationSecRight,
+                                                   distanceRight: $0.distanceRight)
                                           })
                      })
         }
@@ -144,7 +151,8 @@ enum BackupService {
                                     secondaryMuscles: e.secondaryMuscles,
                                     instructions: e.instructions,
                                     isCustom: e.isCustom, isHidden: e.isHidden,
-                                    notes: e.notes)
+                                    notes: e.notes,
+                                    isUnilateral: e.isUnilateral ?? false)
             context.insert(exercise)
             exercisesByID[e.seedID] = exercise
         }
@@ -164,7 +172,10 @@ enum BackupService {
                                           durationSec: s.durationSec, distance: s.distance,
                                           rpe: s.rpe, completed: s.completed,
                                           setType: SetType(rawValue: s.setType) ?? .normal,
-                                          notes: s.notes)
+                                          notes: s.notes,
+                                          weightRight: s.weightRight, repsRight: s.repsRight,
+                                          durationSecRight: s.durationSecRight,
+                                          distanceRight: s.distanceRight)
                     set.workoutExercise = workoutExercise
                     context.insert(set)
                 }

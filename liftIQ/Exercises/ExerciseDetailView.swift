@@ -78,9 +78,20 @@ struct ExerciseDetailView: View {
 
     private var headerCard: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("\(exercise.equipment) · \(exercise.primaryMuscles.joined(separator: ", "))")
-                .font(.system(size: 13))
-                .foregroundStyle(Theme.secondaryText)
+            HStack(spacing: 6) {
+                Text("\(exercise.equipment) · \(exercise.primaryMuscles.joined(separator: ", "))")
+                    .font(.system(size: 13))
+                    .foregroundStyle(Theme.secondaryText)
+                if exercise.isUnilateral {
+                    Text("Unilateral")
+                        .font(.system(size: 11, weight: .medium))
+                        .foregroundStyle(Theme.secondaryText)
+                        .padding(.horizontal, 6)
+                        .padding(.vertical, 2)
+                        .background(Theme.insetControl)
+                        .clipShape(RoundedRectangle(cornerRadius: 6))
+                }
+            }
             if !exercise.secondaryMuscles.isEmpty {
                 Text("Also: \(exercise.secondaryMuscles.joined(separator: ", "))")
                     .font(.system(size: 12))
@@ -108,11 +119,14 @@ struct ExerciseDetailView: View {
 
     private var statTiles: some View {
         let volume = allSets.reduce(0) { $0 + $1.volume }
-        let bestWeight = allSets.compactMap(\.weight).max() ?? 0
-        let bestReps = allSets.compactMap(\.reps).max() ?? 0
+        let bestWeight = allSets.flatMap { [$0.weight, $0.weightRight] }.compactMap { $0 }.max() ?? 0
+        let bestReps = allSets.flatMap { [$0.reps, $0.repsRight] }.compactMap { $0 }.max() ?? 0
         let bestSetVolume = allSets.map(\.volume).max() ?? 0
-        let best1RM = allSets.map {
-            WorkoutStats.estimated1RM(weight: $0.weight ?? 0, reps: $0.reps ?? 0)
+        let best1RM = allSets.flatMap { set -> [Double] in
+            var c: [Double] = []
+            if let w = set.weight, let r = set.reps { c.append(WorkoutStats.estimated1RM(weight: w, reps: r)) }
+            if let w = set.weightRight, let r = set.repsRight { c.append(WorkoutStats.estimated1RM(weight: w, reps: r)) }
+            return c
         }.max() ?? 0
 
         return LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()),
@@ -152,9 +166,11 @@ struct ExerciseDetailView: View {
                     ChartPoint(
                         date: entry.workout.startDate,
                         value: Units.displayWeight(
-                            entry.sets.map {
-                                WorkoutStats.estimated1RM(weight: $0.weight ?? 0,
-                                                          reps: $0.reps ?? 0)
+                            entry.sets.flatMap { set -> [Double] in
+                                var c: [Double] = []
+                                if let w = set.weight, let r = set.reps { c.append(WorkoutStats.estimated1RM(weight: w, reps: r)) }
+                                if let w = set.weightRight, let r = set.repsRight { c.append(WorkoutStats.estimated1RM(weight: w, reps: r)) }
+                                return c
                             }.max() ?? 0,
                             metric: metricWeight))
                 },
@@ -164,8 +180,9 @@ struct ExerciseDetailView: View {
                 points: history.map { entry in
                     ChartPoint(
                         date: entry.workout.startDate,
-                        value: Units.displayWeight(entry.sets.compactMap(\.weight).max() ?? 0,
-                                                   metric: metricWeight))
+                        value: Units.displayWeight(
+                            entry.sets.flatMap { [$0.weight, $0.weightRight] }.compactMap { $0 }.max() ?? 0,
+                            metric: metricWeight))
                 },
                 color: Theme.accent)
         }
@@ -229,11 +246,21 @@ struct ExerciseDetailView: View {
     }
 
     private func setLabel(_ set: ExerciseSet) -> String {
-        if let weight = set.weight, let reps = set.reps {
-            return "\(Int(Units.displayWeight(weight, metric: metricWeight)))×\(reps)"
+        if exercise.isUnilateral {
+            let left = sideLabel(weight: set.weight, reps: set.reps, duration: set.durationSec)
+            let right = sideLabel(weight: set.weightRight, reps: set.repsRight, duration: set.durationSecRight)
+            if left != "—" || right != "—" { return "L \(left) · R \(right)" }
+            return "—"
         }
-        if let reps = set.reps { return "×\(reps)" }
-        if let duration = set.durationSec { return WorkoutStats.clock(TimeInterval(duration)) }
+        return sideLabel(weight: set.weight, reps: set.reps, duration: set.durationSec)
+    }
+
+    private func sideLabel(weight: Double?, reps: Int?, duration: Int?) -> String {
+        if let w = weight, let r = reps {
+            return "\(Int(Units.displayWeight(w, metric: metricWeight)))×\(r)"
+        }
+        if let r = reps { return "×\(r)" }
+        if let d = duration { return WorkoutStats.clock(TimeInterval(d)) }
         return "—"
     }
 

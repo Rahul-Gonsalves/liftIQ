@@ -2,12 +2,14 @@ import SwiftUI
 import SwiftData
 
 // One row of the logging grid: SET | PREVIOUS | LBS | REPS | ✓
+// For unilateral exercises, renders two side-lines (L/R) with a shared checkmark.
 struct SetRowView: View {
     @Bindable var set: ExerciseSet
     let index: Int // display number among non-warmup sets
     let previous: ExerciseSet? // matching set from last workout, for autofill
     let isCurrent: Bool
     let exerciseType: ExerciseType
+    let isUnilateral: Bool
     var onComplete: () -> Void
 
     @Environment(\.modelContext) private var context
@@ -15,84 +17,12 @@ struct SetRowView: View {
     @State private var showDetail = false
 
     var body: some View {
-        HStack(spacing: 8) {
-            // Set number / type marker — tap cycles nothing, opens type menu.
-            Menu {
-                ForEach(SetType.allCases, id: \.self) { type in
-                    Button {
-                        set.setType = type
-                    } label: {
-                        if set.setType == type {
-                            Label(type.label, systemImage: "checkmark")
-                        } else {
-                            Text(type.label)
-                        }
-                    }
-                }
-                Divider()
-                Button("RPE & notes…") { showDetail = true }
-            } label: {
-                Text(set.setType.marker ?? "\(index)")
-                    .font(.mono(15, .semibold))
-                    .foregroundStyle(markerColor)
-                    .frame(width: 34, height: 30)
+        Group {
+            if isUnilateral {
+                unilateralBody
+            } else {
+                bilateralBody
             }
-
-            Text(previousLabel)
-                .font(.mono(13))
-                .foregroundStyle(Theme.tertiaryText)
-                .frame(maxWidth: .infinity, alignment: .leading)
-
-            if exerciseType.usesWeight {
-                numberField(
-                    value: Binding(
-                        get: { set.weight.map { Units.displayWeight($0, metric: metricWeight) } },
-                        set: { set.weight = $0.map { Units.storeWeight($0, metric: metricWeight) } }
-                    ),
-                    placeholder: previous?.weight.map {
-                        format(Units.displayWeight($0, metric: metricWeight))
-                    } ?? "—",
-                    decimal: true
-                )
-            }
-            if exerciseType.usesReps {
-                numberField(
-                    value: Binding(
-                        get: { set.reps.map(Double.init) },
-                        set: { set.reps = $0.map(Int.init) }
-                    ),
-                    placeholder: previous?.reps.map(String.init) ?? "—",
-                    decimal: false
-                )
-            }
-            if exerciseType.usesDuration {
-                numberField(
-                    value: Binding(
-                        get: { set.durationSec.map { Double($0) / 60 } },
-                        set: { set.durationSec = $0.map { Int($0 * 60) } }
-                    ),
-                    placeholder: "min", decimal: true
-                )
-            }
-            if exerciseType.usesDistance {
-                numberField(
-                    value: Binding(
-                        get: { set.distance },
-                        set: { set.distance = $0 }
-                    ),
-                    placeholder: Units.distanceUnit(metric: false), decimal: true
-                )
-            }
-
-            Button(action: toggleComplete) {
-                Image(systemName: "checkmark")
-                    .font(.system(size: 13, weight: .bold))
-                    .foregroundStyle(set.completed ? .black : Theme.secondaryText)
-                    .frame(width: 30, height: 30)
-                    .background(set.completed ? Theme.success : Theme.insetControl)
-                    .clipShape(RoundedRectangle(cornerRadius: 8))
-            }
-            .buttonStyle(.plain)
         }
         .padding(.vertical, 5)
         .padding(.horizontal, 8)
@@ -104,6 +34,164 @@ struct SetRowView: View {
         }
         .sheet(isPresented: $showDetail) { detailSheet }
     }
+
+    // MARK: - Bilateral (unchanged layout)
+
+    private var bilateralBody: some View {
+        HStack(spacing: 8) {
+            setMenu
+
+            Text(previousLabel(previous))
+                .font(.mono(13))
+                .foregroundStyle(Theme.tertiaryText)
+                .frame(maxWidth: .infinity, alignment: .leading)
+
+            inputFields(weight: leftWeightBinding, reps: leftRepsBinding,
+                        duration: leftDurationBinding, distance: leftDistanceBinding,
+                        weightPH: previous?.weight.map { format(Units.displayWeight($0, metric: metricWeight)) } ?? "—",
+                        repsPH: previous?.reps.map(String.init) ?? "—")
+
+            checkmark
+        }
+    }
+
+    // MARK: - Unilateral (L / R rows, shared checkmark)
+
+    private var unilateralBody: some View {
+        HStack(spacing: 8) {
+            setMenu
+
+            VStack(alignment: .leading, spacing: 3) {
+                HStack(spacing: 8) {
+                    Text("L")
+                        .font(.mono(11, .semibold))
+                        .foregroundStyle(Theme.accent)
+                        .frame(width: 14)
+                    Text(previousLabel(previous))
+                        .font(.mono(13))
+                        .foregroundStyle(Theme.tertiaryText)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    inputFields(weight: leftWeightBinding, reps: leftRepsBinding,
+                                duration: leftDurationBinding, distance: leftDistanceBinding,
+                                weightPH: previous?.weight.map { format(Units.displayWeight($0, metric: metricWeight)) } ?? "—",
+                                repsPH: previous?.reps.map(String.init) ?? "—")
+                }
+                HStack(spacing: 8) {
+                    Text("R")
+                        .font(.mono(11, .semibold))
+                        .foregroundStyle(Theme.secondaryText)
+                        .frame(width: 14)
+                    Text(previousLabelRight)
+                        .font(.mono(13))
+                        .foregroundStyle(Theme.tertiaryText)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    inputFields(weight: rightWeightBinding, reps: rightRepsBinding,
+                                duration: rightDurationBinding, distance: rightDistanceBinding,
+                                weightPH: previous?.weightRight.map { format(Units.displayWeight($0, metric: metricWeight)) } ?? "—",
+                                repsPH: previous?.repsRight.map(String.init) ?? "—")
+                }
+            }
+
+            checkmark
+        }
+    }
+
+    // MARK: - Shared subviews
+
+    private var setMenu: some View {
+        Menu {
+            ForEach(SetType.allCases, id: \.self) { type in
+                Button {
+                    set.setType = type
+                } label: {
+                    if set.setType == type {
+                        Label(type.label, systemImage: "checkmark")
+                    } else {
+                        Text(type.label)
+                    }
+                }
+            }
+            Divider()
+            Button("RPE & notes…") { showDetail = true }
+        } label: {
+            Text(set.setType.marker ?? "\(index)")
+                .font(.mono(15, .semibold))
+                .foregroundStyle(markerColor)
+                .frame(width: 34, height: 30)
+        }
+    }
+
+    private var checkmark: some View {
+        Button(action: toggleComplete) {
+            Image(systemName: "checkmark")
+                .font(.system(size: 13, weight: .bold))
+                .foregroundStyle(set.completed ? .black : Theme.secondaryText)
+                .frame(width: 30, height: 30)
+                .background(set.completed ? Theme.success : Theme.insetControl)
+                .clipShape(RoundedRectangle(cornerRadius: 8))
+        }
+        .buttonStyle(.plain)
+    }
+
+    @ViewBuilder
+    private func inputFields(weight: Binding<Double?>, reps: Binding<Double?>,
+                             duration: Binding<Double?>, distance: Binding<Double?>,
+                             weightPH: String, repsPH: String) -> some View {
+        if exerciseType.usesWeight {
+            numberField(value: weight, placeholder: weightPH, decimal: true)
+        }
+        if exerciseType.usesReps {
+            numberField(value: reps, placeholder: repsPH, decimal: false)
+        }
+        if exerciseType.usesDuration {
+            numberField(value: duration, placeholder: "min", decimal: true)
+        }
+        if exerciseType.usesDistance {
+            numberField(value: distance, placeholder: Units.distanceUnit(metric: false), decimal: true)
+        }
+    }
+
+    // MARK: - Bindings
+
+    private var leftWeightBinding: Binding<Double?> {
+        Binding(
+            get: { set.weight.map { Units.displayWeight($0, metric: metricWeight) } },
+            set: { set.weight = $0.map { Units.storeWeight($0, metric: metricWeight) } }
+        )
+    }
+    private var leftRepsBinding: Binding<Double?> {
+        Binding(get: { set.reps.map(Double.init) }, set: { set.reps = $0.map(Int.init) })
+    }
+    private var leftDurationBinding: Binding<Double?> {
+        Binding(
+            get: { set.durationSec.map { Double($0) / 60 } },
+            set: { set.durationSec = $0.map { Int($0 * 60) } }
+        )
+    }
+    private var leftDistanceBinding: Binding<Double?> {
+        Binding(get: { set.distance }, set: { set.distance = $0 })
+    }
+
+    private var rightWeightBinding: Binding<Double?> {
+        Binding(
+            get: { set.weightRight.map { Units.displayWeight($0, metric: metricWeight) } },
+            set: { set.weightRight = $0.map { Units.storeWeight($0, metric: metricWeight) } }
+        )
+    }
+    private var rightRepsBinding: Binding<Double?> {
+        Binding(get: { set.repsRight.map(Double.init) }, set: { set.repsRight = $0.map(Int.init) })
+    }
+    private var rightDurationBinding: Binding<Double?> {
+        Binding(
+            get: { set.durationSecRight.map { Double($0) / 60 } },
+            set: { set.durationSecRight = $0.map { Int($0 * 60) } }
+        )
+    }
+    private var rightDistanceBinding: Binding<Double?> {
+        Binding(get: { set.distanceRight }, set: { set.distanceRight = $0 })
+    }
+
+    // MARK: - Helpers
 
     private var markerColor: Color {
         switch set.setType {
@@ -119,13 +207,23 @@ struct SetRowView: View {
         return .clear
     }
 
-    private var previousLabel: String {
-        guard let previous else { return "—" }
-        if let w = previous.weight, let r = previous.reps {
+    private func previousLabel(_ prev: ExerciseSet?) -> String {
+        guard let prev else { return "—" }
+        if let w = prev.weight, let r = prev.reps {
             return "\(format(Units.displayWeight(w, metric: metricWeight))) × \(r)"
         }
-        if let r = previous.reps { return "× \(r)" }
-        if let d = previous.durationSec { return WorkoutStats.clock(TimeInterval(d)) }
+        if let r = prev.reps { return "× \(r)" }
+        if let d = prev.durationSec { return WorkoutStats.clock(TimeInterval(d)) }
+        return "—"
+    }
+
+    private var previousLabelRight: String {
+        guard let previous else { return "—" }
+        if let w = previous.weightRight, let r = previous.repsRight {
+            return "\(format(Units.displayWeight(w, metric: metricWeight))) × \(r)"
+        }
+        if let r = previous.repsRight { return "× \(r)" }
+        if let d = previous.durationSecRight { return WorkoutStats.clock(TimeInterval(d)) }
         return "—"
     }
 
@@ -153,9 +251,22 @@ struct SetRowView: View {
             set.completed = false
             return
         }
-        // Commit: adopt autofill suggestions if fields were left empty.
-        if exerciseType.usesWeight, set.weight == nil { set.weight = previous?.weight }
-        if exerciseType.usesReps, set.reps == nil { set.reps = previous?.reps }
+        if exerciseType.usesWeight {
+            if set.weight == nil { set.weight = previous?.weight }
+            if isUnilateral, set.weightRight == nil { set.weightRight = previous?.weightRight }
+        }
+        if exerciseType.usesReps {
+            if set.reps == nil { set.reps = previous?.reps }
+            if isUnilateral, set.repsRight == nil { set.repsRight = previous?.repsRight }
+        }
+        if exerciseType.usesDuration {
+            if set.durationSec == nil { set.durationSec = previous?.durationSec }
+            if isUnilateral, set.durationSecRight == nil { set.durationSecRight = previous?.durationSecRight }
+        }
+        if exerciseType.usesDistance {
+            if set.distance == nil { set.distance = previous?.distance }
+            if isUnilateral, set.distanceRight == nil { set.distanceRight = previous?.distanceRight }
+        }
         set.completed = true
         onComplete()
     }
