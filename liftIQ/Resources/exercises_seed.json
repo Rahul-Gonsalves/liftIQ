@@ -1,0 +1,2141 @@
+{
+ "version": 1,
+ "exercises": [
+  {
+   "seedID": "seed.back-squat",
+   "name": "Back Squat",
+   "type": "weightReps",
+   "equipment": "Barbell",
+   "primaryMuscles": [
+    "Quads"
+   ],
+   "secondaryMuscles": [
+    "Glutes",
+    "Hamstrings",
+    "Lower Back"
+   ],
+   "instructions": "Bar on upper traps, feet shoulder-width. Brace and sit down until thighs pass parallel. Drive up through mid-foot keeping chest tall."
+  },
+  {
+   "seedID": "seed.front-squat",
+   "name": "Front Squat",
+   "type": "weightReps",
+   "equipment": "Barbell",
+   "primaryMuscles": [
+    "Quads"
+   ],
+   "secondaryMuscles": [
+    "Glutes",
+    "Abs"
+   ],
+   "instructions": "Rack the bar on front delts with elbows high. Squat deep keeping torso upright. Stand without letting elbows drop."
+  },
+  {
+   "seedID": "seed.box-squat",
+   "name": "Box Squat",
+   "type": "weightReps",
+   "equipment": "Barbell",
+   "primaryMuscles": [
+    "Quads"
+   ],
+   "secondaryMuscles": [
+    "Glutes",
+    "Hamstrings"
+   ],
+   "instructions": "Sit back onto the box under control. Pause briefly without relaxing. Drive up explosively."
+  },
+  {
+   "seedID": "seed.pause-squat",
+   "name": "Pause Squat",
+   "type": "weightReps",
+   "equipment": "Barbell",
+   "primaryMuscles": [
+    "Quads"
+   ],
+   "secondaryMuscles": [
+    "Glutes"
+   ],
+   "instructions": "Squat to depth and hold for 2-3 seconds. Stay braced during the pause. Stand without bouncing."
+  },
+  {
+   "seedID": "seed.deadlift",
+   "name": "Deadlift",
+   "type": "weightReps",
+   "equipment": "Barbell",
+   "primaryMuscles": [
+    "Hamstrings",
+    "Lower Back"
+   ],
+   "secondaryMuscles": [
+    "Glutes",
+    "Traps",
+    "Forearms"
+   ],
+   "instructions": "Bar over mid-foot, grip just outside legs. Brace, push the floor away, and stand tall. Keep the bar against your legs throughout."
+  },
+  {
+   "seedID": "seed.sumo-deadlift",
+   "name": "Sumo Deadlift",
+   "type": "weightReps",
+   "equipment": "Barbell",
+   "primaryMuscles": [
+    "Glutes",
+    "Hamstrings"
+   ],
+   "secondaryMuscles": [
+    "Quads",
+    "Lower Back"
+   ],
+   "instructions": "Wide stance, toes out, grip inside knees. Wedge hips down and drive through the floor. Lock out with glutes."
+  },
+  {
+   "seedID": "seed.romanian-deadlift",
+   "name": "Romanian Deadlift",
+   "type": "weightReps",
+   "equipment": "Barbell",
+   "primaryMuscles": [
+    "Hamstrings"
+   ],
+   "secondaryMuscles": [
+    "Glutes",
+    "Lower Back"
+   ],
+   "instructions": "Start standing, soft knees. Push hips back lowering the bar along your legs. Stop at a deep hamstring stretch and drive hips forward."
+  },
+  {
+   "seedID": "seed.stiff-leg-deadlift",
+   "name": "Stiff-Leg Deadlift",
+   "type": "weightReps",
+   "equipment": "Barbell",
+   "primaryMuscles": [
+    "Hamstrings"
+   ],
+   "secondaryMuscles": [
+    "Lower Back",
+    "Glutes"
+   ],
+   "instructions": "Keep legs nearly straight. Hinge at the hips lowering the bar. Feel the stretch, then extend hips to stand."
+  },
+  {
+   "seedID": "seed.rack-pull",
+   "name": "Rack Pull",
+   "type": "weightReps",
+   "equipment": "Barbell",
+   "primaryMuscles": [
+    "Lower Back",
+    "Traps"
+   ],
+   "secondaryMuscles": [
+    "Glutes",
+    "Forearms"
+   ],
+   "instructions": "Set the bar at knee height in a rack. Hinge, grip, and pull to lockout. Squeeze traps at the top."
+  },
+  {
+   "seedID": "seed.bench-press",
+   "name": "Bench Press",
+   "type": "weightReps",
+   "equipment": "Barbell",
+   "primaryMuscles": [
+    "Chest"
+   ],
+   "secondaryMuscles": [
+    "Triceps",
+    "Front Delts"
+   ],
+   "instructions": "Lie on the bench, grip slightly wider than shoulders. Lower the bar to mid-chest with elbows ~45°. Press to lockout keeping shoulder blades pinned."
+  },
+  {
+   "seedID": "seed.close-grip-bench-press",
+   "name": "Close-Grip Bench Press",
+   "type": "weightReps",
+   "equipment": "Barbell",
+   "primaryMuscles": [
+    "Triceps"
+   ],
+   "secondaryMuscles": [
+    "Chest",
+    "Front Delts"
+   ],
+   "instructions": "Grip at shoulder width. Lower to lower chest keeping elbows tucked. Press up focusing on triceps."
+  },
+  {
+   "seedID": "seed.incline-bench-press",
+   "name": "Incline Bench Press",
+   "type": "weightReps",
+   "equipment": "Barbell",
+   "primaryMuscles": [
+    "Chest"
+   ],
+   "secondaryMuscles": [
+    "Front Delts",
+    "Triceps"
+   ],
+   "instructions": "Set bench to 30-45°. Lower the bar to upper chest. Press up and slightly back."
+  },
+  {
+   "seedID": "seed.decline-bench-press",
+   "name": "Decline Bench Press",
+   "type": "weightReps",
+   "equipment": "Barbell",
+   "primaryMuscles": [
+    "Chest"
+   ],
+   "secondaryMuscles": [
+    "Triceps"
+   ],
+   "instructions": "Lie on a decline bench. Lower to lower chest. Press to lockout."
+  },
+  {
+   "seedID": "seed.overhead-press",
+   "name": "Overhead Press",
+   "type": "weightReps",
+   "equipment": "Barbell",
+   "primaryMuscles": [
+    "Front Delts"
+   ],
+   "secondaryMuscles": [
+    "Triceps",
+    "Side Delts",
+    "Abs"
+   ],
+   "instructions": "Bar at collarbone, elbows slightly forward. Brace glutes and press overhead. Finish with bar over mid-foot, head through."
+  },
+  {
+   "seedID": "seed.push-press",
+   "name": "Push Press",
+   "type": "weightReps",
+   "equipment": "Barbell",
+   "primaryMuscles": [
+    "Front Delts"
+   ],
+   "secondaryMuscles": [
+    "Triceps",
+    "Quads"
+   ],
+   "instructions": "Dip slightly at the knees. Drive up with the legs and press overhead. Lock out and control down."
+  },
+  {
+   "seedID": "seed.barbell-row",
+   "name": "Barbell Row",
+   "type": "weightReps",
+   "equipment": "Barbell",
+   "primaryMuscles": [
+    "Upper Back",
+    "Lats"
+   ],
+   "secondaryMuscles": [
+    "Biceps",
+    "Rear Delts"
+   ],
+   "instructions": "Hinge to ~45°, bar hanging under shoulders. Row to lower ribs. Lower under control without standing up."
+  },
+  {
+   "seedID": "seed.pendlay-row",
+   "name": "Pendlay Row",
+   "type": "weightReps",
+   "equipment": "Barbell",
+   "primaryMuscles": [
+    "Upper Back"
+   ],
+   "secondaryMuscles": [
+    "Lats",
+    "Biceps"
+   ],
+   "instructions": "Torso parallel, bar dead on the floor each rep. Row explosively to the sternum. Reset fully between reps."
+  },
+  {
+   "seedID": "seed.t-bar-row",
+   "name": "T-Bar Row",
+   "type": "weightReps",
+   "equipment": "Barbell",
+   "primaryMuscles": [
+    "Upper Back",
+    "Lats"
+   ],
+   "secondaryMuscles": [
+    "Biceps",
+    "Rear Delts"
+   ],
+   "instructions": "Straddle the bar with a V-handle. Row to your chest keeping torso angle fixed. Squeeze the back at the top."
+  },
+  {
+   "seedID": "seed.barbell-shrug",
+   "name": "Barbell Shrug",
+   "type": "weightReps",
+   "equipment": "Barbell",
+   "primaryMuscles": [
+    "Traps"
+   ],
+   "secondaryMuscles": [
+    "Forearms"
+   ],
+   "instructions": "Hold the bar at arm's length. Shrug shoulders straight up. Pause and lower slowly."
+  },
+  {
+   "seedID": "seed.barbell-curl",
+   "name": "Barbell Curl",
+   "type": "weightReps",
+   "equipment": "Barbell",
+   "primaryMuscles": [
+    "Biceps"
+   ],
+   "secondaryMuscles": [
+    "Forearms"
+   ],
+   "instructions": "Stand tall, grip shoulder width. Curl without swinging the torso. Lower under control."
+  },
+  {
+   "seedID": "seed.ez-bar-curl",
+   "name": "EZ-Bar Curl",
+   "type": "weightReps",
+   "equipment": "Barbell",
+   "primaryMuscles": [
+    "Biceps"
+   ],
+   "secondaryMuscles": [
+    "Forearms"
+   ],
+   "instructions": "Grip the angled handles. Curl keeping elbows pinned to your sides. Lower slowly."
+  },
+  {
+   "seedID": "seed.preacher-curl",
+   "name": "Preacher Curl",
+   "type": "weightReps",
+   "equipment": "Barbell",
+   "primaryMuscles": [
+    "Biceps"
+   ],
+   "secondaryMuscles": [
+    "Forearms"
+   ],
+   "instructions": "Arms on the preacher pad. Curl up without lifting elbows. Lower until arms are nearly straight."
+  },
+  {
+   "seedID": "seed.skull-crusher",
+   "name": "Skull Crusher",
+   "type": "weightReps",
+   "equipment": "Barbell",
+   "primaryMuscles": [
+    "Triceps"
+   ],
+   "secondaryMuscles": [],
+   "instructions": "Lie back with bar over your face. Bend only at the elbows lowering to the forehead. Extend back to lockout."
+  },
+  {
+   "seedID": "seed.barbell-hip-thrust",
+   "name": "Barbell Hip Thrust",
+   "type": "weightReps",
+   "equipment": "Barbell",
+   "primaryMuscles": [
+    "Glutes"
+   ],
+   "secondaryMuscles": [
+    "Hamstrings"
+   ],
+   "instructions": "Upper back on a bench, bar over hips. Drive hips up to full extension. Squeeze glutes hard, then lower."
+  },
+  {
+   "seedID": "seed.good-morning",
+   "name": "Good Morning",
+   "type": "weightReps",
+   "equipment": "Barbell",
+   "primaryMuscles": [
+    "Hamstrings",
+    "Lower Back"
+   ],
+   "secondaryMuscles": [
+    "Glutes"
+   ],
+   "instructions": "Bar on upper back. Hinge at the hips with soft knees until torso nears parallel. Return by driving hips forward."
+  },
+  {
+   "seedID": "seed.barbell-lunge",
+   "name": "Barbell Lunge",
+   "type": "weightReps",
+   "equipment": "Barbell",
+   "primaryMuscles": [
+    "Quads",
+    "Glutes"
+   ],
+   "secondaryMuscles": [
+    "Hamstrings"
+   ],
+   "instructions": "Bar on back, step forward. Lower until the rear knee nearly touches. Push back to standing."
+  },
+  {
+   "seedID": "seed.barbell-calf-raise",
+   "name": "Barbell Calf Raise",
+   "type": "weightReps",
+   "equipment": "Barbell",
+   "primaryMuscles": [
+    "Calves"
+   ],
+   "secondaryMuscles": [],
+   "instructions": "Bar on back, balls of feet on a plate. Rise to full extension. Lower for a deep stretch."
+  },
+  {
+   "seedID": "seed.landmine-press",
+   "name": "Landmine Press",
+   "type": "weightReps",
+   "equipment": "Barbell",
+   "primaryMuscles": [
+    "Front Delts",
+    "Chest"
+   ],
+   "secondaryMuscles": [
+    "Triceps",
+    "Abs"
+   ],
+   "instructions": "Hold the landmine end at your shoulder. Press up and forward. Control the return."
+  },
+  {
+   "seedID": "seed.landmine-row",
+   "name": "Landmine Row",
+   "type": "weightReps",
+   "equipment": "Barbell",
+   "primaryMuscles": [
+    "Lats",
+    "Upper Back"
+   ],
+   "secondaryMuscles": [
+    "Biceps"
+   ],
+   "instructions": "Straddle the bar, hinge, and grip near the sleeve. Row to your hip. Lower under control."
+  },
+  {
+   "seedID": "seed.dumbbell-bench-press",
+   "name": "Dumbbell Bench Press",
+   "type": "weightReps",
+   "equipment": "Dumbbell",
+   "primaryMuscles": [
+    "Chest"
+   ],
+   "secondaryMuscles": [
+    "Triceps",
+    "Front Delts"
+   ],
+   "instructions": "Press dumbbells from chest level to lockout. Keep wrists stacked over elbows. Lower with control to a deep stretch."
+  },
+  {
+   "seedID": "seed.incline-dumbbell-press",
+   "name": "Incline Dumbbell Press",
+   "type": "weightReps",
+   "equipment": "Dumbbell",
+   "primaryMuscles": [
+    "Chest"
+   ],
+   "secondaryMuscles": [
+    "Front Delts",
+    "Triceps"
+   ],
+   "instructions": "Bench at 30-45°. Press dumbbells up and slightly together. Lower to upper-chest level."
+  },
+  {
+   "seedID": "seed.dumbbell-fly",
+   "name": "Dumbbell Fly",
+   "type": "weightReps",
+   "equipment": "Dumbbell",
+   "primaryMuscles": [
+    "Chest"
+   ],
+   "secondaryMuscles": [
+    "Front Delts"
+   ],
+   "instructions": "Slight elbow bend, open arms wide until you feel a chest stretch. Bring the dumbbells together in an arc. Don't turn it into a press."
+  },
+  {
+   "seedID": "seed.incline-dumbbell-fly",
+   "name": "Incline Dumbbell Fly",
+   "type": "weightReps",
+   "equipment": "Dumbbell",
+   "primaryMuscles": [
+    "Chest"
+   ],
+   "secondaryMuscles": [
+    "Front Delts"
+   ],
+   "instructions": "On an incline bench, open arms in a wide arc. Stretch, then squeeze the dumbbells together above the upper chest."
+  },
+  {
+   "seedID": "seed.dumbbell-shoulder-press",
+   "name": "Dumbbell Shoulder Press",
+   "type": "weightReps",
+   "equipment": "Dumbbell",
+   "primaryMuscles": [
+    "Front Delts",
+    "Side Delts"
+   ],
+   "secondaryMuscles": [
+    "Triceps"
+   ],
+   "instructions": "Start at ear level, palms forward. Press overhead until arms lock. Lower under control."
+  },
+  {
+   "seedID": "seed.arnold-press",
+   "name": "Arnold Press",
+   "type": "weightReps",
+   "equipment": "Dumbbell",
+   "primaryMuscles": [
+    "Front Delts",
+    "Side Delts"
+   ],
+   "secondaryMuscles": [
+    "Triceps"
+   ],
+   "instructions": "Start palms facing you at chin height. Rotate out while pressing overhead. Reverse on the way down."
+  },
+  {
+   "seedID": "seed.lateral-raise",
+   "name": "Lateral Raise",
+   "type": "weightReps",
+   "equipment": "Dumbbell",
+   "primaryMuscles": [
+    "Side Delts"
+   ],
+   "secondaryMuscles": [],
+   "instructions": "Slight elbow bend. Raise arms out to shoulder height leading with the elbows. Lower slowly."
+  },
+  {
+   "seedID": "seed.front-raise",
+   "name": "Front Raise",
+   "type": "weightReps",
+   "equipment": "Dumbbell",
+   "primaryMuscles": [
+    "Front Delts"
+   ],
+   "secondaryMuscles": [],
+   "instructions": "Raise the dumbbell straight in front to shoulder height. Keep the torso still. Lower under control."
+  },
+  {
+   "seedID": "seed.rear-delt-fly",
+   "name": "Rear Delt Fly",
+   "type": "weightReps",
+   "equipment": "Dumbbell",
+   "primaryMuscles": [
+    "Rear Delts"
+   ],
+   "secondaryMuscles": [
+    "Upper Back"
+   ],
+   "instructions": "Hinge forward, arms hanging. Raise arms out wide squeezing the rear delts. Avoid swinging."
+  },
+  {
+   "seedID": "seed.dumbbell-row",
+   "name": "Dumbbell Row",
+   "type": "weightReps",
+   "equipment": "Dumbbell",
+   "primaryMuscles": [
+    "Lats",
+    "Upper Back"
+   ],
+   "secondaryMuscles": [
+    "Biceps",
+    "Rear Delts"
+   ],
+   "instructions": "One hand and knee on a bench. Row the dumbbell to your hip. Lower for a full lat stretch."
+  },
+  {
+   "seedID": "seed.chest-supported-row",
+   "name": "Chest-Supported Row",
+   "type": "weightReps",
+   "equipment": "Dumbbell",
+   "primaryMuscles": [
+    "Upper Back"
+   ],
+   "secondaryMuscles": [
+    "Lats",
+    "Biceps",
+    "Rear Delts"
+   ],
+   "instructions": "Lie chest-down on an incline bench. Row both dumbbells to your ribs. Squeeze shoulder blades together."
+  },
+  {
+   "seedID": "seed.dumbbell-pullover",
+   "name": "Dumbbell Pullover",
+   "type": "weightReps",
+   "equipment": "Dumbbell",
+   "primaryMuscles": [
+    "Lats",
+    "Chest"
+   ],
+   "secondaryMuscles": [
+    "Triceps"
+   ],
+   "instructions": "Lie across a bench holding one dumbbell over your chest. Lower it behind your head with slightly bent arms. Pull back over the chest."
+  },
+  {
+   "seedID": "seed.dumbbell-curl",
+   "name": "Dumbbell Curl",
+   "type": "weightReps",
+   "equipment": "Dumbbell",
+   "primaryMuscles": [
+    "Biceps"
+   ],
+   "secondaryMuscles": [
+    "Forearms"
+   ],
+   "instructions": "Curl with palms up, elbows pinned. Squeeze at the top. Lower slowly."
+  },
+  {
+   "seedID": "seed.hammer-curl",
+   "name": "Hammer Curl",
+   "type": "weightReps",
+   "equipment": "Dumbbell",
+   "primaryMuscles": [
+    "Biceps",
+    "Forearms"
+   ],
+   "secondaryMuscles": [],
+   "instructions": "Neutral grip, palms facing in. Curl without swinging. Lower under control."
+  },
+  {
+   "seedID": "seed.incline-dumbbell-curl",
+   "name": "Incline Dumbbell Curl",
+   "type": "weightReps",
+   "equipment": "Dumbbell",
+   "primaryMuscles": [
+    "Biceps"
+   ],
+   "secondaryMuscles": [
+    "Forearms"
+   ],
+   "instructions": "Sit back on an incline bench, arms hanging. Curl from a full stretch. Keep shoulders back."
+  },
+  {
+   "seedID": "seed.concentration-curl",
+   "name": "Concentration Curl",
+   "type": "weightReps",
+   "equipment": "Dumbbell",
+   "primaryMuscles": [
+    "Biceps"
+   ],
+   "secondaryMuscles": [],
+   "instructions": "Seated, elbow braced on inner thigh. Curl to the shoulder. Lower slowly."
+  },
+  {
+   "seedID": "seed.overhead-triceps-extension",
+   "name": "Overhead Triceps Extension",
+   "type": "weightReps",
+   "equipment": "Dumbbell",
+   "primaryMuscles": [
+    "Triceps"
+   ],
+   "secondaryMuscles": [],
+   "instructions": "Hold one dumbbell overhead with both hands. Lower behind your head bending only the elbows. Extend to lockout."
+  },
+  {
+   "seedID": "seed.dumbbell-kickback",
+   "name": "Dumbbell Kickback",
+   "type": "weightReps",
+   "equipment": "Dumbbell",
+   "primaryMuscles": [
+    "Triceps"
+   ],
+   "secondaryMuscles": [],
+   "instructions": "Hinge forward, upper arm parallel to floor. Extend the elbow fully. Pause, then return."
+  },
+  {
+   "seedID": "seed.goblet-squat",
+   "name": "Goblet Squat",
+   "type": "weightReps",
+   "equipment": "Dumbbell",
+   "primaryMuscles": [
+    "Quads"
+   ],
+   "secondaryMuscles": [
+    "Glutes",
+    "Abs"
+   ],
+   "instructions": "Hold a dumbbell at your chest. Squat deep between your knees. Drive up keeping the chest tall."
+  },
+  {
+   "seedID": "seed.dumbbell-lunge",
+   "name": "Dumbbell Lunge",
+   "type": "weightReps",
+   "equipment": "Dumbbell",
+   "primaryMuscles": [
+    "Quads",
+    "Glutes"
+   ],
+   "secondaryMuscles": [
+    "Hamstrings"
+   ],
+   "instructions": "Dumbbells at sides, step forward. Lower the rear knee toward the floor. Push back to standing."
+  },
+  {
+   "seedID": "seed.walking-lunge",
+   "name": "Walking Lunge",
+   "type": "weightReps",
+   "equipment": "Dumbbell",
+   "primaryMuscles": [
+    "Quads",
+    "Glutes"
+   ],
+   "secondaryMuscles": [
+    "Hamstrings"
+   ],
+   "instructions": "Step into a lunge and keep moving forward. Alternate legs each step. Stay tall throughout."
+  },
+  {
+   "seedID": "seed.bulgarian-split-squat",
+   "name": "Bulgarian Split Squat",
+   "type": "weightReps",
+   "equipment": "Dumbbell",
+   "primaryMuscles": [
+    "Quads",
+    "Glutes"
+   ],
+   "secondaryMuscles": [
+    "Hamstrings"
+   ],
+   "instructions": "Rear foot on a bench, dumbbells at sides. Lower straight down until the front thigh is parallel. Drive through the front heel."
+  },
+  {
+   "seedID": "seed.dumbbell-step-up",
+   "name": "Dumbbell Step-Up",
+   "type": "weightReps",
+   "equipment": "Dumbbell",
+   "primaryMuscles": [
+    "Quads",
+    "Glutes"
+   ],
+   "secondaryMuscles": [],
+   "instructions": "Step onto a box driving through the top leg. Stand fully. Lower under control."
+  },
+  {
+   "seedID": "seed.dumbbell-romanian-deadlift",
+   "name": "Dumbbell Romanian Deadlift",
+   "type": "weightReps",
+   "equipment": "Dumbbell",
+   "primaryMuscles": [
+    "Hamstrings"
+   ],
+   "secondaryMuscles": [
+    "Glutes",
+    "Lower Back"
+   ],
+   "instructions": "Dumbbells in front of thighs. Push hips back keeping them close to your legs. Stand by driving hips forward."
+  },
+  {
+   "seedID": "seed.dumbbell-shrug",
+   "name": "Dumbbell Shrug",
+   "type": "weightReps",
+   "equipment": "Dumbbell",
+   "primaryMuscles": [
+    "Traps"
+   ],
+   "secondaryMuscles": [
+    "Forearms"
+   ],
+   "instructions": "Dumbbells at sides. Shrug straight up and pause. Lower slowly."
+  },
+  {
+   "seedID": "seed.dumbbell-calf-raise",
+   "name": "Dumbbell Calf Raise",
+   "type": "weightReps",
+   "equipment": "Dumbbell",
+   "primaryMuscles": [
+    "Calves"
+   ],
+   "secondaryMuscles": [],
+   "instructions": "Hold dumbbells, balls of feet elevated. Rise to full extension, pause, and lower deep."
+  },
+  {
+   "seedID": "seed.wrist-curl",
+   "name": "Wrist Curl",
+   "type": "weightReps",
+   "equipment": "Dumbbell",
+   "primaryMuscles": [
+    "Forearms"
+   ],
+   "secondaryMuscles": [],
+   "instructions": "Forearms on a bench, palms up. Curl the weight with your wrists only. Lower for a full stretch."
+  },
+  {
+   "seedID": "seed.reverse-wrist-curl",
+   "name": "Reverse Wrist Curl",
+   "type": "weightReps",
+   "equipment": "Dumbbell",
+   "primaryMuscles": [
+    "Forearms"
+   ],
+   "secondaryMuscles": [],
+   "instructions": "Forearms on a bench, palms down. Extend the wrists upward. Lower slowly."
+  },
+  {
+   "seedID": "seed.farmer-s-carry",
+   "name": "Farmer's Carry",
+   "type": "duration",
+   "equipment": "Dumbbell",
+   "primaryMuscles": [
+    "Forearms",
+    "Traps"
+   ],
+   "secondaryMuscles": [
+    "Abs",
+    "Full Body"
+   ],
+   "instructions": "Hold heavy dumbbells at your sides. Walk tall with tight core. Don't let the shoulders slump."
+  },
+  {
+   "seedID": "seed.renegade-row",
+   "name": "Renegade Row",
+   "type": "weightReps",
+   "equipment": "Dumbbell",
+   "primaryMuscles": [
+    "Upper Back",
+    "Abs"
+   ],
+   "secondaryMuscles": [
+    "Biceps"
+   ],
+   "instructions": "Plank on dumbbells. Row one dumbbell to your hip without twisting. Alternate sides."
+  },
+  {
+   "seedID": "seed.leg-press",
+   "name": "Leg Press",
+   "type": "weightReps",
+   "equipment": "Machine",
+   "primaryMuscles": [
+    "Quads"
+   ],
+   "secondaryMuscles": [
+    "Glutes",
+    "Hamstrings"
+   ],
+   "instructions": "Feet shoulder-width on the platform. Lower until knees reach ~90°. Press without locking knees hard."
+  },
+  {
+   "seedID": "seed.hack-squat",
+   "name": "Hack Squat",
+   "type": "weightReps",
+   "equipment": "Machine",
+   "primaryMuscles": [
+    "Quads"
+   ],
+   "secondaryMuscles": [
+    "Glutes"
+   ],
+   "instructions": "Shoulders under the pads, feet forward. Squat deep keeping back flat on the pad. Drive up through mid-foot."
+  },
+  {
+   "seedID": "seed.leg-extension",
+   "name": "Leg Extension",
+   "type": "weightReps",
+   "equipment": "Machine",
+   "primaryMuscles": [
+    "Quads"
+   ],
+   "secondaryMuscles": [],
+   "instructions": "Ankles behind the pad. Extend to full lockout. Lower slowly without letting the stack slam."
+  },
+  {
+   "seedID": "seed.lying-leg-curl",
+   "name": "Lying Leg Curl",
+   "type": "weightReps",
+   "equipment": "Machine",
+   "primaryMuscles": [
+    "Hamstrings"
+   ],
+   "secondaryMuscles": [],
+   "instructions": "Lie face down, pad at the ankles. Curl heels to glutes. Lower under control."
+  },
+  {
+   "seedID": "seed.seated-leg-curl",
+   "name": "Seated Leg Curl",
+   "type": "weightReps",
+   "equipment": "Machine",
+   "primaryMuscles": [
+    "Hamstrings"
+   ],
+   "secondaryMuscles": [],
+   "instructions": "Pad on lower calves, thighs locked. Curl down and back. Return slowly."
+  },
+  {
+   "seedID": "seed.machine-chest-press",
+   "name": "Machine Chest Press",
+   "type": "weightReps",
+   "equipment": "Machine",
+   "primaryMuscles": [
+    "Chest"
+   ],
+   "secondaryMuscles": [
+    "Triceps",
+    "Front Delts"
+   ],
+   "instructions": "Handles at mid-chest height. Press to lockout. Return until a slight chest stretch."
+  },
+  {
+   "seedID": "seed.machine-shoulder-press",
+   "name": "Machine Shoulder Press",
+   "type": "weightReps",
+   "equipment": "Machine",
+   "primaryMuscles": [
+    "Front Delts"
+   ],
+   "secondaryMuscles": [
+    "Triceps",
+    "Side Delts"
+   ],
+   "instructions": "Handles at ear height. Press overhead. Lower with control."
+  },
+  {
+   "seedID": "seed.pec-deck",
+   "name": "Pec Deck",
+   "type": "weightReps",
+   "equipment": "Machine",
+   "primaryMuscles": [
+    "Chest"
+   ],
+   "secondaryMuscles": [
+    "Front Delts"
+   ],
+   "instructions": "Forearms or hands on the pads. Squeeze the pads together in front of your chest. Open slowly to a stretch."
+  },
+  {
+   "seedID": "seed.reverse-pec-deck",
+   "name": "Reverse Pec Deck",
+   "type": "weightReps",
+   "equipment": "Machine",
+   "primaryMuscles": [
+    "Rear Delts"
+   ],
+   "secondaryMuscles": [
+    "Upper Back"
+   ],
+   "instructions": "Face the machine, arms forward. Open arms out and back. Pause, then return slowly."
+  },
+  {
+   "seedID": "seed.lat-pulldown",
+   "name": "Lat Pulldown",
+   "type": "weightReps",
+   "equipment": "Machine",
+   "primaryMuscles": [
+    "Lats"
+   ],
+   "secondaryMuscles": [
+    "Biceps",
+    "Upper Back"
+   ],
+   "instructions": "Grip wider than shoulders. Pull the bar to your upper chest with elbows down. Control the stretch on the way up."
+  },
+  {
+   "seedID": "seed.close-grip-pulldown",
+   "name": "Close-Grip Pulldown",
+   "type": "weightReps",
+   "equipment": "Machine",
+   "primaryMuscles": [
+    "Lats"
+   ],
+   "secondaryMuscles": [
+    "Biceps"
+   ],
+   "instructions": "Use a neutral V-handle. Pull to the top of the chest. Let the lats stretch fully at the top."
+  },
+  {
+   "seedID": "seed.seated-cable-row",
+   "name": "Seated Cable Row",
+   "type": "weightReps",
+   "equipment": "Machine",
+   "primaryMuscles": [
+    "Upper Back",
+    "Lats"
+   ],
+   "secondaryMuscles": [
+    "Biceps",
+    "Rear Delts"
+   ],
+   "instructions": "Sit tall, pull the handle to your stomach. Squeeze shoulder blades. Return letting the lats stretch."
+  },
+  {
+   "seedID": "seed.machine-row",
+   "name": "Machine Row",
+   "type": "weightReps",
+   "equipment": "Machine",
+   "primaryMuscles": [
+    "Upper Back"
+   ],
+   "secondaryMuscles": [
+    "Lats",
+    "Biceps"
+   ],
+   "instructions": "Chest on the pad. Row the handles back squeezing your shoulder blades. Return slowly."
+  },
+  {
+   "seedID": "seed.assisted-pull-up-machine",
+   "name": "Assisted Pull-Up Machine",
+   "type": "assisted",
+   "equipment": "Machine",
+   "primaryMuscles": [
+    "Lats"
+   ],
+   "secondaryMuscles": [
+    "Biceps",
+    "Upper Back"
+   ],
+   "instructions": "Kneel on the assist pad. Pull your chin over the bar. Lower to a full hang."
+  },
+  {
+   "seedID": "seed.assisted-dip-machine",
+   "name": "Assisted Dip Machine",
+   "type": "assisted",
+   "equipment": "Machine",
+   "primaryMuscles": [
+    "Triceps",
+    "Chest"
+   ],
+   "secondaryMuscles": [
+    "Front Delts"
+   ],
+   "instructions": "Kneel on the assist pad, grip the handles. Lower until upper arms are parallel. Press back to lockout."
+  },
+  {
+   "seedID": "seed.smith-machine-squat",
+   "name": "Smith Machine Squat",
+   "type": "weightReps",
+   "equipment": "Machine",
+   "primaryMuscles": [
+    "Quads"
+   ],
+   "secondaryMuscles": [
+    "Glutes"
+   ],
+   "instructions": "Feet slightly forward of the bar. Squat to parallel. Drive up along the fixed path."
+  },
+  {
+   "seedID": "seed.smith-machine-bench-press",
+   "name": "Smith Machine Bench Press",
+   "type": "weightReps",
+   "equipment": "Machine",
+   "primaryMuscles": [
+    "Chest"
+   ],
+   "secondaryMuscles": [
+    "Triceps"
+   ],
+   "instructions": "Set the bench under the bar path. Lower to mid-chest. Press to lockout."
+  },
+  {
+   "seedID": "seed.machine-preacher-curl",
+   "name": "Machine Preacher Curl",
+   "type": "weightReps",
+   "equipment": "Machine",
+   "primaryMuscles": [
+    "Biceps"
+   ],
+   "secondaryMuscles": [],
+   "instructions": "Arms on the pad, grip the handles. Curl to full contraction. Lower until arms are nearly straight."
+  },
+  {
+   "seedID": "seed.machine-triceps-extension",
+   "name": "Machine Triceps Extension",
+   "type": "weightReps",
+   "equipment": "Machine",
+   "primaryMuscles": [
+    "Triceps"
+   ],
+   "secondaryMuscles": [],
+   "instructions": "Elbows on the pad. Extend to lockout. Return under control."
+  },
+  {
+   "seedID": "seed.seated-calf-raise",
+   "name": "Seated Calf Raise",
+   "type": "weightReps",
+   "equipment": "Machine",
+   "primaryMuscles": [
+    "Calves"
+   ],
+   "secondaryMuscles": [],
+   "instructions": "Pads on knees, balls of feet on the platform. Rise up, pause, and lower for a deep stretch."
+  },
+  {
+   "seedID": "seed.standing-calf-raise",
+   "name": "Standing Calf Raise",
+   "type": "weightReps",
+   "equipment": "Machine",
+   "primaryMuscles": [
+    "Calves"
+   ],
+   "secondaryMuscles": [],
+   "instructions": "Shoulders under the pads. Rise to full extension. Lower slowly below the platform edge."
+  },
+  {
+   "seedID": "seed.hip-abduction-machine",
+   "name": "Hip Abduction Machine",
+   "type": "weightReps",
+   "equipment": "Machine",
+   "primaryMuscles": [
+    "Abductors",
+    "Glutes"
+   ],
+   "secondaryMuscles": [],
+   "instructions": "Sit with pads outside the knees. Push knees apart. Return slowly."
+  },
+  {
+   "seedID": "seed.hip-adduction-machine",
+   "name": "Hip Adduction Machine",
+   "type": "weightReps",
+   "equipment": "Machine",
+   "primaryMuscles": [
+    "Adductors"
+   ],
+   "secondaryMuscles": [],
+   "instructions": "Pads inside the knees. Squeeze knees together. Return under control."
+  },
+  {
+   "seedID": "seed.back-extension",
+   "name": "Back Extension",
+   "type": "bodyweight",
+   "equipment": "Machine",
+   "primaryMuscles": [
+    "Lower Back"
+   ],
+   "secondaryMuscles": [
+    "Glutes",
+    "Hamstrings"
+   ],
+   "instructions": "Hips on the pad, ankles locked. Lower your torso, then extend to neutral. Squeeze glutes at the top; add a plate to progress."
+  },
+  {
+   "seedID": "seed.machine-crunch",
+   "name": "Machine Crunch",
+   "type": "weightReps",
+   "equipment": "Machine",
+   "primaryMuscles": [
+    "Abs"
+   ],
+   "secondaryMuscles": [],
+   "instructions": "Grip the handles, elbows on pads. Crunch down rounding the spine. Return slowly."
+  },
+  {
+   "seedID": "seed.glute-kickback-machine",
+   "name": "Glute Kickback Machine",
+   "type": "weightReps",
+   "equipment": "Machine",
+   "primaryMuscles": [
+    "Glutes"
+   ],
+   "secondaryMuscles": [
+    "Hamstrings"
+   ],
+   "instructions": "Foot on the platform, drive back and up. Squeeze the glute at full extension. Return under control."
+  },
+  {
+   "seedID": "seed.cable-crossover",
+   "name": "Cable Crossover",
+   "type": "weightReps",
+   "equipment": "Cable",
+   "primaryMuscles": [
+    "Chest"
+   ],
+   "secondaryMuscles": [
+    "Front Delts"
+   ],
+   "instructions": "Set pulleys high. Bring the handles together in a downward arc. Squeeze the chest, then open slowly."
+  },
+  {
+   "seedID": "seed.low-cable-fly",
+   "name": "Low Cable Fly",
+   "type": "weightReps",
+   "equipment": "Cable",
+   "primaryMuscles": [
+    "Chest"
+   ],
+   "secondaryMuscles": [
+    "Front Delts"
+   ],
+   "instructions": "Pulleys at the bottom. Sweep the handles up and together to shoulder height. Control the return."
+  },
+  {
+   "seedID": "seed.triceps-pushdown",
+   "name": "Triceps Pushdown",
+   "type": "weightReps",
+   "equipment": "Cable",
+   "primaryMuscles": [
+    "Triceps"
+   ],
+   "secondaryMuscles": [],
+   "instructions": "Elbows pinned at your sides. Push the bar down to lockout. Let it rise only to elbow height."
+  },
+  {
+   "seedID": "seed.rope-pushdown",
+   "name": "Rope Pushdown",
+   "type": "weightReps",
+   "equipment": "Cable",
+   "primaryMuscles": [
+    "Triceps"
+   ],
+   "secondaryMuscles": [],
+   "instructions": "Grip the rope, elbows pinned. Push down and split the rope ends at the bottom. Return slowly."
+  },
+  {
+   "seedID": "seed.overhead-cable-extension",
+   "name": "Overhead Cable Extension",
+   "type": "weightReps",
+   "equipment": "Cable",
+   "primaryMuscles": [
+    "Triceps"
+   ],
+   "secondaryMuscles": [],
+   "instructions": "Face away from the machine, rope overhead. Extend the elbows forward to lockout. Stretch on the return."
+  },
+  {
+   "seedID": "seed.cable-curl",
+   "name": "Cable Curl",
+   "type": "weightReps",
+   "equipment": "Cable",
+   "primaryMuscles": [
+    "Biceps"
+   ],
+   "secondaryMuscles": [
+    "Forearms"
+   ],
+   "instructions": "Low pulley, bar or rope. Curl with elbows pinned. Lower under constant tension."
+  },
+  {
+   "seedID": "seed.cable-lateral-raise",
+   "name": "Cable Lateral Raise",
+   "type": "weightReps",
+   "equipment": "Cable",
+   "primaryMuscles": [
+    "Side Delts"
+   ],
+   "secondaryMuscles": [],
+   "instructions": "Stand side-on to a low pulley. Raise the handle out to shoulder height. Lower slowly."
+  },
+  {
+   "seedID": "seed.face-pull",
+   "name": "Face Pull",
+   "type": "weightReps",
+   "equipment": "Cable",
+   "primaryMuscles": [
+    "Rear Delts",
+    "Upper Back"
+   ],
+   "secondaryMuscles": [
+    "Traps"
+   ],
+   "instructions": "Rope at face height. Pull toward your forehead spreading the rope ends. Finish with upper arms in line with shoulders."
+  },
+  {
+   "seedID": "seed.cable-row",
+   "name": "Cable Row",
+   "type": "weightReps",
+   "equipment": "Cable",
+   "primaryMuscles": [
+    "Upper Back",
+    "Lats"
+   ],
+   "secondaryMuscles": [
+    "Biceps"
+   ],
+   "instructions": "Pull the handle to your torso keeping chest up. Squeeze the back. Return with control."
+  },
+  {
+   "seedID": "seed.straight-arm-pulldown",
+   "name": "Straight-Arm Pulldown",
+   "type": "weightReps",
+   "equipment": "Cable",
+   "primaryMuscles": [
+    "Lats"
+   ],
+   "secondaryMuscles": [
+    "Triceps"
+   ],
+   "instructions": "Arms nearly straight, bar at shoulder height. Sweep the bar down to your thighs. Feel the lats the whole way."
+  },
+  {
+   "seedID": "seed.cable-pull-through",
+   "name": "Cable Pull-Through",
+   "type": "weightReps",
+   "equipment": "Cable",
+   "primaryMuscles": [
+    "Glutes",
+    "Hamstrings"
+   ],
+   "secondaryMuscles": [
+    "Lower Back"
+   ],
+   "instructions": "Face away straddling the rope. Hinge letting the rope pull through. Snap hips forward and squeeze glutes."
+  },
+  {
+   "seedID": "seed.cable-woodchop",
+   "name": "Cable Woodchop",
+   "type": "weightReps",
+   "equipment": "Cable",
+   "primaryMuscles": [
+    "Obliques",
+    "Abs"
+   ],
+   "secondaryMuscles": [],
+   "instructions": "Pulley high, arms extended. Rotate and pull diagonally across your body. Control the return."
+  },
+  {
+   "seedID": "seed.cable-crunch",
+   "name": "Cable Crunch",
+   "type": "weightReps",
+   "equipment": "Cable",
+   "primaryMuscles": [
+    "Abs"
+   ],
+   "secondaryMuscles": [],
+   "instructions": "Kneel below a high pulley holding the rope by your head. Crunch down rounding the spine. Return slowly."
+  },
+  {
+   "seedID": "seed.cable-kickback",
+   "name": "Cable Kickback",
+   "type": "weightReps",
+   "equipment": "Cable",
+   "primaryMuscles": [
+    "Glutes"
+   ],
+   "secondaryMuscles": [
+    "Hamstrings"
+   ],
+   "instructions": "Ankle cuff on a low pulley. Kick the leg straight back. Squeeze and return under control."
+  },
+  {
+   "seedID": "seed.cable-upright-row",
+   "name": "Cable Upright Row",
+   "type": "weightReps",
+   "equipment": "Cable",
+   "primaryMuscles": [
+    "Side Delts",
+    "Traps"
+   ],
+   "secondaryMuscles": [
+    "Biceps"
+   ],
+   "instructions": "Pull the bar up along your body to chest height. Lead with the elbows. Lower slowly."
+  },
+  {
+   "seedID": "seed.cable-shrug",
+   "name": "Cable Shrug",
+   "type": "weightReps",
+   "equipment": "Cable",
+   "primaryMuscles": [
+    "Traps"
+   ],
+   "secondaryMuscles": [
+    "Forearms"
+   ],
+   "instructions": "Low pulley, bar at arm's length. Shrug straight up. Pause and lower."
+  },
+  {
+   "seedID": "seed.cable-rear-delt-fly",
+   "name": "Cable Rear Delt Fly",
+   "type": "weightReps",
+   "equipment": "Cable",
+   "primaryMuscles": [
+    "Rear Delts"
+   ],
+   "secondaryMuscles": [
+    "Upper Back"
+   ],
+   "instructions": "Cross the cables at chest height. Open arms wide and back. Return slowly."
+  },
+  {
+   "seedID": "seed.push-up",
+   "name": "Push-Up",
+   "type": "bodyweight",
+   "equipment": "Bodyweight",
+   "primaryMuscles": [
+    "Chest"
+   ],
+   "secondaryMuscles": [
+    "Triceps",
+    "Front Delts",
+    "Abs"
+   ],
+   "instructions": "Hands under shoulders, body in one line. Lower chest to the floor. Press back up without sagging hips."
+  },
+  {
+   "seedID": "seed.wide-push-up",
+   "name": "Wide Push-Up",
+   "type": "bodyweight",
+   "equipment": "Bodyweight",
+   "primaryMuscles": [
+    "Chest"
+   ],
+   "secondaryMuscles": [
+    "Front Delts"
+   ],
+   "instructions": "Hands wider than shoulders. Lower with elbows flaring slightly. Press back to lockout."
+  },
+  {
+   "seedID": "seed.diamond-push-up",
+   "name": "Diamond Push-Up",
+   "type": "bodyweight",
+   "equipment": "Bodyweight",
+   "primaryMuscles": [
+    "Triceps"
+   ],
+   "secondaryMuscles": [
+    "Chest"
+   ],
+   "instructions": "Hands together under your chest. Lower keeping elbows tucked. Press up through the triceps."
+  },
+  {
+   "seedID": "seed.decline-push-up",
+   "name": "Decline Push-Up",
+   "type": "bodyweight",
+   "equipment": "Bodyweight",
+   "primaryMuscles": [
+    "Chest",
+    "Front Delts"
+   ],
+   "secondaryMuscles": [
+    "Triceps"
+   ],
+   "instructions": "Feet elevated on a bench. Lower your chest to the floor. Press back up under control."
+  },
+  {
+   "seedID": "seed.pike-push-up",
+   "name": "Pike Push-Up",
+   "type": "bodyweight",
+   "equipment": "Bodyweight",
+   "primaryMuscles": [
+    "Front Delts"
+   ],
+   "secondaryMuscles": [
+    "Triceps"
+   ],
+   "instructions": "Hips high in a pike position. Lower the top of your head toward the floor. Press back up."
+  },
+  {
+   "seedID": "seed.pull-up",
+   "name": "Pull-Up",
+   "type": "bodyweight",
+   "equipment": "Bodyweight",
+   "primaryMuscles": [
+    "Lats"
+   ],
+   "secondaryMuscles": [
+    "Biceps",
+    "Upper Back"
+   ],
+   "instructions": "Dead hang, grip wider than shoulders. Pull chin over the bar driving elbows down. Lower to a full hang."
+  },
+  {
+   "seedID": "seed.chin-up",
+   "name": "Chin-Up",
+   "type": "bodyweight",
+   "equipment": "Bodyweight",
+   "primaryMuscles": [
+    "Lats",
+    "Biceps"
+   ],
+   "secondaryMuscles": [
+    "Upper Back"
+   ],
+   "instructions": "Underhand grip at shoulder width. Pull chin over the bar. Lower fully between reps."
+  },
+  {
+   "seedID": "seed.neutral-grip-pull-up",
+   "name": "Neutral-Grip Pull-Up",
+   "type": "bodyweight",
+   "equipment": "Bodyweight",
+   "primaryMuscles": [
+    "Lats"
+   ],
+   "secondaryMuscles": [
+    "Biceps"
+   ],
+   "instructions": "Palms facing each other. Pull chin over the handles. Control the descent."
+  },
+  {
+   "seedID": "seed.dip",
+   "name": "Dip",
+   "type": "bodyweight",
+   "equipment": "Bodyweight",
+   "primaryMuscles": [
+    "Triceps",
+    "Chest"
+   ],
+   "secondaryMuscles": [
+    "Front Delts"
+   ],
+   "instructions": "Support on parallel bars. Lower until upper arms are parallel. Press back to lockout."
+  },
+  {
+   "seedID": "seed.bench-dip",
+   "name": "Bench Dip",
+   "type": "bodyweight",
+   "equipment": "Bodyweight",
+   "primaryMuscles": [
+    "Triceps"
+   ],
+   "secondaryMuscles": [
+    "Chest"
+   ],
+   "instructions": "Hands on a bench behind you. Lower your hips bending the elbows to 90°. Press back up."
+  },
+  {
+   "seedID": "seed.inverted-row",
+   "name": "Inverted Row",
+   "type": "bodyweight",
+   "equipment": "Bodyweight",
+   "primaryMuscles": [
+    "Upper Back"
+   ],
+   "secondaryMuscles": [
+    "Lats",
+    "Biceps"
+   ],
+   "instructions": "Hang under a bar, body straight. Pull your chest to the bar. Lower under control."
+  },
+  {
+   "seedID": "seed.bodyweight-squat",
+   "name": "Bodyweight Squat",
+   "type": "bodyweight",
+   "equipment": "Bodyweight",
+   "primaryMuscles": [
+    "Quads"
+   ],
+   "secondaryMuscles": [
+    "Glutes"
+   ],
+   "instructions": "Feet shoulder-width. Squat until thighs pass parallel. Stand driving through mid-foot."
+  },
+  {
+   "seedID": "seed.pistol-squat",
+   "name": "Pistol Squat",
+   "type": "bodyweight",
+   "equipment": "Bodyweight",
+   "primaryMuscles": [
+    "Quads"
+   ],
+   "secondaryMuscles": [
+    "Glutes",
+    "Abs"
+   ],
+   "instructions": "Stand on one leg, other leg forward. Squat all the way down on the working leg. Drive back up without touching down."
+  },
+  {
+   "seedID": "seed.split-squat",
+   "name": "Split Squat",
+   "type": "bodyweight",
+   "equipment": "Bodyweight",
+   "primaryMuscles": [
+    "Quads",
+    "Glutes"
+   ],
+   "secondaryMuscles": [
+    "Hamstrings"
+   ],
+   "instructions": "Long stance, torso tall. Lower the rear knee toward the floor. Press through the front heel."
+  },
+  {
+   "seedID": "seed.glute-bridge",
+   "name": "Glute Bridge",
+   "type": "bodyweight",
+   "equipment": "Bodyweight",
+   "primaryMuscles": [
+    "Glutes"
+   ],
+   "secondaryMuscles": [
+    "Hamstrings"
+   ],
+   "instructions": "Lie on your back, knees bent. Drive hips up squeezing glutes. Lower slowly."
+  },
+  {
+   "seedID": "seed.single-leg-glute-bridge",
+   "name": "Single-Leg Glute Bridge",
+   "type": "bodyweight",
+   "equipment": "Bodyweight",
+   "primaryMuscles": [
+    "Glutes"
+   ],
+   "secondaryMuscles": [
+    "Hamstrings"
+   ],
+   "instructions": "One foot planted, other leg extended. Drive hips up on the planted leg. Keep hips level."
+  },
+  {
+   "seedID": "seed.nordic-curl",
+   "name": "Nordic Curl",
+   "type": "bodyweight",
+   "equipment": "Bodyweight",
+   "primaryMuscles": [
+    "Hamstrings"
+   ],
+   "secondaryMuscles": [
+    "Glutes"
+   ],
+   "instructions": "Kneel with ankles anchored. Lower your torso forward as slowly as possible. Catch yourself and push back up."
+  },
+  {
+   "seedID": "seed.plank",
+   "name": "Plank",
+   "type": "duration",
+   "equipment": "Bodyweight",
+   "primaryMuscles": [
+    "Abs"
+   ],
+   "secondaryMuscles": [
+    "Lower Back",
+    "Front Delts"
+   ],
+   "instructions": "Forearms down, body in one line. Brace your core and glutes. Hold without letting hips sag."
+  },
+  {
+   "seedID": "seed.side-plank",
+   "name": "Side Plank",
+   "type": "duration",
+   "equipment": "Bodyweight",
+   "primaryMuscles": [
+    "Obliques"
+   ],
+   "secondaryMuscles": [
+    "Abs"
+   ],
+   "instructions": "Stack feet, forearm under shoulder. Lift hips into one straight line. Hold and breathe."
+  },
+  {
+   "seedID": "seed.hollow-hold",
+   "name": "Hollow Hold",
+   "type": "duration",
+   "equipment": "Bodyweight",
+   "primaryMuscles": [
+    "Abs"
+   ],
+   "secondaryMuscles": [],
+   "instructions": "Lie back, press lower back into the floor. Lift shoulders and legs. Hold the dish shape."
+  },
+  {
+   "seedID": "seed.dead-hang",
+   "name": "Dead Hang",
+   "type": "duration",
+   "equipment": "Bodyweight",
+   "primaryMuscles": [
+    "Forearms",
+    "Lats"
+   ],
+   "secondaryMuscles": [],
+   "instructions": "Hang from the bar with straight arms. Keep shoulders active. Hold as long as possible."
+  },
+  {
+   "seedID": "seed.crunch",
+   "name": "Crunch",
+   "type": "repsOnly",
+   "equipment": "Bodyweight",
+   "primaryMuscles": [
+    "Abs"
+   ],
+   "secondaryMuscles": [],
+   "instructions": "Knees bent, hands by your head. Curl shoulders off the floor. Lower slowly."
+  },
+  {
+   "seedID": "seed.sit-up",
+   "name": "Sit-Up",
+   "type": "repsOnly",
+   "equipment": "Bodyweight",
+   "primaryMuscles": [
+    "Abs"
+   ],
+   "secondaryMuscles": [
+    "Hip Flexors"
+   ],
+   "instructions": "Anchor your feet if needed. Sit all the way up. Lower with control."
+  },
+  {
+   "seedID": "seed.bicycle-crunch",
+   "name": "Bicycle Crunch",
+   "type": "repsOnly",
+   "equipment": "Bodyweight",
+   "primaryMuscles": [
+    "Abs",
+    "Obliques"
+   ],
+   "secondaryMuscles": [],
+   "instructions": "Alternate elbow to opposite knee. Extend the free leg each rep. Keep the pace controlled."
+  },
+  {
+   "seedID": "seed.russian-twist",
+   "name": "Russian Twist",
+   "type": "repsOnly",
+   "equipment": "Bodyweight",
+   "primaryMuscles": [
+    "Obliques"
+   ],
+   "secondaryMuscles": [
+    "Abs"
+   ],
+   "instructions": "Sit back with feet up. Rotate your torso side to side. Add weight to progress."
+  },
+  {
+   "seedID": "seed.leg-raise",
+   "name": "Leg Raise",
+   "type": "repsOnly",
+   "equipment": "Bodyweight",
+   "primaryMuscles": [
+    "Abs",
+    "Hip Flexors"
+   ],
+   "secondaryMuscles": [],
+   "instructions": "Lie flat, legs straight. Raise legs to vertical. Lower without arching the lower back."
+  },
+  {
+   "seedID": "seed.hanging-knee-raise",
+   "name": "Hanging Knee Raise",
+   "type": "repsOnly",
+   "equipment": "Bodyweight",
+   "primaryMuscles": [
+    "Abs",
+    "Hip Flexors"
+   ],
+   "secondaryMuscles": [
+    "Forearms"
+   ],
+   "instructions": "Hang from a bar. Raise knees to your chest. Lower without swinging."
+  },
+  {
+   "seedID": "seed.hanging-leg-raise",
+   "name": "Hanging Leg Raise",
+   "type": "repsOnly",
+   "equipment": "Bodyweight",
+   "primaryMuscles": [
+    "Abs"
+   ],
+   "secondaryMuscles": [
+    "Hip Flexors",
+    "Forearms"
+   ],
+   "instructions": "Hang from a bar, legs straight. Raise feet to bar height. Lower under control."
+  },
+  {
+   "seedID": "seed.ab-wheel-rollout",
+   "name": "Ab Wheel Rollout",
+   "type": "repsOnly",
+   "equipment": "Bodyweight",
+   "primaryMuscles": [
+    "Abs"
+   ],
+   "secondaryMuscles": [
+    "Lats",
+    "Lower Back"
+   ],
+   "instructions": "Kneel holding the wheel. Roll forward keeping the core braced. Pull back using your abs."
+  },
+  {
+   "seedID": "seed.mountain-climber",
+   "name": "Mountain Climber",
+   "type": "repsOnly",
+   "equipment": "Bodyweight",
+   "primaryMuscles": [
+    "Abs",
+    "Hip Flexors"
+   ],
+   "secondaryMuscles": [
+    "Cardio"
+   ],
+   "instructions": "From a plank, drive knees to chest alternately. Keep hips low. Move fast but controlled."
+  },
+  {
+   "seedID": "seed.burpee",
+   "name": "Burpee",
+   "type": "repsOnly",
+   "equipment": "Bodyweight",
+   "primaryMuscles": [
+    "Full Body"
+   ],
+   "secondaryMuscles": [
+    "Cardio"
+   ],
+   "instructions": "Squat down, kick to a plank, push-up. Jump feet back in. Explode up with a jump."
+  },
+  {
+   "seedID": "seed.box-jump",
+   "name": "Box Jump",
+   "type": "repsOnly",
+   "equipment": "Bodyweight",
+   "primaryMuscles": [
+    "Quads",
+    "Glutes"
+   ],
+   "secondaryMuscles": [
+    "Calves"
+   ],
+   "instructions": "Stand facing the box. Jump landing softly with full foot. Step down between reps."
+  },
+  {
+   "seedID": "seed.jump-squat",
+   "name": "Jump Squat",
+   "type": "repsOnly",
+   "equipment": "Bodyweight",
+   "primaryMuscles": [
+    "Quads",
+    "Glutes"
+   ],
+   "secondaryMuscles": [
+    "Calves"
+   ],
+   "instructions": "Squat to parallel. Explode up into a jump. Land soft and reset."
+  },
+  {
+   "seedID": "seed.superman",
+   "name": "Superman",
+   "type": "repsOnly",
+   "equipment": "Bodyweight",
+   "primaryMuscles": [
+    "Lower Back"
+   ],
+   "secondaryMuscles": [
+    "Glutes"
+   ],
+   "instructions": "Lie face down, arms extended. Lift arms, chest, and legs together. Pause, then lower."
+  },
+  {
+   "seedID": "seed.bird-dog",
+   "name": "Bird Dog",
+   "type": "repsOnly",
+   "equipment": "Bodyweight",
+   "primaryMuscles": [
+    "Lower Back",
+    "Abs"
+   ],
+   "secondaryMuscles": [
+    "Glutes"
+   ],
+   "instructions": "On all fours, extend opposite arm and leg. Hold briefly without twisting. Alternate sides."
+  },
+  {
+   "seedID": "seed.calf-raise",
+   "name": "Calf Raise",
+   "type": "repsOnly",
+   "equipment": "Bodyweight",
+   "primaryMuscles": [
+    "Calves"
+   ],
+   "secondaryMuscles": [],
+   "instructions": "Balls of feet on an edge. Rise to full extension. Lower into a deep stretch."
+  },
+  {
+   "seedID": "seed.wall-sit",
+   "name": "Wall Sit",
+   "type": "duration",
+   "equipment": "Bodyweight",
+   "primaryMuscles": [
+    "Quads"
+   ],
+   "secondaryMuscles": [
+    "Glutes"
+   ],
+   "instructions": "Back flat on the wall, thighs parallel. Hold the position. Keep weight through the heels."
+  },
+  {
+   "seedID": "seed.kettlebell-swing",
+   "name": "Kettlebell Swing",
+   "type": "weightReps",
+   "equipment": "Kettlebell",
+   "primaryMuscles": [
+    "Glutes",
+    "Hamstrings"
+   ],
+   "secondaryMuscles": [
+    "Lower Back",
+    "Abs"
+   ],
+   "instructions": "Hinge and hike the bell back. Snap hips forward swinging to chest height. Let the hips do the work, not the arms."
+  },
+  {
+   "seedID": "seed.kettlebell-goblet-squat",
+   "name": "Kettlebell Goblet Squat",
+   "type": "weightReps",
+   "equipment": "Kettlebell",
+   "primaryMuscles": [
+    "Quads"
+   ],
+   "secondaryMuscles": [
+    "Glutes",
+    "Abs"
+   ],
+   "instructions": "Hold the bell at your chest. Squat deep with elbows inside knees. Drive up tall."
+  },
+  {
+   "seedID": "seed.kettlebell-clean",
+   "name": "Kettlebell Clean",
+   "type": "weightReps",
+   "equipment": "Kettlebell",
+   "primaryMuscles": [
+    "Full Body"
+   ],
+   "secondaryMuscles": [
+    "Glutes",
+    "Forearms"
+   ],
+   "instructions": "Hike the bell back, then pull it to the rack position. Keep it close to the body. Absorb softly at the shoulder."
+  },
+  {
+   "seedID": "seed.kettlebell-snatch",
+   "name": "Kettlebell Snatch",
+   "type": "weightReps",
+   "equipment": "Kettlebell",
+   "primaryMuscles": [
+    "Full Body"
+   ],
+   "secondaryMuscles": [
+    "Side Delts",
+    "Glutes"
+   ],
+   "instructions": "Swing the bell back, then pull it overhead in one motion. Punch through at the top. Lower with control."
+  },
+  {
+   "seedID": "seed.kettlebell-press",
+   "name": "Kettlebell Press",
+   "type": "weightReps",
+   "equipment": "Kettlebell",
+   "primaryMuscles": [
+    "Front Delts"
+   ],
+   "secondaryMuscles": [
+    "Triceps",
+    "Abs"
+   ],
+   "instructions": "From the rack position, brace and press overhead. Lock out with the bell over your shoulder. Lower to the rack."
+  },
+  {
+   "seedID": "seed.turkish-get-up",
+   "name": "Turkish Get-Up",
+   "type": "weightReps",
+   "equipment": "Kettlebell",
+   "primaryMuscles": [
+    "Full Body"
+   ],
+   "secondaryMuscles": [
+    "Abs",
+    "Front Delts"
+   ],
+   "instructions": "Bell locked out overhead, rise from lying to standing in stages. Keep eyes on the bell. Reverse the steps back down."
+  },
+  {
+   "seedID": "seed.kettlebell-row",
+   "name": "Kettlebell Row",
+   "type": "weightReps",
+   "equipment": "Kettlebell",
+   "primaryMuscles": [
+    "Lats",
+    "Upper Back"
+   ],
+   "secondaryMuscles": [
+    "Biceps"
+   ],
+   "instructions": "Hinge with a flat back. Row the bell to your hip. Lower with control."
+  },
+  {
+   "seedID": "seed.kettlebell-deadlift",
+   "name": "Kettlebell Deadlift",
+   "type": "weightReps",
+   "equipment": "Kettlebell",
+   "primaryMuscles": [
+    "Glutes",
+    "Hamstrings"
+   ],
+   "secondaryMuscles": [
+    "Lower Back"
+   ],
+   "instructions": "Bell between your feet. Hinge, grip, and stand tall. Keep the back flat throughout."
+  },
+  {
+   "seedID": "seed.band-pull-apart",
+   "name": "Band Pull-Apart",
+   "type": "repsOnly",
+   "equipment": "Band",
+   "primaryMuscles": [
+    "Rear Delts",
+    "Upper Back"
+   ],
+   "secondaryMuscles": [],
+   "instructions": "Hold a band at shoulder height. Pull it apart until it touches your chest. Return slowly."
+  },
+  {
+   "seedID": "seed.band-face-pull",
+   "name": "Band Face Pull",
+   "type": "repsOnly",
+   "equipment": "Band",
+   "primaryMuscles": [
+    "Rear Delts"
+   ],
+   "secondaryMuscles": [
+    "Upper Back"
+   ],
+   "instructions": "Anchor the band at face height. Pull toward your forehead, elbows high. Control the return."
+  },
+  {
+   "seedID": "seed.band-curl",
+   "name": "Band Curl",
+   "type": "repsOnly",
+   "equipment": "Band",
+   "primaryMuscles": [
+    "Biceps"
+   ],
+   "secondaryMuscles": [
+    "Forearms"
+   ],
+   "instructions": "Stand on the band. Curl the handles keeping elbows pinned. Lower slowly against the tension."
+  },
+  {
+   "seedID": "seed.banded-lateral-walk",
+   "name": "Banded Lateral Walk",
+   "type": "repsOnly",
+   "equipment": "Band",
+   "primaryMuscles": [
+    "Abductors",
+    "Glutes"
+   ],
+   "secondaryMuscles": [],
+   "instructions": "Band around knees or ankles, quarter squat. Step sideways keeping tension. Don't let the knees cave."
+  },
+  {
+   "seedID": "seed.band-overhead-press",
+   "name": "Band Overhead Press",
+   "type": "repsOnly",
+   "equipment": "Band",
+   "primaryMuscles": [
+    "Front Delts"
+   ],
+   "secondaryMuscles": [
+    "Triceps"
+   ],
+   "instructions": "Stand on the band at shoulder width. Press the handles overhead. Lower with control."
+  },
+  {
+   "seedID": "seed.treadmill-run",
+   "name": "Treadmill Run",
+   "type": "distance",
+   "equipment": "Machine",
+   "primaryMuscles": [
+    "Cardio"
+   ],
+   "secondaryMuscles": [
+    "Quads",
+    "Calves"
+   ],
+   "instructions": "Set a comfortable pace. Run tall with relaxed shoulders. Cool down with a walk."
+  },
+  {
+   "seedID": "seed.outdoor-run",
+   "name": "Outdoor Run",
+   "type": "distance",
+   "equipment": "Bodyweight",
+   "primaryMuscles": [
+    "Cardio"
+   ],
+   "secondaryMuscles": [
+    "Quads",
+    "Calves"
+   ],
+   "instructions": "Start easy and settle into rhythm. Keep cadence quick and posture tall."
+  },
+  {
+   "seedID": "seed.rowing-machine",
+   "name": "Rowing Machine",
+   "type": "distance",
+   "equipment": "Machine",
+   "primaryMuscles": [
+    "Cardio"
+   ],
+   "secondaryMuscles": [
+    "Upper Back",
+    "Quads"
+   ],
+   "instructions": "Drive with the legs, then swing back, then pull. Reverse the order on the return. Keep strokes long and smooth."
+  },
+  {
+   "seedID": "seed.stationary-bike",
+   "name": "Stationary Bike",
+   "type": "distance",
+   "equipment": "Machine",
+   "primaryMuscles": [
+    "Cardio"
+   ],
+   "secondaryMuscles": [
+    "Quads"
+   ],
+   "instructions": "Adjust the seat to a slight knee bend at the bottom. Pedal at a steady cadence."
+  },
+  {
+   "seedID": "seed.stair-climber",
+   "name": "Stair Climber",
+   "type": "duration",
+   "equipment": "Machine",
+   "primaryMuscles": [
+    "Cardio"
+   ],
+   "secondaryMuscles": [
+    "Quads",
+    "Glutes",
+    "Calves"
+   ],
+   "instructions": "Step at a steady rhythm without leaning on the rails. Keep a full foot on each step."
+  },
+  {
+   "seedID": "seed.elliptical",
+   "name": "Elliptical",
+   "type": "duration",
+   "equipment": "Machine",
+   "primaryMuscles": [
+    "Cardio"
+   ],
+   "secondaryMuscles": [
+    "Quads",
+    "Glutes"
+   ],
+   "instructions": "Drive through both the pedals and handles. Keep an upright posture."
+  },
+  {
+   "seedID": "seed.jump-rope",
+   "name": "Jump Rope",
+   "type": "duration",
+   "equipment": "Bodyweight",
+   "primaryMuscles": [
+    "Cardio"
+   ],
+   "secondaryMuscles": [
+    "Calves"
+   ],
+   "instructions": "Jump just high enough to clear the rope. Spin from the wrists. Stay light on the balls of your feet."
+  },
+  {
+   "seedID": "seed.incline-walk",
+   "name": "Incline Walk",
+   "type": "duration",
+   "equipment": "Machine",
+   "primaryMuscles": [
+    "Cardio"
+   ],
+   "secondaryMuscles": [
+    "Glutes",
+    "Calves"
+   ],
+   "instructions": "Set a steep incline at walking pace. Don't hold the rails. Keep strides natural."
+  },
+  {
+   "seedID": "seed.assault-bike",
+   "name": "Assault Bike",
+   "type": "duration",
+   "equipment": "Machine",
+   "primaryMuscles": [
+    "Cardio"
+   ],
+   "secondaryMuscles": [
+    "Full Body"
+   ],
+   "instructions": "Push and pull the handles while pedaling. Pace yourself in intervals."
+  },
+  {
+   "seedID": "seed.swimming",
+   "name": "Swimming",
+   "type": "distance",
+   "equipment": "Other",
+   "primaryMuscles": [
+    "Cardio"
+   ],
+   "secondaryMuscles": [
+    "Full Body"
+   ],
+   "instructions": "Swim at a sustainable pace. Focus on long strokes and steady breathing."
+  }
+ ]
+}

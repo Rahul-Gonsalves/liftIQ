@@ -1,0 +1,31 @@
+name: liftIQ
+options:
+  bundleIdPrefix: com.rahulgonsalves
+  deploymentTarget:
+    iOS: "18.0"
+targets:
+  liftIQ:
+    type: application
+    platform: iOS
+    sources: [liftIQ]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.rahulgonsalves.liftIQ
+        TARGETED_DEVICE_FAMILY: 1
+        CODE_SIGN_STYLE: Automatic
+        # After first Xcode setup, paste your personal team ID here so
+        # `xcodegen generate` keeps signing working (see DEPLOY.md):
+        DEVELOPMENT_TEAM: ""
+        CURRENT_PROJECT_VERSION: 1
+        MARKETING_VERSION: 1.0
+        SWIFT_VERSION: "5.10"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        GENERATE_INFOPLIST_FILE: NO
+    info:
+      path: liftIQ/Info.plist
+      properties:
+        CFBundleDisplayName: liftIQ
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        UIUserInterfaceStyle: Dark
+        ITSAppUsesNonExemptEncryption: false
