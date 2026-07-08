@@ -233,6 +233,13 @@ struct HomeView: View {
         }
     }
 
+    private var workoutsThisWeek: Int {
+        let cal = Calendar.current
+        return finished.count {
+            cal.isDate($0.startDate, equalTo: .now, toGranularity: .weekOfYear)
+        }
+    }
+
     private func segmentColor(day: SplitDay, split: Split) -> Color {
         let isDone = split.flexibleOrder
             ? split.completedOrdersThisCycle.contains(day.order)
